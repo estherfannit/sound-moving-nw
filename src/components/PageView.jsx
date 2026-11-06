@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getOption, getPage } from '../lib/content.js';
 import NotFound from './NotFound.jsx';
+import ModernSite from '../options/ModernSite.jsx';
 
 // Renders one design page. The markup comes from the exported design source; links
 // between pages are app routes, so they are handled client side.
@@ -17,6 +18,7 @@ export default function PageView() {
     window.scrollTo(0, 0);
   }, [option, page]);
 
+  if (option?.modern) return <ModernSite />;
   if (!option || !page) return <NotFound />;
 
   function onClick(event) {
