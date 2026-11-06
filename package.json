@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "export-content": "node scripts/export-content.js"
+    "export-content": "node scripts/export-content.cjs"
   },
   "dependencies": {
     "react": "^19.3.1",
