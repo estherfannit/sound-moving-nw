@@ -10,11 +10,7 @@ const SRC = path.join(__dirname, '..', 'design', 'source');
 const OUT = path.join(__dirname, '..');
 
 const OPTIONS = [
-  { file: 'Option-A-Trusted-Navy.dc.html', dir: 'option-a-trusted-navy', letter: 'A', label: 'Option A: Trusted Navy', blurb: 'Manrope type, navy and white with orange accents.' },
-  { file: 'Option-B-Evergreen-Bold.dc.html', dir: 'option-b-bold-orange', letter: 'B', label: 'Option B: Bold Orange', blurb: 'Archivo and Inter type with a bold orange trust band.' },
-  { file: 'Option-C-Friendly-Harbor.dc.html', dir: 'option-c-friendly-sunrise', letter: 'C', label: 'Option C: Friendly Sunrise', blurb: 'Nunito type on a warm peach hero.' },
   { file: 'Option-D-Modern-Motion.dc.html', dir: 'option-d-modern-motion', letter: 'D', label: 'Option D: Modern Motion', blurb: 'Space Grotesk type on a dark navy hero.' },
-  { file: 'Option-E-Upgraded-Draft.dc.html', dir: 'option-e-upgraded-draft', letter: 'E', label: 'Option E: Upgraded Draft Site', blurb: 'Plus Jakarta Sans type on navy.' },
 ];
 
 class DCLogic {

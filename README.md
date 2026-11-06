@@ -12,7 +12,7 @@ React (Vite) app that shows the five design options (A–E), each with nine page
 
 - `design/source/*.dc.html`: the original design files for each option.
 - `src/content/options.json`: the content the app renders, generated from the design files.
-- `scripts/export-content.js`: regenerates `src/content/options.json`. Run `npm run export-content` after changing the design files.
+- `scripts/export-content.cjs`: regenerates `src/content/options.json`. Run `npm run export-content` after changing the design files.
 - `public/assets/`: photos and the logo, served at `/assets/...`.
 
 ## Structure
