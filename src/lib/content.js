@@ -5,7 +5,7 @@ const MODERN = {
   letter: 'E',
   dir: 'option-e-dynamic',
   label: 'Option E: Dynamic',
-  blurb: 'Bold, modern and dynamic. Clean pricing and clear calls to action.',
+  blurb: 'Single-page redesign: white and blue with orange accents, mobile first, with the online planner as the main call to action.',
   modern: true,
   pages: [{ slug: 'home', name: 'Home' }],
 };
