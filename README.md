@@ -4,12 +4,11 @@ A static copy of the live site (https://hhwebsite.siteforge365.workers.dev/). Pl
 
 ## Structure
 
-- `index.html`: homepage (all sections are on this page; anchors such as `#services` jump within it).
+- `index.html`: homepage. Sections in order: hero, ratings, services, our work, pricing, reviews, comparison, locations, documents, FAQ, our story, final call to action, footer. Anchors such as `#services-packing` jump within it.
 - `quote.html`: online planner (the estimate form).
 - `check-availability.html`, `estimate-link.html`, `bill-of-lading.html`, `terms-and-conditions.html`: linked pages.
 - `articles.html` and `article-*.html`: Tips & Tricks articles.
 - `images/`, `forms/`, `docs/`: photos, PDFs and licence images used by the pages.
-- `three.min.js`: Three.js, loaded by the homepage hero on larger screens.
 
 ## Running locally
 
