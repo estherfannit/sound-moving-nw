@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions — Sound Moving NW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/4.1.7/signature_pad.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f7f9fc; color: #2d3748; line-height: 1.7; }
+
+  nav { background: #1b2d5b; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+  .nav-logo { color: white; font-weight: 800; font-size: 1rem; text-decoration: none; }
+  .nav-back { color: rgba(255,255,255,.8); text-decoration: none; font-size: 0.87rem; font-weight: 500; border: 1px solid rgba(255,255,255,.3); padding: 7px 16px; border-radius: 6px; transition: all .2s; }
+  .nav-back:hover { background: rgba(255,255,255,.1); color: white; }
+
+  .page-header { background: #1b2d5b; color: white; padding: 48px 40px 40px; text-align: center; }
+  .page-header .label { color: #f26522; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .page-header h1 { font-size: 2rem; font-weight: 800; }
+
+  .content { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  .section { background: white; border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+  .section h2 { font-size: 1rem; font-weight: 700; color: #f26522; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; border-bottom: 2px solid #f26522; padding-bottom: 10px; }
+  .section h3 { font-size: 1.05rem; font-weight: 700; color: #1b2d5b; margin: 22px 0 8px; }
+  .section h3:first-of-type { margin-top: 0; }
+  .section p { color: #4a5568; font-size: 0.95rem; margin-bottom: 12px; }
+  .section p:last-child { margin-bottom: 0; }
+  .section strong { color: #1b2d5b; }
+  .section ul { padding-left: 20px; margin: 8px 0 12px; }
+  .section ul li { color: #4a5568; font-size: 0.95rem; margin-bottom: 6px; }
+
+  /* CLAUSE BLOCKS */
+  .clause { border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; background: #f9fafc; }
+  .clause:last-child { margin-bottom: 0; }
+  .clause-title { font-size: 1rem; font-weight: 700; color: #1b2d5b; margin-bottom: 10px; }
+  .clause p { color: #4a5568; font-size: 0.93rem; margin-bottom: 8px; }
+  .clause blockquote { border-left: 3px solid #f26522; margin: 10px 0; padding: 8px 14px; background: white; border-radius: 0 6px 6px 0; font-size: 0.92rem; color: #4a5568; font-style: italic; }
+  .clause .sub-head { font-weight: 700; color: #1b2d5b; font-size: 0.9rem; margin-top: 12px; display: block; }
+  .clause ul { padding-left: 20px; margin: 6px 0; }
+  .clause ul li { color: #4a5568; font-size: 0.92rem; margin-bottom: 5px; }
+
+  /* I AGREE */
+  .agree-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; padding: 12px 16px; background: white; border: 1.5px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: border-color .2s; }
+  .agree-row:hover { border-color: #f26522; }
+  .agree-row.checked { border-color: #22c55e; background: #f0fdf4; }
+  .agree-row input[type="checkbox"] { width: 20px; height: 20px; accent-color: #22c55e; cursor: pointer; flex-shrink: 0; }
+  .agree-row label { font-weight: 600; color: #1b2d5b; font-size: 0.9rem; cursor: pointer; user-select: none; }
+  .agree-row.checked label { color: #16a34a; }
+
+  /* DEPOSIT */
+  .deposit-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .deposit-badge { background: #1b2d5b; color: white; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; }
+
+  /* SIGNATURE FORM */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.85rem; font-weight: 600; color: #1b2d5b; }
+  .form-group label span { color: #f26522; }
+  .form-group input, .form-group select { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 0.93rem; font-family: inherit; color: #2d3748; background: white; transition: border-color .2s; width: 100%; }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: #f26522; }
+
+  /* SIGNATURE PAD */
+  .sig-tabs { display: flex; gap: 0; margin-bottom: 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+  .sig-tab { flex: 1; padding: 10px; text-align: center; font-size: 0.88rem; font-weight: 600; color: #6b7a99; cursor: pointer; background: white; border: none; transition: all .2s; }
+  .sig-tab.active { background: #1b2d5b; color: white; }
+  .sig-canvas-wrap { border: 1.5px solid #e2e8f0; border-radius: 8px; background: white; position: relative; }
+  .sig-canvas-wrap canvas { display: block; width: 100%; height: 160px; touch-action: none; }
+  .sig-type-input { display: none; border: none; border-radius: 8px; padding: 12px 16px; font-size: 1.5rem; font-family: 'Dancing Script', cursive, Georgia, serif; color: #1b2d5b; width: 100%; background: white; border: 1.5px solid #e2e8f0; }
+  .sig-type-input:focus { outline: none; border-color: #f26522; }
+  .sig-clear { position: absolute; top: 8px; right: 10px; background: none; border: none; color: #9ca3af; font-size: 0.8rem; cursor: pointer; font-weight: 600; }
+  .sig-clear:hover { color: #f26522; }
+
+  /* SUBMIT */
+  .submit-btn { width: 100%; padding: 16px; background: #f26522; color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background .2s; margin-top: 8px; }
+  .submit-btn:hover { background: #d4551a; }
+  .submit-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+  .required-note { font-size: 0.8rem; color: #9ca3af; margin-bottom: 16px; }
+  .required-note span { color: #f26522; }
+
+  .thank-you { text-align: center; padding: 40px 24px; }
+  .thank-you .check { font-size: 3rem; margin-bottom: 12px; }
+  .thank-you h3 { color: #1b2d5b; font-size: 1.4rem; margin-bottom: 8px; }
+  .thank-you p { color: #6b7a99; }
+
+  .page-footer { text-align: center; padding: 32px; background: #1b2d5b; color: rgba(255,255,255,.6); font-size: 0.85rem; }
+  .page-footer a { color: #f26522; text-decoration: none; }
+
+  .sms-num { font-size: 0.72rem; font-weight: 700; color: #f26522; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 16px; }
+    .page-header { padding: 32px 20px 28px; }
+    .page-header h1 { font-size: 1.5rem; }
+    .content { padding: 24px 16px 60px; }
+    .section { padding: 20px; }
+    .clause { padding: 16px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Sound Moving NW</a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-header">
+  <div class="label">Legal Document</div>
+  <h1>Terms &amp; Conditions</h1>
+</div>
+
+<div class="content">
+
+  <!-- RATES -->
+  <div class="section">
+    <h2>Rates &amp; Charges</h2>
+    <p>We invoice in quarter-hour increments for any job unless otherwise specified in the written estimate provided to you. The final amount invoiced will be calculated based upon the <strong>actual time incurred</strong> (non-binding estimate).</p>
+    <h3>Types of Payment Accepted</h3>
+    <p>We accept cash, checks, Zelle, Venmo, and all major credit cards.</p>
+    <div class="deposit-row">
+      <div class="deposit-badge">Local Move Deposit — $200.00</div>
+      <div class="deposit-badge">Long Distance Deposit — $1,000.00</div>
+    </div>
+  </div>
+
+  <!-- SMS -->
+  <div class="section">
+    <h2>SMS Terms &amp; Conditions</h2>
+    <p style="font-size:0.82rem;color:#6b7a99;margin-bottom:16px;">Effective Date: June 22, 2026</p>
+    <p>By providing your phone number and opting in to receive text messages from Sound Moving NW, you agree to the following terms:</p>
+    <h3>1. Program Description</h3>
+    <p>Sound Moving NW may send you text messages in response to live chat conversations, form submissions, request confirmations, or other applicable communications — providing updates regarding your moving quotes, scheduling, and customer support.</p>
+    <h3>2. Cost and Frequency</h3>
+    <p><strong>Message and data rates may apply.</strong> Message frequency varies based on your interactions and ongoing communication regarding your moving services.</p>
+    <h3>3. Opt-Out and Help Instructions</h3>
+    <p><strong>To Stop Messages:</strong> Text <strong>STOP</strong> to unsubscribe at any time. You will receive one final confirmation message.</p>
+    <p><strong>To Get Help:</strong> Text <strong>HELP</strong> for assistance, or contact our team directly.</p>
+    <h3>4. Carrier Liability</h3>
+    <p>Carriers are not liable for delayed or undelivered messages. Delivery is subject to effective transmission from your network operator.</p>
+    <h3>5. Contact Information</h3>
+    <ul>
+      <li><strong>Business:</strong> Sound Moving NW</li>
+      <li><strong>Website:</strong> SoundMovingNW.com</li>
+      <li><strong>Email:</strong> info@soundmovingnw.com</li>
+      <li><strong>Phone:</strong> <a href="tel:4255406440" style="color:#f26522;font-weight:600;">425-540-6440</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN TERMS -->
+  <div class="section">
+    <h2>Terms &amp; Conditions</h2>
+
+    <!-- Clause 1 -->
+    <div class="clause">
+      <div class="clause-title">1. Change of Details Within General Contract / Bill of Lading</div>
+      <blockquote>Any change in this General Contract or Bill of Lading, quantity of items on your Inventory or Cube sheet, unplanned stops, or a change of address provided by the client to Sound Moving Northwest (SMNW) may affect your final price.</blockquote>
+      <div class="agree-row" id="agree-row-1" onclick="toggleAgree(1)">
+        <input type="checkbox" id="agree1">
+        <label for="agree1">Change of Details Within General Contract / Bill of Lading — I Agree</label>
+      </div>
+    </div>
+
+    <!-- Clause 2 -->
+    <div class="clause">
+      <div class="clause-title">2. Change of Date — Local Moves</div>
+      <span class="sub-head">If client cancels 14 days or more before move date:</span>
+      <blockquote>Deposit returned in full — if we cannot accommodate a new date or your circumstances change. If you change your date and we can accommodate, we apply the entire deposit towards the new move date.</blockquote>
+      <span class="sub-head">If client cancels 13 days or sooner before move date:</span>
+      <blockquote>Entire deposit NON-REFUNDABLE if we cannot accommodate a new date. If we can accommodate a new date, we apply <strong>$100.00</strong> towards your new date and SMNW retains <strong>$100.00</strong>. If SMNW is able to rebook your cancelled date, we will refund the remaining $100.00 cancellation fee.</blockquote>
+      <div class="agree-row" id="agree-row-2" onclick="toggleAgree(2)">
+        <input type="checkbox" id="agree2">
+        <label for="agree2">Change of Date for Local Moves — I Agree</label>
+      </div>
+    </div>
+
+    <!-- Clause 3 -->
+    <div class="clause">
+      <div class="clause-title">3. Change of Date — Long Distance Moves</div>
+      <span class="sub-head">If client cancels 14 days or more before move date:</span>
+      <blockquote>$600.00 of the deposit returned — if we cannot accommodate a new date or your circumstances change. If you change your date and we can accommodate, we apply the entire deposit towards the new move date.</blockquote>
+      <span class="sub-head">If client cancels 13 days or sooner before move date:</span>
+      <blockquote>Entire deposit NON-REFUNDABLE if we cannot accommodate a new date. If we can accommodate a new date, we apply <strong>$750.00</strong> towards the new date and SMNW retains <strong>$250.00</strong>. If SMNW can rebook your cancelled date, we will refund the remaining $250.00 cancellation fee.</blockquote>
+      <div class="agree-row" id="agree-row-3" onclick="toggleAgree(3)">
+        <input type="checkbox" id="agree3">
+        <label for="agree3">Change of Date for Long Distance Moves — I Agree</label>
+      </div>
+    </div>
+
+    <!-- Clause 4 -->
+    <div class="clause">
+      <div class="clause-title">4. Cancellation by SMNW</div>
+      <p>If SMNW cancels your service, we will refund the full deposit within 3 business days. We reserve the right to cancel without refund and bill for time already incurred under the following circumstances:</p>
+      <ul>
+        <li>You are engaged in illegal or dangerous activity, in the opinion of SMNW.</li>
+        <li>The moving services involve an unsanitary environment involving rodents, pests, foul odors, or situations that would jeopardize the health of our crew.</li>
+        <li>You are intoxicated or otherwise impaired in a way that may risk your safety or the safety of SMNW's crew.</li>
+        <li>You engage in any abusive behavior toward our crew — including physical abuse, sexual harassment, verbal abuse, racist or sexist comments, or any other discriminatory behavior.</li>
+      </ul>
+      <div class="agree-row" id="agree-row-4" onclick="toggleAgree(4)">
+        <input type="checkbox" id="agree4">
+        <label for="agree4">Cancellation by SMNW — I Agree</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAMAGE -->
+  <div class="section">
+    <h2>Damage &amp; Claim Exceptions</h2>
+
+    <div class="clause">
+      <p>SMNW shall NOT be responsible for loss or damage arising from goods packed by the customer or another company — including poorly packed boxes, depressed boxes, boxes too heavy that break at the bottom, or items in bags — unless SMNW is a direct cause of said loss or damage.</p>
+      <div class="agree-row" id="agree-row-5" onclick="toggleAgree(5)">
+        <input type="checkbox" id="agree5">
+        <label for="agree5">Customer-Packed Goods Exception — I Agree</label>
+      </div>
+    </div>
+
+    <div class="clause">
+      <p>SMNW shall NOT be responsible for loss or damage arising from transportation of mechanical vehicles including but not limited to automobiles, motorcycles, scooters, boats, airplanes, ATVs, go-carts, riding lawnmowers, tractors, and other similar vehicles. These items are transported at the sole risk of the customer and all coverage for those items is waived against the carrier.</p>
+      <div class="agree-row" id="agree-row-6" onclick="toggleAgree(6)">
+        <input type="checkbox" id="agree6">
+        <label for="agree6">Mechanical Vehicles Exception — I Agree</label>
+      </div>
+    </div>
+
+    <div class="clause">
+      <p>SMNW shall NOT be responsible for loss or damage arising from transportation of any items directed by the customer through impassible passageways or openings. Additionally, SMNW is not liable for damage to the interior or exterior of any residence or business — including walls, floors, ceilings, stairs, banisters, carpets, plumbing, driveways, or yards — as a result of the customer's request after SMNW staff have advised of possible risk.</p>
+      <div class="agree-row" id="agree-row-7" onclick="toggleAgree(7)">
+        <input type="checkbox" id="agree7">
+        <label for="agree7">Impassible Passageways Exception — I Agree</label>
+      </div>
+    </div>
+
+    <div class="clause">
+      <p>SMNW shall NOT be responsible for loss or damage arising from any modifications made to furniture or the structure of the customer's home or business — including doorways, door removal, banisters, furniture pieces, exercise equipment, knobs, handles, etc. — as a result of the customer's approval of such modifications.</p>
+      <div class="agree-row" id="agree-row-8" onclick="toggleAgree(8)">
+        <input type="checkbox" id="agree8">
+        <label for="agree8">Modifications Exception — I Agree</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNATURE FORM -->
+  <div class="section" id="signature-section">
+    <h2>Customer Signature &amp; Agreement</h2>
+    <p style="margin-bottom:20px;">I understand that my signature below signifies that I have read, understand, and accept all of the terms stated above. I agree to the estimate provided to me by Sound Moving NW.</p>
+
+    <!-- TODO: Replace YOUR_FORM_ID with the actual form submission endpoint -->
+    <form id="tcForm" onsubmit="submitForm(event)" action="https://api.web3forms.com/submit" method="POST">
+
+      <p class="required-note"><span>*</span> Required fields</p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="custName">Customer's Name (Print) <span>*</span></label>
+          <input type="text" id="custName" name="customer_name" required placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label for="custEmail">Customer Email Address <span>*</span></label>
+          <input type="email" id="custEmail" name="customer_email" required placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label for="serviceDate">Date of Service(s)</label>
+          <input type="date" id="serviceDate" name="service_date">
+        </div>
+        <div class="form-group">
+          <label for="todayDate">Today's Date</label>
+          <input type="date" id="todayDate" name="today_date">
+        </div>
+        <div class="form-group">
+          <label for="depositAmt">Deposit Amount <span>*</span></label>
+          <select id="depositAmt" name="deposit_amount" required>
+            <option value="">Select...</option>
+            <option value="200">$200 — Local Move</option>
+            <option value="1000">$1,000 — Long Distance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="depositMethod">Deposit Payment Method</label>
+          <select id="depositMethod" name="deposit_method">
+            <option value="">Select...</option>
+            <option>Venmo</option>
+            <option>Zelle</option>
+            <option>Check</option>
+            <option>Debit/Credit Card</option>
+            <option>Cash</option>
+            <option>Waived</option>
+          </select>
+        </div>
+
+        <!-- SIGNATURE -->
+        <div class="form-group full">
+          <label>Customer Signature <span>*</span></label>
+          <div class="sig-tabs">
+            <button type="button" class="sig-tab active" id="tab-draw" onclick="switchSigTab('draw')">✏️ Draw It</button>
+            <button type="button" class="sig-tab" id="tab-type" onclick="switchSigTab('type')">⌨️ Type It</button>
+          </div>
+          <div class="sig-canvas-wrap" id="sig-canvas-wrap">
+            <canvas id="sigCanvas"></canvas>
+            <button type="button" class="sig-clear" onclick="clearSignature()">Clear</button>
+          </div>
+          <input type="text" class="sig-type-input" id="sig-type-input" placeholder="Type your signature here..." oninput="updateTypedSig()">
+          <input type="hidden" id="sigData" name="signature">
+        </div>
+      </div>
+
+      <div style="background:#fff8f0;border:1.5px solid #f26522;border-radius:10px;padding:16px 20px;margin-bottom:20px;text-align:center;">
+        <p style="font-weight:700;color:#1b2d5b;margin-bottom:4px;">Thank you for your business!</p>
+        <p style="color:#f26522;font-weight:600;">SMNW Representative — Ben Jablonsky</p>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Submit Terms and Conditions</button>
+    </form>
+
+    <!-- Success message (hidden by default) -->
+    <div class="thank-you" id="thankYou" style="display:none;">
+      <div class="check">✅</div>
+      <h3>Terms Submitted Successfully</h3>
+      <p>Thank you, your signed agreement has been received by Sound Moving NW.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  &copy; 2026 Sound Moving NW &nbsp;·&nbsp; DOT: 4501511 &nbsp;·&nbsp; UTC: HG069611 &nbsp;·&nbsp; <a href="index.html">Back to Home</a>
+</div>
+
+<script>
+  // Set today's date automatically
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('todayDate').value = today;
+
+  // AGREE CHECKBOXES
+  function toggleAgree(n) {
+    const row = document.getElementById('agree-row-' + n);
+    const cb = document.getElementById('agree' + n);
+    cb.checked = !cb.checked;
+    row.classList.toggle('checked', cb.checked);
+  }
+
+  // SIGNATURE PAD
+  let signaturePad;
+  let sigMode = 'draw';
+
+  window.addEventListener('load', () => {
+    const canvas = document.getElementById('sigCanvas');
+    signaturePad = new SignaturePad(canvas, { penColor: '#1b2d5b', minWidth: 1, maxWidth: 3 });
+    resizeCanvas();
+  });
+
+  window.addEventListener('resize', resizeCanvas);
+
+  function resizeCanvas() {
+    const canvas = document.getElementById('sigCanvas');
+    const wrap = document.getElementById('sig-canvas-wrap');
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = wrap.offsetWidth * ratio;
+    canvas.height = 160 * ratio;
+    canvas.getContext('2d').scale(ratio, ratio);
+    if (signaturePad) signaturePad.clear();
+  }
+
+  function switchSigTab(mode) {
+    sigMode = mode;
+    document.getElementById('tab-draw').classList.toggle('active', mode === 'draw');
+    document.getElementById('tab-type').classList.toggle('active', mode === 'type');
+    document.getElementById('sig-canvas-wrap').style.display = mode === 'draw' ? 'block' : 'none';
+    document.getElementById('sig-type-input').style.display = mode === 'type' ? 'block' : 'none';
+  }
+
+  function clearSignature() {
+    if (signaturePad) signaturePad.clear();
+    document.getElementById('sigData').value = '';
+  }
+
+  function updateTypedSig() {
+    document.getElementById('sigData').value = document.getElementById('sig-type-input').value;
+  }
+
+  // FORM SUBMIT
+  async function submitForm(e) {
+    e.preventDefault();
+
+    // Collect signature data
+    let sigText = '';
+    if (sigMode === 'draw') {
+      if (!signaturePad || signaturePad.isEmpty()) {
+        alert('Please provide your signature before submitting.');
+        return;
+      }
+      sigText = '[Customer drew signature]';
+    } else {
+      const typed = document.getElementById('sig-type-input').value.trim();
+      if (!typed) {
+        alert('Please type your signature before submitting.');
+        return;
+      }
+      sigText = typed;
+    }
+
+    // Check all agree boxes
+    const total = 8;
+    for (let i = 1; i <= total; i++) {
+      if (!document.getElementById('agree' + i).checked) {
+        alert('Please check all "I Agree" boxes before submitting.');
+        return;
+      }
+    }
+
+    const name          = document.getElementById('custName').value.trim();
+    const email         = document.getElementById('custEmail').value.trim();
+    const serviceDate   = document.getElementById('serviceDate').value;
+    const todayDate     = document.getElementById('todayDate').value;
+    const depositAmt    = document.getElementById('depositAmt').value;
+    const depositMethod = document.getElementById('depositMethod').value;
+
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) { submitBtn.textContent = 'Sending…'; submitBtn.disabled = true; }
+
+    if (sigMode === 'draw') {
+      try {
+        const base64 = signaturePad.toDataURL().split(',')[1];
+        const fd = new FormData();
+        fd.append('key', '66e68ebcab92c922b0b8617ebf7814e7');
+        fd.append('image', base64);
+        const imgRes = await fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: fd });
+        const imgJson = await imgRes.json();
+        console.log('ImgBB response:', imgJson);
+        sigText = imgJson.data.url;
+      } catch (err) {
+        console.error('ImgBB upload error:', err);
+        sigText = '[Drawn signature — upload failed]';
+      }
+    }
+
+    const message = [
+      `Date Signed: ${todayDate}`,
+      `Date of Service: ${serviceDate}`,
+      `Deposit Amount: ${depositAmt ? '$' + depositAmt : 'not selected'}`,
+      `Deposit Payment Method: ${depositMethod || 'not selected'}`,
+      `Signature: ${sigText}`,
+      `All 8 "I Agree" boxes checked ✓`,
+    ].join('\n');
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'cf4c552f-1dbd-420d-84c9-0454923f8488',
+          subject: 'Terms & Conditions Signed — ' + name,
+          name,
+          email,
+          message,
+        })
+      });
+      document.getElementById('tcForm').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'block';
+    } catch {
+      if (submitBtn) { submitBtn.textContent = 'Submit Terms and Conditions'; submitBtn.disabled = false; }
+      alert('Something went wrong. Please call us at (425) 540-6440.');
+    }
+  }
+</script>
+</body>
+</html>

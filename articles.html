@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles — Sound Moving NW</title>
+<meta name="description" content="Moving tips, guides, and advice from the Sound Moving NW team. Licensed movers serving Seattle, Lynnwood, and Snohomish County since 1979.">
+<link rel="icon" type="image/webp" href="images/favicon.webp">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #f4f7fc; color: #1b2d5b; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #1b2d5b; height: 68px; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 2px 16px rgba(0,0,0,.18);
+}
+.nav-logo { color: white; font-weight: 800; font-size: 1.05rem; text-decoration: none; font-family: 'Playfair Display', serif; letter-spacing: .02em; }
+.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: white; }
+.nav-cta { background: #f26522; color: white !important; font-weight: 700 !important; padding: 9px 20px; border-radius: 8px; font-size: 0.82rem !important; transition: background .2s !important; }
+.nav-cta:hover { background: #d4551a !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: white; border-radius: 2px; }
+
+/* ── MOBILE DRAWER ── */
+.mob-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 98; }
+.mob-drawer { position: fixed; top: 0; right: -100%; width: 280px; height: 100%; background: #1b2d5b; z-index: 99; transition: right .3s; padding: 80px 0 32px; }
+.mob-drawer.open { right: 0; }
+.mob-drawer a { display: block; color: rgba(255,255,255,.8); text-decoration: none; padding: 14px 32px; font-size: 0.9rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,.08); }
+.mob-drawer a:hover { color: white; }
+.mob-cta { background: #f26522 !important; color: white !important; margin: 24px 32px !important; border-radius: 8px; text-align: center; border: none !important; }
+
+/* ── PAGE HEADER ── */
+.page-header { background: #1b2d5b; color: white; padding: 56px 40px 48px; text-align: center; }
+.page-header .label { color: #f26522; font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; }
+.page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; line-height: 1.15; }
+.page-header p { color: rgba(255,255,255,.65); margin-top: 12px; font-size: 1rem; }
+
+/* ── ARTICLES GRID ── */
+.articles-wrap { max-width: 1100px; margin: 0 auto; padding: 56px 32px 80px; }
+.articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+.article-card {
+  background: white; border-radius: 14px; overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  transition: transform .2s, box-shadow .2s;
+  border: 1px solid #e4eaf4;
+  text-decoration: none; color: inherit;
+  cursor: pointer;
+}
+.article-card:hover { transform: translateY(-5px); box-shadow: 0 10px 36px rgba(27,45,91,.13); }
+
+/* Article image banners */
+.article-banner {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: relative;
+  background: #1b2d5b;
+}
+.article-banner img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .3s;
+}
+.article-card:hover .article-banner img { transform: scale(1.04); }
+
+/* Fallback gradient placeholders (shown if image fails) */
+.banner-1 { background: linear-gradient(135deg, #1b2d5b 0%, #2d4a8a 100%); }
+.banner-2 { background: linear-gradient(135deg, #1a4a2e 0%, #2d7a50 100%); }
+.banner-3 { background: linear-gradient(135deg, #4a1a1a 0%, #8a3030 100%); }
+.banner-4 { background: linear-gradient(135deg, #2a1a4a 0%, #5a3a8a 100%); }
+.banner-5 { background: linear-gradient(135deg, #1a3a4a 0%, #2a6a7a 100%); }
+.banner-6 { background: linear-gradient(135deg, #3a2a1a 0%, #8a5a2a 100%); }
+
+.article-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.article-card-meta { font-size: 0.72rem; font-weight: 600; color: #f26522; text-transform: uppercase; letter-spacing: .08em; }
+.article-card-title { font-size: 1.02rem; font-weight: 700; color: #1b2d5b; line-height: 1.4; }
+.article-card-excerpt { font-size: 0.85rem; color: #6b7a99; line-height: 1.7; flex: 1; }
+.article-card-author { font-size: 0.75rem; color: #b0bcd4; border-top: 1px solid #eef1f8; padding-top: 12px; margin-top: 4px; }
+.read-more { font-size: 0.78rem; font-weight: 600; color: #f26522; margin-top: 2px; }
+
+/* ── FOOTER ── */
+.page-footer { background: #1b2d5b; color: rgba(255,255,255,.6); text-align: center; padding: 28px 32px; font-size: 0.82rem; }
+.page-footer a { color: #f26522; text-decoration: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .articles-grid { grid-template-columns: 1fr 1fr; }
+  .page-header { padding: 44px 24px 36px; }
+  .page-header h1 { font-size: 2rem; }
+  .articles-wrap { padding: 40px 24px 60px; }
+}
+@media (max-width: 600px) {
+  .articles-grid { grid-template-columns: 1fr; }
+  .articles-wrap { padding: 32px 20px 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Sound Moving NW</a>
+  <div class="nav-links">
+    <a href="index.html#how">How It Works</a>
+    <a href="index.html#services">What We Do</a>
+    <a href="index.html#pricing">Prices</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#areas">Service Areas</a>
+    <a href="index.html#story">Our Story</a>
+    <a href="articles.html" class="active">Articles</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="quote.html" class="nav-cta">Check Availability →</a>
+  </div>
+  <button class="hamburger" onclick="openNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-overlay" id="overlay" onclick="closeNav()"></div>
+<div class="mob-drawer" id="drawer">
+  <a href="index.html#how" onclick="closeNav()">How It Works</a>
+  <a href="index.html#services" onclick="closeNav()">What We Do</a>
+  <a href="index.html#pricing" onclick="closeNav()">Prices</a>
+  <a href="index.html#reviews" onclick="closeNav()">Reviews</a>
+  <a href="index.html#areas" onclick="closeNav()">Service Areas</a>
+  <a href="index.html#story" onclick="closeNav()">Our Story</a>
+  <a href="articles.html" onclick="closeNav()">Articles</a>
+  <a href="index.html#contact" onclick="closeNav()">Contact</a>
+  <a href="quote.html" onclick="closeNav()" class="mob-cta">📋 Get a Free Estimate →</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="label">Resources</div>
+  <h1>Moving Tips &amp; Articles</h1>
+  <p>Practical advice from our team — helping you move smarter since 1979.</p>
+</div>
+
+<!-- ARTICLES -->
+<div class="articles-wrap">
+  <div class="articles-grid">
+
+    <a href="article-family-owned.html" class="article-card">
+      <div class="article-banner banner-1">
+        <img
+          src="images/articles/family-owned.jpg"
+          alt="Why Choose a Family-Owned Moving Company?"
+          onerror="this.src='https://soundmovingnw.com/wp-content/uploads/2025/07/Gemini_Generated_Image_mt9o46mt9o46mt9o-1080x675.jpeg'"
+        >
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">Jul 3, 2025</div>
+        <div class="article-card-title">Why Choose a Family-Owned Moving Company?</div>
+        <div class="article-card-excerpt">Moving is one of life's most significant transitions. At Sound Moving NW, we believe a family-owned company offers a level of personal touch, accountability, and reliability that larger corporations simply can't match.</div>
+        <div class="article-card-author">By Benjamin Jablonsky · Sound Moving NW</div>
+        <div class="read-more">Read more →</div>
+      </div>
+    </a>
+
+    <a href="article-lower-costs.html" class="article-card">
+      <div class="article-banner banner-2">
+        <img
+          src="images/articles/lower-costs.jpg"
+          alt="Lower Your Moving Costs"
+          onerror="this.src='https://soundmovingnw.com/wp-content/uploads/2025/04/Depositphotos_808782010_XL-1080x675.jpg'"
+        >
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">Apr 28, 2025</div>
+        <div class="article-card-title">Lower Your Moving Costs</div>
+        <div class="article-card-excerpt">Moving can be a significant financial undertaking. From packing supplies to transportation and labor, the expenses can quickly add up. Here are practical tips to help lower your moving costs and make your relocation more affordable.</div>
+        <div class="article-card-author">By Benjamin Jablonsky · Sound Moving NW</div>
+        <div class="read-more">Read more →</div>
+      </div>
+    </a>
+
+    <a href="article-customer-service.html" class="article-card">
+      <div class="article-banner banner-3">
+        <img
+          src="images/articles/customer-service.jpg"
+          alt="How Important is Customer Service When Choosing a Moving Company?"
+          onerror="this.src='https://soundmovingnw.com/wp-content/uploads/2025/03/1000034005-921x675.jpg'"
+        >
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">Mar 3, 2025</div>
+        <div class="article-card-title">How Important is Customer Service When Choosing a Moving Company?</div>
+        <div class="article-card-excerpt">Imagine your meticulously organized life, entrusted to strangers. In the moving industry, customer service isn't a perk; it's the bedrock of a stress-free transition.</div>
+        <div class="article-card-author">By Benjamin Jablonsky · Sound Moving NW</div>
+        <div class="read-more">Read more →</div>
+      </div>
+    </a>
+
+    <a href="article-scammers.html" class="article-card">
+      <div class="article-banner banner-4">
+        <img
+          src="images/articles/scammers2.jpg"
+          alt="Washington Residents: Be Warned of Moving Scammers"
+          onerror="this.src='https://soundmovingnw.com/wp-content/uploads/2025/01/Depositphotos_137308008_S-1000x675.jpg'"
+        >
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">Jan 3, 2025</div>
+        <div class="article-card-title">Washington Residents: Be Warned of Scammers or Bad Moving Companies</div>
+        <div class="article-card-excerpt">Moving fraud is more common than people realize. Unlicensed "movers" advertise low rates, then hold your belongings hostage for more money. Here's how to protect yourself before you sign anything.</div>
+        <div class="article-card-author">By Benjamin Jablonsky · Sound Moving NW</div>
+        <div class="read-more">Read more →</div>
+      </div>
+    </a>
+
+    <a href="article-rogue-movers.html" class="article-card">
+      <div class="article-banner banner-5">
+        <img
+          src="images/articles/rogue-movers.jpg"
+          alt="Rogue vs. Licensed Movers"
+          onerror="this.src='https://soundmovingnw.com/wp-content/uploads/2024/12/Depositphotos_250174796_XL-1080x675.jpg'"
+        >
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">Dec 2, 2024</div>
+        <div class="article-card-title">Rogue vs. Licensed Movers: What's the Difference?</div>
+        <div class="article-card-excerpt">Not every moving truck on the road is a legitimate business. Rogue movers operate without insurance, licensing, or accountability. Sound Moving NW is fully licensed under UTC HG069611 and DOT 4501511 — here's why that matters.</div>
+        <div class="article-card-author">By David Cuff · Sound Moving NW</div>
+        <div class="read-more">Read more →</div>
+      </div>
+    </a>
+
+
+    <a href="article-packing-tips.html" class="article-card" id="packing-tips">
+      <div class="article-banner banner-6">
+        <img src="images/articles/packing-tips.jpg" alt="Moving boxes stacked against a wall" loading="lazy">
+      </div>
+      <div class="article-card-body">
+        <div class="article-card-meta">Aug 19, 2026</div>
+        <div class="article-card-title">Packing Tips: How to Pack Like a Pro Before Moving Day</div>
+        <div class="article-card-excerpt">Packing is the most time-consuming part of any move. These practical tips from our crew will help you pack smarter, protect your belongings, and make moving day go as smoothly as possible.</div>
+        <div class="article-card-author">By Benjamin Jablonsky · Sound Moving NW</div>
+        <div class="read-more">Read more →</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="page-footer">
+  &copy; 2026 Sound Moving NW &nbsp;·&nbsp; DOT: 4501511 &nbsp;·&nbsp; UTC: HG069611 &nbsp;·&nbsp;
+  <a href="index.html">Back to Home</a>
+</div>
+
+<script>
+function openNav() { document.getElementById('drawer').classList.add('open'); document.getElementById('overlay').style.display = 'block'; }
+function closeNav() { document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').style.display = 'none'; }
+</script>
+</body>
+</html>

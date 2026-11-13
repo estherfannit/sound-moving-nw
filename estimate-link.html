@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estimate Acknowledgment — Sound Moving NW</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/4.1.7/signature_pad.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f7f9fc; color: #2d3748; line-height: 1.7; }
+
+  /* NAV */
+  nav { background: #1b2d5b; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+  .nav-logo img { height: 40px; display: block; }
+  .nav-back { color: rgba(255,255,255,.8); text-decoration: none; font-size: 0.87rem; font-weight: 500; border: 1px solid rgba(255,255,255,.3); padding: 7px 16px; border-radius: 6px; transition: all .2s; }
+  .nav-back:hover { background: rgba(255,255,255,.1); color: white; }
+
+  /* HEADER */
+  .page-header { background: linear-gradient(135deg, #1b2d5b 0%, #243a73 100%); color: white; padding: 52px 40px 44px; text-align: center; }
+  .page-header .label { color: #f26522; font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+  .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 10px; }
+  .page-header p { color: rgba(255,255,255,.7); font-size: 0.92rem; }
+
+  /* CONTENT */
+  .content { max-width: 680px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* CARD */
+  .card { background: white; border-radius: 14px; padding: 36px; margin-bottom: 20px; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+
+  /* DISCLAIMER */
+  .disclaimer { border-left: 4px solid #f26522; padding-left: 20px; }
+  .disclaimer p { color: #4a5568; font-size: 0.95rem; margin-bottom: 10px; }
+  .disclaimer p:last-child { margin-bottom: 0; }
+  .disclaimer strong { color: #1b2d5b; }
+
+  /* FORM */
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+  .form-group:last-child { margin-bottom: 0; }
+  label { font-size: 0.82rem; font-weight: 700; color: #1b2d5b; text-transform: uppercase; letter-spacing: .06em; }
+  label span { color: #f26522; }
+  input[type="text"], input[type="date"] {
+    border: 1.5px solid #dde3f0; border-radius: 8px; padding: 11px 14px;
+    font-size: 0.95rem; font-family: inherit; color: #1b2d5b; transition: border-color .2s;
+    background: #fafbff;
+  }
+  input:focus { outline: none; border-color: #f26522; background: white; }
+
+  /* SIGNATURE */
+  .sig-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+  .sig-tab { padding: 6px 18px; border: 1.5px solid #dde3f0; border-radius: 6px; background: white; font-size: 0.82rem; font-weight: 600; color: #888; cursor: pointer; transition: all .2s; font-family: inherit; }
+  .sig-tab.active { border-color: #1b2d5b; background: #1b2d5b; color: white; }
+  .sig-canvas-wrap { border: 1.5px solid #dde3f0; border-radius: 10px; background: #fafbff; overflow: hidden; position: relative; }
+  .sig-canvas-wrap canvas { display: block; width: 100%; height: 160px; touch-action: none; }
+  .sig-clear { font-size: 0.78rem; color: #f26522; cursor: pointer; border: none; background: none; font-family: inherit; font-weight: 600; margin-top: 6px; padding: 0; }
+  .sig-type-input { display: none; width: 100%; border: 1.5px solid #dde3f0; border-radius: 10px; padding: 12px 14px; font-size: 1.1rem; font-family: 'Georgia', serif; color: #1b2d5b; background: #fafbff; }
+  .sig-type-input:focus { outline: none; border-color: #f26522; }
+
+  /* SUBMIT */
+  .submit-btn { width: 100%; padding: 15px; background: #f26522; color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 800; font-family: inherit; cursor: pointer; transition: background .2s, transform .15s; text-transform: uppercase; letter-spacing: .08em; margin-top: 8px; }
+  .submit-btn:hover { background: #d4551a; transform: translateY(-1px); }
+  .submit-btn:disabled { background: #cbd5e1; cursor: not-allowed; transform: none; }
+
+  /* THANK YOU */
+  .thank-you { display: none; text-align: center; padding: 48px 32px; }
+  .thank-you .ty-icon { font-size: 3rem; margin-bottom: 16px; }
+  .thank-you h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #1b2d5b; margin-bottom: 10px; }
+  .thank-you p { color: #718096; font-size: 0.95rem; }
+
+  /* FOOTER */
+  footer { background: #1b2d5b; color: rgba(255,255,255,.5); text-align: center; padding: 24px; font-size: 0.82rem; }
+  footer a { color: #f26522; text-decoration: none; }
+
+  @media (max-width: 520px) {
+    .form-row { grid-template-columns: 1fr; }
+    .page-header { padding: 36px 20px 30px; }
+    .page-header h1 { font-size: 1.6rem; }
+    .card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Sound Moving Northwest" onerror="this.style.display='none'">
+  </a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-header">
+  <div class="label">Sound Moving Northwest</div>
+  <h1>Estimate Acknowledgment</h1>
+  <p>Please review and sign below to confirm you've received your estimate.</p>
+</div>
+
+<div class="content">
+
+  <!-- Disclaimer -->
+  <div class="card">
+    <div class="disclaimer">
+      <p>Thank you for having us out today. We look forward to working with you.</p>
+      <p>Before we begin, please note that the estimate you received is just an estimate.</p>
+      <p>There is <strong>no guarantee</strong> that the final invoice will fall between the provided low and high range, although we will do our best to stay in the range.</p>
+      <p>By signing below, you acknowledge that your <strong>final bill will be based on the actual time</strong> it takes our crew to complete along with the other charges listed on your estimate.</p>
+      <p>In other words, your job may be completed more quickly, or take longer than estimated.</p>
+      <p><strong>I agree to pay the final amount given to me from the crew.</strong></p>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="card" id="estimateLinkForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstName">First Name <span>*</span></label>
+        <input type="text" id="firstName" placeholder="First name" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name <span>*</span></label>
+        <input type="text" id="lastName" placeholder="Last name" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="custEmail">Email Address <span>*</span></label>
+      <input type="text" id="custEmail" placeholder="email@example.com" required>
+    </div>
+
+    <div class="form-group">
+      <label>Signature <span>*</span></label>
+      <div class="sig-tabs">
+        <button type="button" class="sig-tab active" id="tab-draw" onclick="switchTab('draw')">✏️ Draw</button>
+        <button type="button" class="sig-tab" id="tab-type" onclick="switchTab('type')">⌨️ Type</button>
+      </div>
+      <div class="sig-canvas-wrap" id="canvasWrap">
+        <canvas id="sigCanvas"></canvas>
+      </div>
+      <input type="text" class="sig-type-input" id="sigTypeInput" placeholder="Type your full name as signature…">
+      <button type="button" class="sig-clear" id="sigClearBtn" onclick="clearSig()">Clear</button>
+    </div>
+
+    <div class="form-group">
+      <label for="sigDate">Date <span>*</span></label>
+      <input type="date" id="sigDate" required>
+    </div>
+
+    <button type="button" class="submit-btn" id="submitBtn" onclick="submitForm()">Sign &amp; Submit</button>
+
+    <div class="thank-you" id="thankYou">
+      <div class="ty-icon">✅</div>
+      <h2>Signed Successfully</h2>
+      <p>Thank you, your estimate acknowledgment has been received.<br>We look forward to your move!</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Sound Moving Northwest · <a href="tel:4255406440">(425) 540-6440</a> · <a href="mailto:soundmovingnw@gmail.com">soundmovingnw@gmail.com</a>
+</footer>
+
+<script>
+  let sigPad, sigMode = 'draw';
+
+  // Init signature pad
+  window.addEventListener('load', () => {
+    const canvas = document.getElementById('sigCanvas');
+    sigPad = new SignaturePad(canvas, { penColor: '#1b2d5b', minWidth: 1.5, maxWidth: 2.5 });
+    resizeCanvas();
+
+    // Auto-fill today's date
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('sigDate').value = today;
+  });
+
+  window.addEventListener('resize', resizeCanvas);
+  function resizeCanvas() {
+    const canvas = document.getElementById('sigCanvas');
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    const data = sigPad?.toData();
+    canvas.width  = canvas.offsetWidth  * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext('2d').scale(ratio, ratio);
+    if (data) sigPad.fromData(data);
+  }
+
+  function switchTab(mode) {
+    sigMode = mode;
+    document.getElementById('tab-draw').classList.toggle('active', mode === 'draw');
+    document.getElementById('tab-type').classList.toggle('active', mode === 'type');
+    document.getElementById('canvasWrap').style.display  = mode === 'draw' ? 'block' : 'none';
+    document.getElementById('sigTypeInput').style.display = mode === 'type' ? 'block' : 'none';
+    document.getElementById('sigClearBtn').style.display  = mode === 'draw' ? 'inline' : 'none';
+  }
+
+  function clearSig() { sigPad?.clear(); }
+
+  async function submitForm() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName  = document.getElementById('lastName').value.trim();
+    const email     = document.getElementById('custEmail').value.trim();
+    const date      = document.getElementById('sigDate').value;
+
+    if (!firstName || !lastName) { alert('Please enter your full name.'); return; }
+    if (!email) { alert('Please enter your email address.'); return; }
+
+    let sigText = '';
+    if (sigMode === 'draw') {
+      if (!sigPad || sigPad.isEmpty()) { alert('Please provide your signature before submitting.'); return; }
+    } else {
+      const typed = document.getElementById('sigTypeInput').value.trim();
+      if (!typed) { alert('Please type your signature before submitting.'); return; }
+      sigText = typed;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Submitting…'; btn.disabled = true;
+
+    // Upload drawn signature to ImgBB
+    if (sigMode === 'draw') {
+      try {
+        const base64 = sigPad.toDataURL().split(',')[1];
+        const fd = new FormData();
+        fd.append('key', '66e68ebcab92c922b0b8617ebf7814e7');
+        fd.append('image', base64);
+        const res  = await fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: fd });
+        const json = await res.json();
+        sigText = json.data?.url || '[Drawn signature]';
+      } catch {
+        sigText = '[Drawn signature]';
+      }
+    }
+
+    const name    = firstName + ' ' + lastName;
+    const message = [
+      `Date: ${date}`,
+      `Signature: ${sigText}`,
+      `Agreed: Final bill based on actual crew time + listed charges.`,
+    ].join('\n');
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'cf4c552f-1dbd-420d-84c9-0454923f8488',
+          subject: 'Estimate Acknowledged — ' + name,
+          name,
+          email,
+          message,
+        })
+      });
+      document.getElementById('estimateLinkForm').querySelector('.disclaimer')?.parentElement;
+      // Hide form fields, show thank you
+      [...document.getElementById('estimateLinkForm').children].forEach(el => {
+        if (el.id !== 'thankYou') el.style.display = 'none';
+      });
+      document.getElementById('thankYou').style.display = 'block';
+    } catch {
+      btn.textContent = 'Sign & Submit'; btn.disabled = false;
+      alert('Something went wrong. Please call us at (425) 540-6440.');
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Choose a Family-Owned Moving Company? — Sound Moving NW</title>
+<meta name="description" content="Moving is one of life's most significant transitions. Discover why a family-owned moving company like Sound Moving NW offers unmatched care, accountability, and local expertise.">
+<link rel="icon" type="image/webp" href="images/favicon.webp">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #f4f7fc; color: #1b2d5b; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #1b2d5b; height: 68px; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 2px 16px rgba(0,0,0,.18);
+}
+.nav-logo { color: white; font-weight: 800; font-size: 1.05rem; text-decoration: none; font-family: 'Playfair Display', serif; letter-spacing: .02em; }
+.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: white; }
+.nav-cta { background: #f26522; color: white !important; font-weight: 700 !important; padding: 9px 20px; border-radius: 8px; font-size: 0.82rem !important; transition: background .2s !important; }
+.nav-cta:hover { background: #d4551a !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: white; border-radius: 2px; }
+
+/* MOBILE DRAWER */
+.mob-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 98; }
+.mob-drawer { position: fixed; top: 0; right: -100%; width: 280px; height: 100%; background: #1b2d5b; z-index: 99; transition: right .3s; padding: 80px 0 32px; }
+.mob-drawer.open { right: 0; }
+.mob-drawer a { display: block; color: rgba(255,255,255,.8); text-decoration: none; padding: 14px 32px; font-size: 0.9rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,.08); }
+.mob-drawer a:hover { color: white; }
+.mob-cta { background: #f26522 !important; color: white !important; margin: 24px 32px !important; border-radius: 8px; text-align: center; border: none !important; }
+
+/* HERO */
+.article-hero {
+  width: 100%; max-height: 420px; overflow: hidden;
+  background: linear-gradient(135deg, #1b2d5b 0%, #2d4a8a 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.article-hero img {
+  width: 100%; max-height: 420px; object-fit: cover; display: block;
+}
+
+/* ARTICLE BODY */
+.article-wrap { max-width: 780px; margin: 0 auto; padding: 48px 32px 80px; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: #f26522; font-size: 0.82rem; font-weight: 600; text-decoration: none; margin-bottom: 32px; }
+.back-link:hover { text-decoration: underline; }
+.article-meta { font-size: 0.75rem; color: #f26522; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; }
+.article-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; line-height: 1.2; color: #1b2d5b; margin-bottom: 8px; }
+.article-author { font-size: 0.82rem; color: #8a99bb; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid #dde3f0; }
+
+/* CONTENT */
+.article-content { line-height: 1.8; color: #2a3a5c; font-size: 1rem; }
+.article-content p { margin-bottom: 1.4em; }
+.article-content h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: #1b2d5b; margin: 2em 0 .7em; line-height: 1.3; }
+.article-content h3 { font-size: 1.1rem; font-weight: 700; color: #1b2d5b; margin: 1.6em 0 .5em; }
+.article-content ul, .article-content ol { padding-left: 1.6em; margin-bottom: 1.4em; }
+.article-content li { margin-bottom: .6em; }
+.article-content strong { color: #1b2d5b; }
+.article-content a { color: #f26522; text-decoration: underline; }
+.article-content a:hover { color: #d4551a; }
+.article-content .highlight-box {
+  background: #eef2ff; border-left: 4px solid #f26522; padding: 20px 24px; border-radius: 0 10px 10px 0; margin: 2em 0;
+}
+
+/* FOOTER */
+.page-footer { background: #1b2d5b; color: rgba(255,255,255,.6); text-align: center; padding: 28px 32px; font-size: 0.82rem; }
+.page-footer a { color: #f26522; text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .article-wrap { padding: 36px 24px 60px; }
+  .article-title { font-size: 1.75rem; }
+}
+@media (max-width: 600px) {
+  .article-wrap { padding: 28px 20px 56px; }
+  .article-title { font-size: 1.5rem; }
+  .article-content h2 { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Sound Moving NW</a>
+  <div class="nav-links">
+    <a href="index.html#how">How It Works</a>
+    <a href="index.html#services">What We Do</a>
+    <a href="index.html#pricing">Prices</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#areas">Service Areas</a>
+    <a href="index.html#story">Our Story</a>
+    <a href="articles.html" class="active">Articles</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="quote.html" class="nav-cta">Check Availability →</a>
+  </div>
+  <button class="hamburger" onclick="openNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-overlay" id="overlay" onclick="closeNav()"></div>
+<div class="mob-drawer" id="drawer">
+  <a href="index.html#how" onclick="closeNav()">How It Works</a>
+  <a href="index.html#services" onclick="closeNav()">What We Do</a>
+  <a href="index.html#pricing" onclick="closeNav()">Prices</a>
+  <a href="index.html#reviews" onclick="closeNav()">Reviews</a>
+  <a href="index.html#areas" onclick="closeNav()">Service Areas</a>
+  <a href="index.html#story" onclick="closeNav()">Our Story</a>
+  <a href="articles.html" onclick="closeNav()">Articles</a>
+  <a href="index.html#contact" onclick="closeNav()">Contact</a>
+  <a href="quote.html" onclick="closeNav()" class="mob-cta">📋 Get a Free Estimate →</a>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="article-hero">
+  <img
+    src="images/articles/family-owned.jpg"
+    alt="Why Choose a Family-Owned Moving Company?"
+    onerror="this.src='https://soundmovingnw.com/wp-content/uploads/2025/07/Gemini_Generated_Image_mt9o46mt9o46mt9o-1080x675.jpeg'"
+  >
+</div>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+  <a href="articles.html" class="back-link">← Back to Articles</a>
+  <div class="article-meta">Jul 3, 2025</div>
+  <h1 class="article-title">Why Choose a Family-Owned Moving Company?</h1>
+  <div class="article-author">By Benjamin Jablonsky &nbsp;·&nbsp; Sound Moving NW</div>
+
+  <div class="article-content">
+    <p>Moving is one of life's most significant transitions. It's a time filled with excitement for new beginnings, but often also stress and a lengthy to-do list. When you're entrusting your entire life—from cherished family heirlooms to everyday essentials—to a moving company, how do you find a team you can truly rely on? In a market flooded with options, the choice of mover can make all the difference between a nightmare relocation and a smooth, stress-free transition.</p>
+
+    <p>At Sound Moving NW, we believe the answer lies in the unique advantages that only a family-owned moving company can offer. Unlike larger, impersonal corporations, a family-run business provides a level of personal touch, accountability, and reliability that sets us apart.</p>
+
+    <h2>The Distinct Advantages of a Family-Owned Moving Company</h2>
+
+    <p>Choosing a family-owned mover isn't just about supporting a local business; it's about investing in a service that's built on a foundation of personal values and a commitment to genuine care.</p>
+
+    <h3>Personalized Care and Attention: You're Family, Not Just a Number</h3>
+
+    <p>When you choose a family-owned moving company, you're not just another job on a corporate schedule. The owners are directly involved in the day-to-day operations, meaning your move receives tailored solutions, not a rigid, one-size-fits-all approach. There's a deeper understanding and empathy for the emotional aspect of moving, recognizing that these aren't just boxes, but your memories and future.</p>
+
+    <p>At Sound Moving NW, our commitment to personalized service runs deep. Our father started our family moving business in Seattle back in 1979, teaching us from day one to always put the customer first. This legacy ensures that we treat every move as if it were our own, guaranteeing you a truly personal and attentive experience.</p>
+
+    <h3>Unmatched Accountability and Reputation</h3>
+
+    <p>A family's name and legacy are on the line with every single job. This creates a powerful incentive to maintain an impeccable reputation within the community. When you're dealing with a family, there's a higher level of accountability and a more direct path to resolving any concerns, without the hassle of corporate red tape or anonymous call centers.</p>
+
+    <p>Sound Moving NW prides itself on professionalism and integrity. We are fully licensed and insured, and our consistent positive customer feedback is a testament to our dedication. You'll find reviews praising our "no shady business" approach and highlighting our "kind and respectful staff." For us, our reputation is our most valuable asset, and we work tirelessly to earn and maintain your trust.</p>
+
+    <h3>Experienced Team and Consistent Quality</h3>
+
+    <p>Many family-owned moving companies boast multi-generational experience, passing down invaluable knowledge and best practices. This often translates to lower employee turnover and a team of more skilled, reliable crews. We are committed to ongoing training, ensuring our movers are experts in handling everything from everyday items to oversized furniture and delicate valuables with the utmost care.</p>
+
+    <p>Our experienced packers and movers at Sound Moving NW pay meticulous attention to detail. We pad and shrink-wrap everything—and we mean everything—to ensure your belongings are thoroughly protected for transit. Our comprehensive service offerings, from careful packing to precise furniture assembly, are all delivered with consistent, high-quality standards.</p>
+
+    <h3>Deep Community Roots and Local Expertise</h3>
+
+    <p>When you hire a family-owned business, you're supporting your local community directly. Your investment stays local, supporting jobs and families right here where you live. Beyond that, a local company like Sound Moving NW has an intimate familiarity with local regulations, traffic patterns, and the unique logistical challenges of moving within the Pacific Northwest.</p>
+
+    <p>Based out of Marysville, WA, with roots tracing back to Seattle since 1979, Sound Moving NW has a deep understanding of the region. This local expertise allows us to navigate your move efficiently and effectively, ensuring a seamless process no matter where you're relocating within Washington State.</p>
+
+    <h3>Flexibility and Adaptability</h3>
+
+    <p>Large national chains often operate under rigid policies. Family-owned movers, however, are typically more agile and flexible, able to respond quickly to unique requests or last-minute changes. Whether you need specialized handling for an antique piano, a comprehensive cleaning service before you move out, or assistance with junk removal, a family business is often better equipped to customize services to fit your specific needs.</p>
+
+    <p>At Sound Moving NW, we pride ourselves on our wide range of services and our willingness to go "above and beyond to accommodate any and all of your moving needs." Your unique situation is our priority, and we'll work with you to make it happen.</p>
+
+    <h2>Sound Moving NW: Your Trusted Family Partner in Moving</h2>
+
+    <p>At Sound Moving NW, we embody each of these family-owned advantages. We offer a full spectrum of moving solutions, including residential and commercial moves, expert packing services, thorough cleaning, efficient junk removal, and specialized transport for oversized furniture. Our mission is to make your moving experience stress-free, positive, and even enjoyable.</p>
+
+    <h2>Make Your Next Move a Family Affair (In the Best Way)</h2>
+
+    <p>Choosing a family-owned moving company means opting for genuine care, unwavering accountability, and unparalleled local expertise. Don't settle for just any mover. Experience the difference that a dedicated, family-run business can make.</p>
+
+  </div>
+</div>
+
+<div class="page-footer">
+  &copy; 2026 Sound Moving NW &nbsp;·&nbsp; DOT: 4501511 &nbsp;·&nbsp; UTC: HG069611 &nbsp;·&nbsp;
+  <a href="index.html">Back to Home</a>
+</div>
+
+<script>
+function openNav() { document.getElementById('drawer').classList.add('open'); document.getElementById('overlay').style.display = 'block'; }
+function closeNav() { document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').style.display = 'none'; }
+</script>
+</body>
+</html>
