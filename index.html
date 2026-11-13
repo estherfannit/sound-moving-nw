@@ -844,6 +844,11 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 .footer-socials a:hover { background: #fff; color: #1b2d5b; }
 .footer-socials svg { width: 20px; height: 20px; fill: currentColor; }
 .our-work-wrap { scroll-margin-top: 90px; }
+.hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
+.hero-inner .hero-left { flex: 1 1 520px; }
+.hero-logo { flex: 0 0 auto; }
+.hero-logo img { width: 220px; height: auto; border-radius: 14px; }
+@media (max-width: 719px) { .hero-logo img { width: 150px; } }
 .hero { background: #1b2d5b; position: relative; min-height: 0; }
 .hero h1, .hero-badge { color: #fff; }
 .hero-badge { background: rgba(242,101,34,.15); border: 1px solid rgba(242,101,34,.5); color: #ffb088; }
@@ -873,7 +878,7 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 <!-- NAV -->
 <header class="sm-header">
   <div class="sm-bar">
-    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="44" height="44"><span>Sound Moving Northwest</span></a>
+    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="44" height="44"></a>
     <div class="sm-right">
       <a class="sm-btn sm-btn-primary sm-btn-sm" href="quote.html">Check Availability</a>
       <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
@@ -904,6 +909,7 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 
 <!-- HERO -->
 <section class="hero" id="top">
+  <div class="hero-inner">
   <div class="hero-left hero-clean">
     <div class="hero-badge">Marysville, WA · Snohomish County &amp; Seattle</div>
     <h1>Local Movers You Can Actually Afford.</h1>
@@ -918,7 +924,20 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
       <a href="javascript:void(0)" onclick="openLiModal()">Licensed &amp; insured</a>
     </div>
   </div>
+  <div class="hero-logo"><img src="images/logo.png" alt="Sound Moving Northwest logo" width="651" height="718"></div>
+  </div>
 </section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-track" id="trustTrack">
+    <a href="javascript:void(0)" onclick="openReviewsModal()" class="trust-item"><span class="trust-text">Reviews</span></a>
+    <a href="javascript:void(0)" onclick="openAreasModal()" class="trust-item"><span class="trust-text">Service Areas</span></a>
+    <a href="javascript:void(0)" onclick="openLiModal()" class="trust-item"><span class="trust-text">Licensed &amp; Insured</span></a>
+    <a href="javascript:void(0)" onclick="openRatesModal()" class="trust-item"><span class="trust-text">Rates from $150/hr</span></a>
+    <a href="javascript:void(0)" onclick="openWwdModal()" class="trust-item"><span class="trust-text">What We Do</span></a>
+  </div>
+</div>
 
 <!-- RATES MODAL -->
 <div class="rates-overlay" id="ratesOverlay" onclick="if(event.target===this)closeRatesModal()">
