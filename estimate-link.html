@@ -81,15 +81,37 @@
     .card { padding: 24px; }
   }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="images/logo.png" alt="Sound Moving Northwest" onerror="this.style.display='none'">
-  </a>
-  <a href="index.html" class="nav-back">← Back to Home</a>
-</nav>
+<header class="sm-header">
+  <div class="sm-bar">
+    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="44" height="44"><span>Sound Moving Northwest</span></a>
+    <div class="sm-right">
+      <a class="sm-btn sm-btn-primary sm-btn-sm" href="quote.html">Check Availability</a>
+      <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
+    </div>
+    <nav class="sm-panel" id="smPanel" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#our-work">Our Work</a>
+      <div class="sm-dd">
+        <button type="button" class="sm-dd-btn" aria-expanded="false">Services</button>
+        <ul class="sm-dd-menu"><li><a href="residential-moving.html">Residential Moving</a></li><li><a href="packing.html">Packing</a></li><li><a href="loading-unloading.html">Loading &amp; Unloading</a></li></ul>
+      </div>
+      <div class="sm-dd">
+        <button type="button" class="sm-dd-btn" aria-expanded="false">Locations</button>
+        <ul class="sm-dd-menu"><li><a href="marysville.html">Marysville</a></li><li><a href="everett.html">Everett</a></li><li><a href="lynnwood.html">Lynnwood</a></li><li><a href="north-seattle.html">North Seattle</a></li></ul>
+      </div>
+      <a href="articles.html">Tips &amp; Tricks</a>
+      <a href="index.html#story">Our Story</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#documents">Documents</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="sm-btn sm-btn-primary sm-btn-sm sm-cta-desktop" href="quote.html">Check Availability</a>
+    </nav>
+  </div>
+</header>
 
 <div class="page-header">
   <div class="label">Sound Moving Northwest</div>
@@ -265,5 +287,6 @@
     }
   }
 </script>
+<script src="site.js"></script>
 </body>
 </html>
