@@ -105,27 +105,38 @@ nav {
   .articles-wrap { padding: 32px 20px 56px; }
 }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css">
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">Sound Moving NW</a>
-  <div class="nav-links">
-    <a href="index.html#services">How It Works</a>
-    <a href="index.html#services">What We Do</a>
-    <a href="index.html#pricing">Prices</a>
-    <a href="index.html#reviews">Reviews</a>
-    <a href="index.html#areas">Service Areas</a>
-    <a href="index.html#story">Our Story</a>
-    <a href="articles.html" class="active">Articles</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="quote.html" class="nav-cta">Check Availability →</a>
+<header class="sm-header">
+  <div class="sm-bar">
+    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="44" height="44"><span>Sound Moving Northwest</span></a>
+    <div class="sm-right">
+      <a class="sm-btn sm-btn-primary sm-btn-sm" href="quote.html">Check Availability</a>
+      <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
+    </div>
+    <nav class="sm-panel" id="smPanel" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#our-work">Our Work</a>
+      <div class="sm-dd">
+        <button type="button" class="sm-dd-btn" aria-expanded="false">Services</button>
+        <ul class="sm-dd-menu"><li><a href="residential-moving.html">Residential Moving</a></li><li><a href="packing.html">Packing</a></li><li><a href="loading-unloading.html">Loading &amp; Unloading</a></li></ul>
+      </div>
+      <div class="sm-dd">
+        <button type="button" class="sm-dd-btn" aria-expanded="false">Locations</button>
+        <ul class="sm-dd-menu"><li><a href="marysville.html">Marysville</a></li><li><a href="everett.html">Everett</a></li><li><a href="lynnwood.html">Lynnwood</a></li><li><a href="north-seattle.html">North Seattle</a></li></ul>
+      </div>
+      <a href="articles.html">Tips &amp; Tricks</a>
+      <a href="index.html#story">Our Story</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#documents">Documents</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="sm-btn sm-btn-primary sm-btn-sm sm-cta-desktop" href="quote.html">Check Availability</a>
+    </nav>
   </div>
-  <button class="hamburger" onclick="openNav()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+</header>
 
 <div class="mob-overlay" id="overlay" onclick="closeNav()"></div>
 <div class="mob-drawer" id="drawer">
@@ -153,12 +164,7 @@ nav {
 
     <a href="article-family-owned.html" class="article-card">
       <div class="article-banner banner-1">
-        <img
-          src="images/articles/family-owned.jpg"
-          alt="Why Choose a Family-Owned Moving Company?"
-          onerror="this.src='https://soundmovingnw.com/wp-content/uploads/2025/07/Gemini_Generated_Image_mt9o46mt9o46mt9o-1080x675.jpeg'"
-        >
-      </div>
+        </div>
       <div class="article-card-body">
         <div class="article-card-meta">Jul 3, 2025</div>
         <div class="article-card-title">Why Choose a Family-Owned Moving Company?</div>
@@ -170,12 +176,7 @@ nav {
 
     <a href="article-lower-costs.html" class="article-card">
       <div class="article-banner banner-2">
-        <img
-          src="images/articles/lower-costs.jpg"
-          alt="Lower Your Moving Costs"
-          onerror="this.src='https://soundmovingnw.com/wp-content/uploads/2025/04/Depositphotos_808782010_XL-1080x675.jpg'"
-        >
-      </div>
+        </div>
       <div class="article-card-body">
         <div class="article-card-meta">Apr 28, 2025</div>
         <div class="article-card-title">Lower Your Moving Costs</div>
@@ -262,5 +263,6 @@ nav {
 function openNav() { document.getElementById('drawer').classList.add('open'); document.getElementById('overlay').style.display = 'block'; }
 function closeNav() { document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').style.display = 'none'; }
 </script>
+<script src="site.js"></script>
 </body>
 </html>
