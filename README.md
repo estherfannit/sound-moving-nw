@@ -1,24 +1,23 @@
-# Sound Moving NW · Website Design Options
+# Sound Moving NW website
 
-React (Vite) app that shows the five design options (A–E), each with nine pages.
-
-## Run locally
-
-    npm install
-    npm run dev        # http://localhost:5173
-    npm run build      # outputs dist/
-
-## Content
-
-- `design/source/*.dc.html`: the original design files for each option.
-- `src/content/options.json`: the content the app renders, generated from the design files.
-- `scripts/export-content.cjs`: regenerates `src/content/options.json`. Run `npm run export-content` after changing the design files.
-- `public/assets/`: photos and the logo, served at `/assets/...`.
+A static copy of the live site (https://hhwebsite.siteforge365.workers.dev/). Plain HTML, CSS and JavaScript, with no build step.
 
 ## Structure
 
-- `/`: overview of the five options.
-- `/option/:letter`: an option's landing page with its nine pages.
-- `/option/:letter/:slug`: one page, for example `/option/a/home` or `/option/c/services-residential-moving`.
+- `index.html`: homepage (all sections are on this page; anchors such as `#services` jump within it).
+- `quote.html`: online planner (the estimate form).
+- `check-availability.html`, `estimate-link.html`, `bill-of-lading.html`, `terms-and-conditions.html`: linked pages.
+- `articles.html` and `article-*.html`: Tips & Tricks articles.
+- `images/`, `forms/`, `docs/`: photos, PDFs and licence images used by the pages.
+- `three.min.js`: Three.js, loaded by the homepage hero on larger screens.
 
-The bottom switcher keeps the reviewer on the same page when switching options.
+## Running locally
+
+    python3 -m http.server 8000
+
+Then open http://localhost:8000/
+
+## Notes
+
+- Forms post to third-party services (web3forms, imgbb). Submissions go to the accounts those services are set up for.
+- `images/articles/family-owned.jpg` and `images/articles/lower-costs.jpg` are missing on the live site too, so those articles show broken images.

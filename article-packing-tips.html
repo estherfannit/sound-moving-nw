@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packing Tips: How to Pack Like a Pro Before Moving Day — Sound Moving NW</title>
+<meta name="description" content="Practical packing tips from the Sound Moving NW crew. Learn how to pack smarter, protect your belongings, and make moving day go as smoothly as possible.">
+<link rel="icon" type="image/webp" href="images/favicon.webp">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: #f4f7fc; color: #1b2d5b; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #1b2d5b; height: 68px; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 2px 16px rgba(0,0,0,.18);
+}
+.nav-logo { color: white; font-weight: 800; font-size: 1.05rem; text-decoration: none; font-family: 'Playfair Display', serif; letter-spacing: .02em; }
+.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: white; }
+.nav-cta { background: #f26522; color: white !important; font-weight: 700 !important; padding: 9px 20px; border-radius: 8px; font-size: 0.82rem !important; transition: background .2s !important; }
+.nav-cta:hover { background: #d4551a !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: white; border-radius: 2px; }
+
+.mob-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 98; }
+.mob-drawer { position: fixed; top: 0; right: -100%; width: 280px; height: 100%; background: #1b2d5b; z-index: 99; transition: right .3s; padding: 80px 0 32px; }
+.mob-drawer.open { right: 0; }
+.mob-drawer a { display: block; color: rgba(255,255,255,.8); text-decoration: none; padding: 14px 32px; font-size: 0.9rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,.08); }
+.mob-drawer a:hover { color: white; }
+.mob-cta { background: #f26522 !important; color: white !important; margin: 24px 32px !important; border-radius: 8px; text-align: center; border: none !important; }
+
+.article-hero {
+  width: 100%; max-height: 420px; overflow: hidden;
+  background: linear-gradient(135deg, #3a2a1a 0%, #8a5a2a 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.article-hero img { width: 100%; max-height: 420px; object-fit: cover; display: block; }
+
+.article-wrap { max-width: 780px; margin: 0 auto; padding: 48px 32px 80px; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: #f26522; font-size: 0.82rem; font-weight: 600; text-decoration: none; margin-bottom: 32px; }
+.back-link:hover { text-decoration: underline; }
+.article-meta { font-size: 0.75rem; color: #f26522; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; }
+.article-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; line-height: 1.2; color: #1b2d5b; margin-bottom: 8px; }
+.article-author { font-size: 0.82rem; color: #8a99bb; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid #dde3f0; }
+
+.article-content { line-height: 1.8; color: #2a3a5c; font-size: 1rem; }
+.article-content p { margin-bottom: 1.4em; }
+.article-content h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: #1b2d5b; margin: 2em 0 .7em; line-height: 1.3; }
+.article-content h3 { font-size: 1.1rem; font-weight: 700; color: #1b2d5b; margin: 1.6em 0 .5em; }
+.article-content ul, .article-content ol { padding-left: 1.6em; margin-bottom: 1.4em; }
+.article-content li { margin-bottom: .6em; }
+.article-content strong { color: #1b2d5b; }
+.article-content a { color: #f26522; text-decoration: underline; }
+.article-content a:hover { color: #d4551a; }
+.article-content .highlight-box {
+  background: #eef2ff; border-left: 4px solid #f26522; padding: 20px 24px; border-radius: 0 10px 10px 0; margin: 2em 0;
+}
+
+.page-footer { background: #1b2d5b; color: rgba(255,255,255,.6); text-align: center; padding: 28px 32px; font-size: 0.82rem; }
+.page-footer a { color: #f26522; text-decoration: none; }
+
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .article-wrap { padding: 36px 24px 60px; }
+  .article-title { font-size: 1.75rem; }
+}
+@media (max-width: 600px) {
+  .article-wrap { padding: 28px 20px 56px; }
+  .article-title { font-size: 1.5rem; }
+  .article-content h2 { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Sound Moving NW</a>
+  <div class="nav-links">
+    <a href="index.html#how">How It Works</a>
+    <a href="index.html#services">What We Do</a>
+    <a href="index.html#pricing">Prices</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#areas">Service Areas</a>
+    <a href="index.html#story">Our Story</a>
+    <a href="articles.html" class="active">Articles</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="quote.html" class="nav-cta">Check Availability →</a>
+  </div>
+  <button class="hamburger" onclick="openNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-overlay" id="overlay" onclick="closeNav()"></div>
+<div class="mob-drawer" id="drawer">
+  <a href="index.html#how" onclick="closeNav()">How It Works</a>
+  <a href="index.html#services" onclick="closeNav()">What We Do</a>
+  <a href="index.html#pricing" onclick="closeNav()">Prices</a>
+  <a href="index.html#reviews" onclick="closeNav()">Reviews</a>
+  <a href="index.html#areas" onclick="closeNav()">Service Areas</a>
+  <a href="index.html#story" onclick="closeNav()">Our Story</a>
+  <a href="articles.html" onclick="closeNav()">Articles</a>
+  <a href="index.html#contact" onclick="closeNav()">Contact</a>
+  <a href="quote.html" onclick="closeNav()" class="mob-cta">📋 Get a Free Estimate →</a>
+</div>
+
+<div class="article-hero">
+  <img src="images/articles/packing-tips.jpg" alt="Moving boxes stacked against a wall">
+</div>
+
+<div class="article-wrap">
+  <a href="articles.html" class="back-link">← Back to Articles</a>
+  <div class="article-meta">Aug 19, 2026</div>
+  <h1 class="article-title">Packing Tips: How to Pack Like a Pro Before Moving Day</h1>
+  <div class="article-author">By Benjamin Jablonsky &nbsp;·&nbsp; Sound Moving NW</div>
+
+  <div class="article-content">
+    <p>Packing is the most time-consuming part of any move — and it's also where most of the damage happens when it's done wrong. After years of loading and unloading thousands of homes across Snohomish County and the greater Seattle area, our crew has seen it all. These are the tips we give our own clients before every move.</p>
+
+    <div class="highlight-box">
+      <strong>Pro tip from our crew:</strong> Start packing earlier than you think you need to. Most people underestimate how long it takes by at least 50%. If you think it'll take two days, plan for three.
+    </div>
+
+    <h2>Before You Start Packing</h2>
+
+    <h3>Declutter First — Don't Move What You Don't Need</h3>
+    <p>Every box you pack costs you time, money, and energy to move. Before you tape a single box, go room by room and decide what you actually want in your new place. Donate, sell, or throw away anything you haven't used in the past year. Moving is the best excuse you'll ever have to start fresh.</p>
+
+    <h3>Gather Supplies Before You Begin</h3>
+    <p>Running out of boxes or tape mid-pack kills momentum. Stock up before you start:</p>
+    <ul>
+      <li>Small, medium, and large boxes (small for heavy items, large for light ones)</li>
+      <li>Packing tape and a tape gun</li>
+      <li>Bubble wrap and packing paper</li>
+      <li>Markers and labels</li>
+      <li>Mattress bags and wardrobe boxes for clothing</li>
+      <li>Stretch wrap for furniture and drawers</li>
+    </ul>
+
+    <h2>How to Pack Each Room</h2>
+
+    <h3>Pack One Room at a Time</h3>
+    <p>This seems obvious, but most people bounce between rooms and end up with half-packed boxes everywhere. Finish one room completely before moving to the next. Label every box with the room it belongs to and a brief description of contents — you'll thank yourself on the other end.</p>
+
+    <h3>Heavy Items in Small Boxes</h3>
+    <p>Books, tools, dishes, and other dense items go in <strong>small boxes only</strong>. A large box full of books is nearly impossible to lift safely and is a common cause of box failure. Keep heavy boxes under 40 lbs whenever possible.</p>
+
+    <h3>Fill Every Box Completely</h3>
+    <p>Partially filled boxes collapse when stacked, which damages whatever is inside. If a box isn't full, use crumpled packing paper or towels to fill the empty space. A firm, full box protects better and stacks safer in the truck.</p>
+
+    <h3>Wrap Fragile Items Individually</h3>
+    <p>Each fragile item — plates, glasses, picture frames, ceramics — should be wrapped individually in packing paper before going into the box. Place the heaviest items on the bottom and lighter, more fragile items on top. Add a generous layer of packing paper on top before sealing.</p>
+
+    <h3>Don't Empty Your Dresser Drawers</h3>
+    <p>For dressers with clothing inside, you can often leave the drawers as-is and simply wrap the entire dresser in stretch wrap. This saves boxes and time. Ask your crew if this works for your particular dresser — some are too heavy to move with drawers full.</p>
+
+    <h3>Use Your Linens and Towels as Padding</h3>
+    <p>Wrap breakables in towels, blankets, and soft clothing. This protects your items and saves on packing paper. Everything serves double duty.</p>
+
+    <h2>Labeling and Organization</h2>
+
+    <h3>Label Every Box on the Sides, Not Just the Top</h3>
+    <p>When boxes are stacked, you can't see the top label. Write the room name and a short description on the side of every box in large letters with a dark marker. Color coding by room makes unloading dramatically faster.</p>
+
+    <h3>Create a "First Night" Box</h3>
+    <p>Pack one box — or a bag — with everything you'll need your first night in the new place: phone charger, toiletries, a change of clothes, medications, coffee supplies, paper towels, and anything else you'd reach for immediately. Keep this box with you, not in the truck.</p>
+
+    <h3>Photograph Electronics Before Unplugging</h3>
+    <p>Before you disconnect your TV, gaming setup, or home office equipment, take a photo of all the cable connections. You'll save yourself an hour of frustration when it's time to set everything back up.</p>
+
+    <h2>What to Leave for the Movers</h2>
+    <p>If you're using our packing service, we'll handle the wrap, pad, and protection of all your furniture and large items. You don't need to worry about your couch, mattress, or appliances — that's what we're there for. Focus your packing energy on your personal items, clothing, and anything fragile or sentimental.</p>
+
+    <p>If you'd like us to handle your packing entirely, <a href="quote.html">get a free estimate</a> and let us know you're interested in full packing services. It's one of the best add-ons we offer — our clients who use it consistently say it made moving day feel effortless.</p>
+
+  </div>
+</div>
+
+<div class="page-footer">
+  &copy; 2026 Sound Moving NW &nbsp;·&nbsp; UTC: HG069611 &nbsp;·&nbsp;
+  <a href="index.html">Back to Home</a>
+</div>
+
+<script>
+function openNav() { document.getElementById('drawer').classList.add('open'); document.getElementById('overlay').style.display = 'block'; }
+function closeNav() { document.getElementById('drawer').classList.remove('open'); document.getElementById('overlay').style.display = 'none'; }
+</script>
+</body>
+</html>

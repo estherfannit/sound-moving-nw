@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Availability — Sound Moving NW</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f7f9fc; color: #2d3748; line-height: 1.7; }
+
+  nav { background: #1b2d5b; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+  .nav-logo img { height: 40px; display: block; }
+  .nav-back { color: rgba(255,255,255,.8); text-decoration: none; font-size: 0.87rem; font-weight: 500; border: 1px solid rgba(255,255,255,.3); padding: 7px 16px; border-radius: 6px; transition: all .2s; }
+  .nav-back:hover { background: rgba(255,255,255,.1); color: white; }
+
+  .page-header { background: linear-gradient(135deg, #1b2d5b 0%, #243a73 100%); color: white; padding: 52px 40px 44px; text-align: center; }
+  .page-header .label { color: #f26522; font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+  .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 10px; }
+  .page-header p { color: rgba(255,255,255,.7); font-size: 0.92rem; }
+
+  .content { max-width: 680px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .card { background: white; border-radius: 14px; padding: 36px; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+  .section-title { font-size: 0.7rem; font-weight: 800; color: #f26522; text-transform: uppercase; letter-spacing: .14em; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 2px solid #f26522; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+  .form-group:last-child { margin-bottom: 0; }
+  label { font-size: 0.85rem; font-weight: 600; color: #1b2d5b; }
+  label span.req { color: #f26522; }
+  .sub-label { font-size: 0.75rem; color: #999; margin-top: 2px; }
+
+  input[type="text"], input[type="email"], input[type="date"], input[type="tel"] {
+    border: 1.5px solid #dde3f0; border-radius: 8px; padding: 11px 14px;
+    font-size: 0.95rem; font-family: inherit; color: #1b2d5b; transition: border-color .2s;
+    background: #fafbff; width: 100%;
+  }
+  input:focus { outline: none; border-color: #f26522; background: white; }
+
+  .radio-group { display: flex; gap: 20px; align-items: center; margin-top: 4px; }
+  .radio-group label { font-size: 0.95rem; font-weight: 500; color: #2d3748; display: flex; align-items: center; gap: 7px; cursor: pointer; }
+  .radio-group input[type="radio"] { width: 17px; height: 17px; accent-color: #f26522; cursor: pointer; }
+
+  .submit-btn { width: 100%; padding: 15px; background: #f26522; color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 800; font-family: inherit; cursor: pointer; transition: background .2s, transform .15s; text-transform: uppercase; letter-spacing: .08em; margin-top: 8px; }
+  .submit-btn:hover { background: #d4551a; transform: translateY(-1px); }
+  .submit-btn:disabled { background: #cbd5e1; cursor: not-allowed; transform: none; }
+
+  .thank-you { display: none; text-align: center; padding: 48px 32px; }
+  .thank-you .ty-icon { font-size: 3rem; margin-bottom: 16px; }
+  .thank-you h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #1b2d5b; margin-bottom: 10px; }
+  .thank-you p { color: #718096; font-size: 0.95rem; }
+
+  footer { background: #1b2d5b; color: rgba(255,255,255,.5); text-align: center; padding: 24px; font-size: 0.82rem; }
+  footer a { color: #f26522; text-decoration: none; }
+
+  @media (max-width: 520px) {
+    .form-row { grid-template-columns: 1fr; }
+    .page-header { padding: 36px 20px 30px; }
+    .page-header h1 { font-size: 1.6rem; }
+    .card { padding: 24px; }
+    nav { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="Sound Moving Northwest" onerror="this.style.display='none'">
+  </a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-header">
+  <div class="label">Sound Moving Northwest</div>
+  <h1>Check Availability</h1>
+  <p>Fill out the form below and we'll confirm your date as soon as possible.</p>
+</div>
+
+<div class="content">
+  <div class="card" id="availForm">
+    <div class="section-title">Your Information</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstName">Full Name <span class="req">*</span></label>
+        <input type="text" id="firstName" placeholder="First name" required>
+        <span class="sub-label">First Name</span>
+      </div>
+      <div class="form-group">
+        <label for="lastName">&nbsp;</label>
+        <input type="text" id="lastName" placeholder="Last name" required>
+        <span class="sub-label">Last Name</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="serviceDate">Date of Service <span class="req">*</span></label>
+        <input type="date" id="serviceDate" required>
+      </div>
+      <div class="form-group">
+        <label>I'm Flexible <span class="req">*</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="flexible" value="Yes"> Yes</label>
+          <label><input type="radio" name="flexible" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone">Phone Number <span class="req">*</span></label>
+        <input type="tel" id="phone" placeholder="(___) ___-____" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address <span class="req">*</span></label>
+        <input type="email" id="email" placeholder="email@example.com" required>
+      </div>
+    </div>
+
+    <button type="button" class="submit-btn" id="submitBtn" onclick="submitForm()">Next →</button>
+
+    <div class="thank-you" id="thankYou">
+      <div class="ty-icon">✅</div>
+      <h2>Request Received!</h2>
+      <p>Thank you! We'll reach out shortly to confirm your availability.<br>Questions? Call us at <a href="tel:4255406440">(425) 540-6440</a>.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Sound Moving Northwest · <a href="tel:4255406440">(425) 540-6440</a> · <a href="mailto:soundmovingnw@gmail.com">soundmovingnw@gmail.com</a>
+</footer>
+
+<script>
+  async function submitForm() {
+    const firstName   = document.getElementById('firstName').value.trim();
+    const lastName    = document.getElementById('lastName').value.trim();
+    const serviceDate = document.getElementById('serviceDate').value;
+    const phone       = document.getElementById('phone').value.trim();
+    const email       = document.getElementById('email').value.trim();
+    const flexible    = document.querySelector('input[name="flexible"]:checked')?.value;
+
+    if (!firstName || !lastName) { alert('Please enter your full name.'); return; }
+    if (!serviceDate)            { alert('Please enter your date of service.'); return; }
+    if (!flexible)               { alert('Please select if your date is flexible.'); return; }
+    if (!phone)                  { alert('Please enter your phone number.'); return; }
+    if (!email)                  { alert('Please enter your email address.'); return; }
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+
+    const name    = firstName + ' ' + lastName;
+    const message = [
+      `Date of Service: ${serviceDate}`,
+      `Date Flexible:   ${flexible}`,
+      `Phone:           ${phone}`,
+    ].join('\n');
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'cf4c552f-1dbd-420d-84c9-0454923f8488',
+          subject: 'Availability Request — ' + name,
+          name,
+          email,
+          message,
+        })
+      });
+      [...document.getElementById('availForm').children].forEach(el => {
+        if (el.id !== 'thankYou') el.style.display = 'none';
+      });
+      document.getElementById('thankYou').style.display = 'block';
+    } catch {
+      btn.textContent = 'Next →'; btn.disabled = false;
+      alert('Something went wrong. Please call us at (425) 540-6440.');
+    }
+  }
+</script>
+</body>
+</html>

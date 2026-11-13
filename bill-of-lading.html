@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bill of Lading — Sound Moving NW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/4.1.7/signature_pad.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f7f9fc; color: #2d3748; line-height: 1.7; }
+
+  nav { background: #1b2d5b; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+  .nav-logo { color: white; font-weight: 800; font-size: 1rem; text-decoration: none; }
+  .nav-back { color: rgba(255,255,255,.8); text-decoration: none; font-size: 0.87rem; font-weight: 500; border: 1px solid rgba(255,255,255,.3); padding: 7px 16px; border-radius: 6px; transition: all .2s; }
+  .nav-back:hover { background: rgba(255,255,255,.1); color: white; }
+
+  .page-header { background: #1b2d5b; color: white; padding: 48px 40px 40px; text-align: center; }
+  .page-header .label { color: #f26522; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .page-header h1 { font-size: 2rem; font-weight: 800; }
+  .page-header p { color: rgba(255,255,255,.7); margin-top: 10px; font-size: 0.95rem; }
+
+  .content { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  .section { background: white; border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+  .section h2 { font-size: 1rem; font-weight: 700; color: #f26522; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; border-bottom: 2px solid #f26522; padding-bottom: 10px; }
+  .section > p { color: #4a5568; font-size: 0.95rem; margin-bottom: 12px; }
+  .section > p:last-child { margin-bottom: 0; }
+  .section strong { color: #1b2d5b; }
+  .section a { color: #f26522; font-weight: 600; text-decoration: none; }
+  .section a:hover { text-decoration: underline; }
+
+  /* CLAUSE BLOCKS */
+  .clause { border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; background: #f9fafc; }
+  .clause:last-child { margin-bottom: 0; }
+  .clause-num { font-size: 0.72rem; font-weight: 700; color: #f26522; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .clause-title { font-size: 1rem; font-weight: 700; color: #1b2d5b; margin-bottom: 10px; }
+  .clause p { color: #4a5568; font-size: 0.93rem; margin-bottom: 8px; }
+  .clause p:last-child { margin-bottom: 0; }
+  .clause a { color: #f26522; font-weight: 600; text-decoration: none; }
+  .clause a:hover { text-decoration: underline; }
+
+  /* DOC LINK */
+  .doc-link { display: inline-flex; align-items: center; gap: 8px; background: #f0f4f8; color: #1b2d5b !important; padding: 9px 16px; border-radius: 8px; font-weight: 600 !important; font-size: 0.88rem; margin-top: 10px; transition: background .2s; text-decoration: none !important; }
+  .doc-link:hover { background: #e2e8f0; }
+
+  /* I ACCEPT */
+  .agree-row { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 16px; background: white; border: 1.5px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: border-color .2s; }
+  .agree-row:hover { border-color: #f26522; }
+  .agree-row.checked { border-color: #22c55e; background: #f0fdf4; }
+  .agree-row input[type="checkbox"] { width: 20px; height: 20px; accent-color: #22c55e; cursor: pointer; flex-shrink: 0; }
+  .agree-row label { font-weight: 600; color: #1b2d5b; font-size: 0.9rem; cursor: pointer; user-select: none; }
+  .agree-row.checked label { color: #16a34a; }
+
+  /* RADIO OPTIONS (single-select) */
+  .radio-note { font-size: 0.82rem; color: #6b7a99; font-style: italic; margin-bottom: 14px; }
+  .radio-option { border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; cursor: pointer; transition: all .2s; background: #f9fafc; }
+  .radio-option:last-child { margin-bottom: 0; }
+  .radio-option:hover { border-color: #f26522; }
+  .radio-option.selected { border-color: #f26522; background: #fff8f0; }
+  .radio-option .ro-header { display: flex; align-items: flex-start; gap: 12px; }
+  .radio-option input[type="radio"] { width: 18px; height: 18px; accent-color: #f26522; cursor: pointer; flex-shrink: 0; margin-top: 2px; }
+  .radio-option .ro-label { font-weight: 700; color: #1b2d5b; font-size: 0.95rem; margin-bottom: 4px; }
+  .radio-option .ro-desc { font-size: 0.9rem; color: #4a5568; }
+  .radio-option .ro-example { font-size: 0.82rem; color: #6b7a99; font-style: italic; margin-top: 6px; }
+  .value-input-row { margin-top: 12px; display: none; }
+  .value-input-row label { font-size: 0.85rem; font-weight: 600; color: #1b2d5b; display: block; margin-bottom: 6px; }
+  .value-input-row input { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 9px 14px; font-size: 0.93rem; font-family: inherit; color: #2d3748; width: 100%; max-width: 260px; }
+  .value-input-row input:focus { outline: none; border-color: #f26522; }
+  .radio-option.selected .value-input-row { display: block; }
+
+  /* FORM */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.85rem; font-weight: 600; color: #1b2d5b; }
+  .form-group label span { color: #f26522; }
+  .form-group input, .form-group select { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 0.93rem; font-family: inherit; color: #2d3748; background: white; transition: border-color .2s; width: 100%; }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: #f26522; }
+
+  /* SIGNATURE */
+  .sig-tabs { display: flex; gap: 0; margin-bottom: 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+  .sig-tab { flex: 1; padding: 10px; text-align: center; font-size: 0.88rem; font-weight: 600; color: #6b7a99; cursor: pointer; background: white; border: none; transition: all .2s; }
+  .sig-tab.active { background: #1b2d5b; color: white; }
+  .sig-canvas-wrap { border: 1.5px solid #e2e8f0; border-radius: 8px; background: white; position: relative; }
+  .sig-canvas-wrap canvas { display: block; width: 100%; height: 160px; touch-action: none; }
+  .sig-type-input { display: none; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; font-size: 1.5rem; font-family: Georgia, serif; color: #1b2d5b; width: 100%; }
+  .sig-type-input:focus { outline: none; border-color: #f26522; }
+  .sig-clear { position: absolute; top: 8px; right: 10px; background: none; border: none; color: #9ca3af; font-size: 0.8rem; cursor: pointer; font-weight: 600; }
+  .sig-clear:hover { color: #f26522; }
+
+  /* SUBMIT */
+  .submit-btn { width: 100%; padding: 16px; background: #f26522; color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background .2s; margin-top: 8px; }
+  .submit-btn:hover { background: #d4551a; }
+  .required-note { font-size: 0.8rem; color: #9ca3af; margin-bottom: 16px; }
+  .required-note span { color: #f26522; }
+
+  .thank-you { text-align: center; padding: 40px 24px; }
+  .thank-you .check { font-size: 3rem; margin-bottom: 12px; }
+  .thank-you h3 { color: #1b2d5b; font-size: 1.4rem; margin-bottom: 8px; }
+  .thank-you p { color: #6b7a99; }
+
+  /* READ-ONLY T&C OVERLAY */
+  .tc-overlay { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(10,16,32,.65); backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 20px; }
+  .tc-overlay.open { display: flex; }
+  .tc-modal { background: #fff; border-radius: 16px; width: 100%; max-width: 780px; max-height: 90vh; display: flex; flex-direction: column; box-shadow: 0 24px 80px rgba(0,0,0,.35); animation: tcIn .22s ease; }
+  @keyframes tcIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  .tc-modal-head { display: flex; justify-content: space-between; align-items: flex-start; padding: 22px 26px 14px; border-bottom: 1px solid #e8edf5; flex-shrink: 0; }
+  .tc-modal-head h3 { color: #1b2d5b; font-size: 1.05rem; font-weight: 800; }
+  .tc-modal-head p  { color: #6b7a99; font-size: 0.78rem; margin-top: 2px; }
+  .tc-modal-close { background: #f0f4f8; border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 0.9rem; cursor: pointer; color: #4a5568; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-left: 12px; }
+  .tc-modal-close:hover { background: #e2e8f0; }
+  .tc-modal-body { overflow-y: auto; padding: 22px 26px 26px; }
+  .tc-modal-body h4 { font-size: 0.8rem; font-weight: 700; color: #f26522; text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 7px; }
+  .tc-modal-body h4:first-child { margin-top: 0; }
+  .tc-modal-body p  { font-size: 0.88rem; color: #4a5568; margin-bottom: 11px; line-height: 1.75; }
+  .tc-modal-body ul { padding-left: 20px; margin: 5px 0 11px; }
+  .tc-modal-body ul li { font-size: 0.88rem; color: #4a5568; margin-bottom: 5px; line-height: 1.65; }
+  .tc-modal-body strong { color: #1b2d5b; }
+  .tc-modal-foot { padding: 14px 26px 18px; border-top: 1px solid #e8edf5; flex-shrink: 0; }
+  .tc-close-btn { width: 100%; padding: 12px; background: #1b2d5b; color: white; border: none; border-radius: 8px; font-size: 0.93rem; font-weight: 700; font-family: inherit; cursor: pointer; }
+  .tc-close-btn:hover { background: #14224a; }
+
+  /* BOL TERMS INLINE SECTION */
+  #bolModalBody h4 { font-size: 0.82rem; font-weight: 700; color: #f26522; text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 8px; }
+  #bolModalBody h4:first-child { margin-top: 0; }
+  #bolModalBody > p { font-size: 0.9rem; color: #4a5568; margin-bottom: 12px; line-height: 1.75; }
+  #bolModalBody ul { padding-left: 20px; margin: 6px 0 12px; }
+  #bolModalBody ul li { font-size: 0.9rem; color: #4a5568; margin-bottom: 5px; }
+  #bolModalBody strong { color: #1b2d5b; }
+  .bol-section { border-top: 1px solid #e8edf5; margin-top: 20px; padding-top: 20px; }
+  .bol-section:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+  .bol-accept { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 10px 14px; background: #f9fafc; border: 1.5px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: border-color .2s; }
+  .bol-accept:hover { border-color: #f26522; }
+  .bol-accept.checked { border-color: #22c55e; background: #f0fdf4; }
+  .bol-accept input[type="checkbox"] { width: 18px; height: 18px; accent-color: #22c55e; cursor: pointer; flex-shrink: 0; }
+  .bol-accept label { font-weight: 600; color: #1b2d5b; font-size: 0.88rem; cursor: pointer; user-select: none; }
+  .bol-accept.checked label { color: #16a34a; }
+  /* modal form */
+  .bol-sig-divider { border: none; border-top: 1px solid #e8edf5; margin: 24px 0; }
+  .bol-form-intro { font-size: 0.93rem; color: #4a5568; margin-bottom: 18px; }
+  .bol-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+  .bol-form-group { display: flex; flex-direction: column; gap: 5px; }
+  .bol-form-group label { font-size: 0.82rem; font-weight: 600; color: #1b2d5b; }
+  .bol-form-group label span { color: #f26522; }
+  .bol-form-group input { border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 9px 12px; font-size: 0.9rem; font-family: inherit; color: #2d3748; background: white; transition: border-color .2s; }
+  .bol-form-group input:focus { outline: none; border-color: #f26522; }
+  .bol-sig-tabs { display: flex; border: 1.5px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 10px; }
+  .bol-sig-tab { flex: 1; padding: 9px; text-align: center; font-size: 0.85rem; font-weight: 600; color: #6b7a99; cursor: pointer; background: white; border: none; font-family: inherit; }
+  .bol-sig-tab.active { background: #1b2d5b; color: white; }
+  .bol-canvas-wrap { border: 1.5px solid #e2e8f0; border-radius: 8px; background: white; position: relative; }
+  .bol-canvas-wrap canvas { display: block; width: 100%; height: 130px; touch-action: none; }
+  .bol-sig-type { display: none; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 1.4rem; font-family: Georgia, serif; color: #1b2d5b; width: 100%; }
+  .bol-sig-type:focus { outline: none; border-color: #f26522; }
+  .bol-clear-btn { position: absolute; top: 6px; right: 8px; background: none; border: none; color: #f26522; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+  .bol-footer-note { font-size: 0.9rem; color: #2d3748; margin: 18px 0 4px; }
+  .bol-rep { font-weight: 700; color: #1b2d5b; font-size: 0.9rem; margin-bottom: 18px; }
+  .bol-modal-btns { display: flex; gap: 12px; }
+  .bol-prev-btn { padding: 12px 24px; background: #6b7a99; color: white; border: none; border-radius: 8px; font-size: 0.93rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background .2s; }
+  .bol-prev-btn:hover { background: #4a5568; }
+  .bol-submit-btn { flex: 1; padding: 12px 24px; background: #f26522; color: white; border: none; border-radius: 8px; font-size: 0.93rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: background .2s; text-transform: uppercase; letter-spacing: .5px; }
+  .bol-submit-btn:hover { background: #d4551a; }
+  .bol-thank-you { text-align: center; padding: 40px 24px; }
+  .bol-thank-you .check { font-size: 3rem; margin-bottom: 12px; }
+  .bol-thank-you h3 { color: #1b2d5b; font-size: 1.3rem; margin-bottom: 8px; }
+  .bol-thank-you p { color: #6b7a99; }
+
+  .page-footer { text-align: center; padding: 32px; background: #1b2d5b; color: rgba(255,255,255,.6); font-size: 0.85rem; }
+  .page-footer a { color: #f26522; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 16px; }
+    .page-header { padding: 32px 20px 28px; }
+    .page-header h1 { font-size: 1.5rem; }
+    .content { padding: 24px 16px 60px; }
+    .section { padding: 20px; }
+    .clause { padding: 16px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Sound Moving NW</a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-header">
+  <div class="label">Legal Document</div>
+  <h1>Bill of Lading</h1>
+  <p>Washington Utilities &amp; Transportation Commission (WUTC)</p>
+</div>
+
+<div class="content">
+
+  <!-- INTRO -->
+  <div class="section">
+    <p>This bill of lading establishes a contract between you and the household goods carrier (SMNW). It confirms instructions and authorizes the carrier to move, pack, store, and/or perform services shown. Before you sign this document it is important that you first read it carefully, and ask for an explanation of anything that is not clear or is different from any previous information received from the carrier or carrier's representatives.</p>
+    <p>The following contract terms are subject to conditions set forth by the Washington Utilities &amp; Transportation Commission.</p>
+  </div>
+
+  <!-- CONTRACT TERMS -->
+  <div class="section">
+    <h2>Contract Terms &amp; Conditions of Uniform Household Goods Bill of Lading</h2>
+
+    <div class="clause">
+      <div class="clause-num">Item 1</div>
+      <p>I have received the <strong>Uniform Household Goods Contract Terms &amp; Conditions.</strong></p>
+      <button type="button" class="doc-link" onclick="openTcOverlay()" style="cursor:pointer;border:none;">📄 Click Here To View Terms And Conditions</button>
+      <div class="agree-row" id="agree-row-1" onclick="toggleAgree(1)">
+        <input type="checkbox" id="agree1">
+        <label for="agree1">I Accept</label>
+      </div>
+    </div>
+
+    <div class="clause">
+      <div class="clause-num">Item 2</div>
+      <p>I have received the <strong>Consumer Guide to Moving in Washington State</strong> published by the WUTC.</p>
+      <a href="https://www.utc.wa.gov/sites/default/files/2021-02/Tariff%2015-C.PDF" target="_blank" class="doc-link">📄 Click Here To View The Guide</a>
+      <div class="agree-row" id="agree-row-2" onclick="toggleAgree(2)">
+        <input type="checkbox" id="agree2">
+        <label for="agree2">I Accept</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUATION -->
+  <div class="section">
+    <h2>Loss &amp; Damage Protection (Valuation)</h2>
+    <p class="radio-note">Customer must select only ONE of the following options before their move:</p>
+
+    <div class="radio-option" id="val-opt-1" onclick="selectValuation(1)">
+      <div class="ro-header">
+        <input type="radio" name="valuation" id="val1" value="basic">
+        <div>
+          <div class="ro-label">1. Basic Value Protection — No Cost</div>
+          <div class="ro-desc">I release this shipment to a value of <strong>72 cents per pound per article</strong>, at no cost to me. This means I will be paid $0.72 per pound for the net weight of the lost or damaged item, regardless of the actual value of the item.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="radio-option" id="val-opt-2" onclick="selectValuation(2)">
+      <div class="ro-header">
+        <input type="radio" name="valuation" id="val2" value="replacement_deductible">
+        <div>
+          <div class="ro-label">2. Replacement Cost Coverage — With $300 Deductible</div>
+          <div class="ro-desc">Includes a <strong>$300 deductible</strong> paid by me. This option costs <strong>$1.40 per $100.00 of declared value.</strong></div>
+          <div class="ro-example">Example: If the total value of all your items is $10,000, this option will cost you an additional $140.00 added to your final bill.</div>
+          <div class="value-input-row">
+            <label>Enter the total declared value of all your items:</label>
+            <input type="number" id="val2-amount" name="val2_declared_value" placeholder="e.g. 10000" min="0" oninput="calcFee(2)">
+            <p id="val2-fee" style="margin-top:8px;font-size:0.88rem;color:#f26522;font-weight:600;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="radio-option" id="val-opt-3" onclick="selectValuation(3)">
+      <div class="ro-header">
+        <input type="radio" name="valuation" id="val3" value="replacement_nodeductible">
+        <div>
+          <div class="ro-label">3. Replacement Cost Coverage — No Deductible</div>
+          <div class="ro-desc">Complete replacement or repair value with <strong>no deductible</strong>. This option costs <strong>$1.85 per $100.00 of declared value.</strong></div>
+          <div class="ro-example">Example: If you have $10,000 worth of items, this option will cost you an additional $185.00 added to your final bill.</div>
+          <div class="value-input-row">
+            <label>Enter the total declared value of all your items:</label>
+            <input type="number" id="val3-amount" name="val3_declared_value" placeholder="e.g. 10000" min="0" oninput="calcFee(3)">
+            <p id="val3-fee" style="margin-top:8px;font-size:0.88rem;color:#f26522;font-weight:600;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROHIBITED ITEMS -->
+  <div class="section">
+    <h2>Prohibited Items</h2>
+    <div class="clause">
+      <p>I further understand that if any prohibited items are intentionally or inadvertently included in my shipment, I waive my right to any and all claims against Sound Moving Northwest for these items if they are damaged or lost, or for the damage that they cause to any other items in my shipment.</p>
+      <div class="agree-row" id="agree-row-3" onclick="toggleAgree(3)">
+        <input type="checkbox" id="agree3">
+        <label for="agree3">I Accept</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTIMATES -->
+  <div class="section">
+    <h2>Estimates</h2>
+    <p class="radio-note">Select the type of estimate that applies to your move:</p>
+
+    <div class="radio-option" id="est-opt-1" onclick="selectEstimate(1)">
+      <div class="ro-header">
+        <input type="radio" name="estimate_type" id="est1" value="non_binding">
+        <div>
+          <div class="ro-label">1. Non-Binding Estimate</div>
+          <div class="ro-desc">I understand this shipment is moving under a <strong>non-binding estimate</strong>. If the charges shown on the bill of lading exceed the charges on the nonbinding estimate given me by the carrier, the carrier must release the shipment to me upon payment of no more than <strong>110%</strong> of the estimated charges and will extend credit for at least 30 days in which I must pay the remainder due. In no case will I be required to pay more than <strong>125%</strong> of the estimate (plus any supplemental).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="radio-option" id="est-opt-2" style="opacity:0.45;pointer-events:none;cursor:default;">
+      <div class="ro-header">
+        <input type="radio" name="estimate_type" id="est2" value="binding" disabled>
+        <div>
+          <div class="ro-label">2. Binding Estimate</div>
+          <div class="ro-desc">I understand this shipment is moving under a <strong>binding estimate</strong> and that I will be required to pay the amount shown on the estimate.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVENTORY -->
+  <div class="section">
+    <h2>Estimate &amp; Inventory Sheet</h2>
+    <div class="clause">
+      <p>I have been presented with a written estimate based on the inventory sheet I completed and that my estimate is based on the information I have provided to SMNW.</p>
+      <div class="agree-row" id="agree-row-4" onclick="toggleAgree(4)">
+        <input type="checkbox" id="agree4">
+        <label for="agree4">I Accept</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- hidden fields still needed to carry valuation/estimate choices -->
+  <input type="hidden" id="valuationChoice">
+  <input type="hidden" id="estimateChoice">
+
+</div>
+
+<!-- BOL TERMS INLINE SECTION -->
+<div class="content" style="padding-top:0;padding-bottom:80px;">
+<div class="section" id="bol-terms-section">
+  <h2>Bill of Lading – Terms &amp; Conditions</h2>
+  <p style="font-size:0.88rem;color:#6b7a99;margin-bottom:20px;">UNIFORM HOUSEHOLD GOODS CONTRACT TERMS &amp; CONDITIONS — Washington Utilities &amp; Transportation Commission</p>
+  <div id="bolModalBody">
+
+      <p>The following terms and conditions apply to all services performed by the carrier under this contract. This contract is also subject to all rules, rates, and charges in the current tariff published by, or on file with, the Washington Utilities and Transportation Commission.</p>
+
+      <!-- SECTION 1 -->
+      <div class="bol-section">
+        <h4>Section 1</h4>
+        <p><strong>(A) THE CARRIER IS LIABLE</strong> for physical loss of, or damage to, any article from external cause while being packed, unpacked, loaded, unloaded, carried, or held in Storage-in-Transit, including breakage, if the articles are packed by the carrier and/or if the breakage results from negligence of the carrier. The carrier is liable directly to the customer for loss and damage, regardless of any cargo insurance policies the carrier may have. The carrier's liability is subject to the limitations of liability described in Section 2.</p>
+        <p>Customers may include the following items in a shipment however, the carrier is not responsible for the condition or safe delivery of:</p>
+        <ul>
+          <li>Coins, currency, deeds, notes, postage stamps, letters, drafts or valuable papers of any kind.</li>
+          <li>Jewelry, precious stones, or precious metals.</li>
+          <li>Items of extraordinary value.</li>
+          <li>Items requiring temperature control.</li>
+          <li>Household pets.</li>
+          <li>Live Plants.</li>
+          <li>Perishable items.</li>
+          <li>Furniture or other items made of pressboard, particle board or similar pressed material.</li>
+        </ul>
+        <div class="bol-accept" id="bol-accept-s1a" onclick="toggleBolAccept('s1a')">
+          <input type="checkbox" id="bol-cb-s1a"><label for="bol-cb-s1a">I Accept</label>
+        </div>
+
+        <p style="margin-top:16px;"><strong>(B) THE CARRIER IS NOT LIABLE</strong> for the loss of or damage to any article from external cause while being carried or held in Storage-in-Transit, due to the following circumstances:</p>
+        <ul>
+          <li>Breakage, when items are packed by the customer or the customer's representative unless it can be proved that the breakage resulted from negligence by the mover in handling the articles.</li>
+          <li>Internal damage to electronics (radios, stereos, VHS players, CD/DVD players, televisions, computers, printers, scanners, etc.) when no visible damage to the external packaging or contents exists or if the item was packed by the customer or the customer's representative.</li>
+          <li>Loss or damage from insects, moths, vermin, mold, fungus or bacteria within the customer's belongings or that develop therein due to conditions present before the carrier picks up the customer's belongings.</li>
+          <li>Loss or damage because the item was in an obvious state of disrepair at the time of shipment, provided that the carrier noted the disrepair on the inventory.</li>
+          <li>An act, omission, or order of the customer, or loss or damage resulting from the customer's inclusion in the shipment of such articles as explosives, dangerous articles or dangerous goods.</li>
+          <li>Defective design of an article, including susceptibility to damage because of atmospheric conditions such as temperature or humidity changes.</li>
+          <li>Hostile or warlike action or use of any weapon of war (in time of peace or war), terrorism, insurrection, rebellion, revolution, civil war, usurped power, and action taken in hindering, combating, or defending against such occurrences: a) by any government or sovereign power, or by authority maintaining or using military forces; b) by military forces; or, c) by an agent of such government, power, authority or forces.</li>
+          <li>Seizure, confiscation or destruction under quarantine by order of any government or public authority.</li>
+          <li>Strikes, lockouts, labor disturbances, riots, civil commotions or the acts of any person or persons taking part in any such occurrence or disorder.</li>
+          <li>Acts of God.</li>
+        </ul>
+        <p>Carriers will not accept the following items for shipment: 1 Explosives. 2 Dangerous goods. 3 Property liable to damage carrier equipment or other property.</p>
+        <p>The customer assumes all liability for goods he/she leaves unattended before pickup by the carrier. The customer also assumes all liability for goods when the customer directs the carrier, in writing, to unload or deliver property at a location that will be unattended.</p>
+        <div class="bol-accept" id="bol-accept-s1b" onclick="toggleBolAccept('s1b')">
+          <input type="checkbox" id="bol-cb-s1b"><label for="bol-cb-s1b">I Accept</label>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="bol-section">
+        <h4>Section 2</h4>
+        <p>The carrier's maximum liability shall be determined based on the valuation option selected by the customer on the face of this contract.</p>
+        <p><strong>(A)</strong> If the customer selected Basic Value Protection, the carrier's maximum liability shall be the actual loss or damage not exceeding <strong>$0.60 per pound</strong> of weight of any lost or damaged article(s).</p>
+        <p><strong>(B)</strong> If the customer selected Replacement Cost Coverage with Deductible, the carrier's maximum liability shall be the amount of the actual loss or damage less a $300 deductible not exceeding $5.00 times the net weight of the shipment, or the lump sum declared value, whichever is greater. This option is the option that will apply if the customer fails to indicate a choice on the face of this contract and the customer will be liable for charges applying to this option.</p>
+        <p><strong>(C)</strong> If the customer selected Replacement Cost Coverage, the carrier's maximum liability shall be the amount of the actual loss or damage not exceeding $5.00 times the net weight of the shipment, or the lump sum declared value, whichever is greater. The customer is responsible for any additional insurance the customer wishes to purchase.</p>
+        <div class="bol-accept" id="bol-accept-s2" onclick="toggleBolAccept('s2')">
+          <input type="checkbox" id="bol-cb-s2"><label for="bol-cb-s2">I Accept</label>
+        </div>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="bol-section">
+        <h4>Section 3</h4>
+        <p>Unless specific arrangements have been authorized by this contract, the carrier is not required to transport the customer's goods by any particular schedule, means, or vehicle and is not liable for delays resulting from causes other than negligence of the carrier. Further, in case of unforeseen circumstances which prevent the carrier from completing delivery, the carrier has the right to forward the customer's property by another carrier.</p>
+        <div class="bol-accept" id="bol-accept-s3" onclick="toggleBolAccept('s3')">
+          <input type="checkbox" id="bol-cb-s3"><label for="bol-cb-s3">I Accept</label>
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="bol-section">
+        <h4>Section 4</h4>
+        <p>(A) The customer must pay all legal charges.<br>
+        (B) If the carrier is required to refer this contract for collection of charges due to an attorney, shipper agrees to pay reasonable attorney fees and collection costs.<br>
+        (C) If this contract is referred to a court for resolution, the losing party shall be responsible for payment of the other party's reasonable attorney fees and court costs.<br>
+        (D) The customer shall be responsible to indemnify the carrier against any loss or damage caused by inclusion in the shipment of explosives, dangerous articles, or dangerous goods.</p>
+        <div class="bol-accept" id="bol-accept-s4" onclick="toggleBolAccept('s4')">
+          <input type="checkbox" id="bol-cb-s4"><label for="bol-cb-s4">I Accept</label>
+        </div>
+      </div>
+
+      <!-- SECTION 5 -->
+      <div class="bol-section">
+        <h4>Section 5</h4>
+        <p>(A) A carrier may place a shipment into storage at the public warehouse nearest the point of destination if the carrier is unable to make a delivery because: 1) The carrier was unable to locate a customer at the address given on the bill of lading or the correct address if known by the carrier. 2) The customer refused or was unable to accept delivery. 3) The customer (for a shipment moving on a non-binding estimate) was unable or refused to pay up to 110 percent of the amount of the original estimate plus supplements, if any.</p>
+        <p>(B) The carrier's liability as a common carrier ends with delivery to the public warehouse. The shipment becomes subject to the warehouse's liability, terms, and conditions.</p>
+        <p>(C) The carrier must notify the customer by every means of contact the carrier has for the customer, including telephone, e-mail, and fax, and the carrier must mail or deliver a written notice to the destination address advising that it was unable to make delivery and advising the customer of the name, address, e-mail address, if applicable, and telephone number of the warehouse where the shipment is stored.</p>
+        <p>(D) If the customer does not receive or claim the shipment within 30 days after the carrier mailed or delivered the written notice required in Item 40(3), the shipment becomes subject to disposition by the carrier in accordance with the Washington State Uniform Commercial Code, Chapter 62A.7 RCW.</p>
+        <div class="bol-accept" id="bol-accept-s5" onclick="toggleBolAccept('s5')">
+          <input type="checkbox" id="bol-cb-s5"><label for="bol-cb-s5">I Accept</label>
+        </div>
+      </div>
+
+      <!-- SECTION 6 -->
+      <div class="bol-section">
+        <h4>Section 6</h4>
+        <p>To receive compensation for a claim for loss, damage, overcharge, injury or delay, the customer must file a written claim with the carrier within nine months after delivery. In the case of failure to make delivery, the claim must be filed within nine months after a reasonable time for delivery has elapsed. Claims must contain sufficient information to identify the property involved. A copy of the original paid transportation bill, bill of lading contract or shipping receipt must accompany the written claim.</p>
+        <div class="bol-accept" id="bol-accept-s6" onclick="toggleBolAccept('s6')">
+          <input type="checkbox" id="bol-cb-s6"><label for="bol-cb-s6">I Accept</label>
+        </div>
+      </div>
+
+      <!-- SIGNATURE FORM -->
+      <hr class="bol-sig-divider">
+      <div id="bolTermsForm">
+        <p class="bol-form-intro">I understand that my signature below signifies that I have read, understand, and accept all of the terms stated above.</p>
+        <div class="bol-form-grid">
+          <div class="bol-form-group">
+            <label for="bol-cust-name">Customer's Name (Print) <span>*</span></label>
+            <input type="text" id="bol-cust-name" placeholder="Full name" required>
+          </div>
+          <div class="bol-form-group">
+            <label for="bol-cust-email">Customer Email Address <span>*</span></label>
+            <input type="email" id="bol-cust-email" placeholder="email@example.com" required>
+          </div>
+        </div>
+        <div class="bol-form-grid">
+          <div class="bol-form-group" style="grid-column:1">
+            <label>Customer Signature <span>*</span></label>
+            <div class="bol-sig-tabs">
+              <button type="button" class="bol-sig-tab active" id="bol-tab-draw" onclick="switchBolTab('draw')">✏️ Draw</button>
+              <button type="button" class="bol-sig-tab" id="bol-tab-type" onclick="switchBolTab('type')">⌨️ Type</button>
+            </div>
+            <div class="bol-canvas-wrap" id="bolCanvasWrap">
+              <canvas id="bolSigCanvas"></canvas>
+              <button type="button" class="bol-clear-btn" onclick="clearBolSig()">Clear</button>
+            </div>
+            <input type="text" class="bol-sig-type" id="bolSigType" placeholder="Type your signature...">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="bol-form-group">
+              <label for="bol-today">Today's Date</label>
+              <input type="date" id="bol-today">
+            </div>
+            <div class="bol-form-group">
+              <label for="bol-service-date">Date Of Service</label>
+              <input type="date" id="bol-service-date">
+            </div>
+          </div>
+        </div>
+        <p class="bol-footer-note">Thank you for your business!</p>
+        <p class="bol-rep"><strong>SMNW Representative</strong> — Ben Jablonsky</p>
+        <div class="bol-modal-btns">
+          <button type="button" class="bol-prev-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to Top</button>
+          <button type="button" class="bol-submit-btn" onclick="submitBolTerms()">Submit Bill of Lading</button>
+        </div>
+      </div>
+
+      <div class="bol-thank-you" id="bolThankYou" style="display:none;">
+        <div class="check">✅</div>
+        <h3>Bill of Lading Submitted</h3>
+        <p>Your signed Bill of Lading has been received by Sound Moving NW.</p>
+      </div>
+
+  </div><!-- end #bolModalBody -->
+</div><!-- end .section#bol-terms-section -->
+</div><!-- end .content -->
+
+<!-- READ-ONLY T&C OVERLAY -->
+<div class="tc-overlay" id="tcOverlay" onclick="closeTcOverlay(event)">
+  <div class="tc-modal">
+    <div class="tc-modal-head">
+      <div>
+        <h3>Bill of Lading – Terms &amp; Conditions</h3>
+        <p>UNIFORM HOUSEHOLD GOODS CONTRACT TERMS &amp; CONDITIONS</p>
+      </div>
+      <button class="tc-modal-close" onclick="closeTcOverlay()">✕</button>
+    </div>
+    <div class="tc-modal-body">
+      <p>CONTRACT TERMS AND CONDITIONS OF UNIFORM HOUSEHOLD GOODS BILL OF LADING. The following terms and conditions apply to all services performed by the carrier under this contract. This contract is also subject to all rules, rates, and charges in the current tariff published by, or on file with, the Washington Utilities and Transportation Commission.</p>
+
+      <h4>Section 1</h4>
+      <p><strong>(A) THE CARRIER IS LIABLE</strong> for physical loss of, or damage to, any article from external cause while being packed, unpacked, loaded, unloaded, carried, or held in Storage-in-Transit, including breakage, if the articles are packed by the carrier and/or if the breakage results from negligence of the carrier. The carrier is liable directly to the customer for loss and damage, regardless of any cargo insurance policies the carrier may have. The carrier's liability is subject to the limitations of liability described in Section 2.</p>
+      <p>Customers may include the following items in a shipment however, the carrier is not responsible for the condition or safe delivery of:</p>
+      <ul>
+        <li>Coins, currency, deeds, notes, postage stamps, letters, drafts or valuable papers of any kind.</li>
+        <li>Jewelry, precious stones, or precious metals.</li>
+        <li>Items of extraordinary value.</li>
+        <li>Items requiring temperature control.</li>
+        <li>Household pets.</li>
+        <li>Live Plants.</li>
+        <li>Perishable items.</li>
+        <li>Furniture or other items made of pressboard, particle board or similar pressed material.</li>
+      </ul>
+      <p><strong>(B) THE CARRIER IS NOT LIABLE</strong> for the loss of or damage to any article from external cause while being carried or held in Storage-in-Transit, due to the following circumstances:</p>
+      <ul>
+        <li>a. Breakage, when items are packed by the customer or the customer's representative unless it can be proved that the breakage resulted from negligence by the mover in handling the articles.</li>
+        <li>b. Internal damage to electronics (radios, stereos, VHS players, CD/DVD players, televisions, computers, printers, scanners, etc.) when no visible damage to the external packaging or contents exists or if the item was packed by the customer or the customer's representative.</li>
+        <li>c. Loss or damage from insects, moths, vermin, mold, fungus or bacteria within the customer's belongings or that develop therein due to conditions present before the carrier picks up the customer's belongings.</li>
+        <li>d. Loss or damage because the item was in an obvious state of disrepair at the time of shipment, provided that the carrier noted the disrepair on the inventory.</li>
+        <li>e. An act, omission, or order of the customer, or loss or damage resulting from the customer's inclusion in the shipment of such articles as explosives, dangerous articles or dangerous goods.</li>
+        <li>f. Defective design of an article, including susceptibility to damage because of atmospheric conditions such as temperature or humidity changes.</li>
+        <li>g. Hostile or warlike action or use of any weapon of war (in time of peace or war), terrorism, insurrection, rebellion, revolution, civil war, usurped power, and action taken in hindering, combating, or defending against such occurrences: a) by any government or sovereign power, or by authority maintaining or using military forces; b) by military forces; or, c) by an agent of such government, power, authority or forces.</li>
+        <li>h. Seizure, confiscation or destruction under quarantine by order of any government or public authority.</li>
+        <li>i. Strikes, lockouts, labor disturbances, riots, civil commotions or the acts of any person or persons taking part in any such occurrence or disorder.</li>
+        <li>j. Acts of God.</li>
+      </ul>
+      <p>Carriers will not accept the following items for shipment: 1) Explosives. 2) Dangerous goods. 3) Property liable to damage carrier equipment or other property.</p>
+      <p>The customer assumes all liability for goods he/she leaves unattended before pickup by the carrier. The customer also assumes all liability for goods when the customer directs the carrier, in writing, to unload or deliver property at a location that will be unattended.</p>
+
+      <h4>Section 2</h4>
+      <p>The carrier's maximum liability shall be determined based on the valuation option selected by the customer on the face of this contract.</p>
+      <p><strong>(A)</strong> If the customer selected Basic Value Protection, the carrier's maximum liability shall be the actual loss or damage not exceeding <strong>$0.60 per pound</strong> of weight of any lost or damaged article(s).</p>
+      <p><strong>(B)</strong> If the customer selected Replacement Cost Coverage with Deductible, the carrier's maximum liability shall be the amount of the actual loss or damage less a $300 deductible not exceeding $5.00 times the net weight of the shipment, or the lump sum declared value, whichever is greater. This option is the option that will apply if the customer fails to indicate a choice on the face of this contract and the customer will be liable for charges applying to this option.</p>
+      <p><strong>(C)</strong> If the customer selected Replacement Cost Coverage, the carrier's maximum liability shall be the amount of the actual loss or damage not exceeding $5.00 times the net weight of the shipment, or the lump sum declared value, whichever is greater. The customer is responsible for any additional insurance the customer wishes to purchase.</p>
+
+      <h4>Section 3</h4>
+      <p>Unless specific arrangements have been authorized by this contract, the carrier is not required to transport the customer's goods by any particular schedule, means, or vehicle and is not liable for delays resulting from causes other than negligence of the carrier. Further, in case of unforeseen circumstances which prevent the carrier from completing delivery, the carrier has the right to forward the customer's property by another carrier.</p>
+
+      <h4>Section 4</h4>
+      <p>(A) The customer must pay all legal charges.<br>
+      (B) If the carrier is required to refer this contract for collection of charges due to an attorney, shipper agrees to pay reasonable attorney fees and collection costs.<br>
+      (C) If this contract is referred to a court for resolution, the losing party shall be responsible for payment of the other party's reasonable attorney fees and court costs.<br>
+      (D) The customer shall be responsible to indemnify the carrier against any loss or damage caused by inclusion in the shipment of explosives, dangerous articles, or dangerous goods.</p>
+
+      <h4>Section 5</h4>
+      <p>(A) A carrier may place a shipment into storage at the public warehouse nearest the point of destination if the carrier is unable to make a delivery because: 1) The carrier was unable to locate a customer at the address given on the bill of lading or the correct address if known by the carrier. 2) The customer refused or was unable to accept delivery. 3) The customer (for a shipment moving on a non-binding estimate) was unable or refused to pay up to 110 percent of the amount of the original estimate plus supplements, if any.</p>
+      <p>(B) The carrier's liability as a common carrier ends with delivery to the public warehouse. The shipment becomes subject to the warehouse's liability, terms, and conditions.</p>
+      <p>(C) The carrier must notify the customer by every means of contact the carrier has for the customer, including telephone, e-mail, and fax, and the carrier must mail or deliver a written notice to the destination address advising that it was unable to make delivery and advising the customer of the name, address, e-mail address, if applicable, and telephone number of the warehouse where the shipment is stored.</p>
+      <p>(D) If the customer does not receive or claim the shipment within 30 days after the carrier mailed or delivered the written notice required in Item 40(3), the shipment becomes subject to disposition by the carrier in accordance with the Washington State Uniform Commercial Code, Chapter 62A.7 RCW.</p>
+
+      <h4>Section 6</h4>
+      <p>To receive compensation for a claim for loss, damage, overcharge, injury or delay, the customer must file a written claim with the carrier within nine months after delivery. In the case of failure to make delivery, the claim must be filed within nine months after a reasonable time for delivery has elapsed. Claims must contain sufficient information to identify the property involved. A copy of the original paid transportation bill, bill of lading contract or shipping receipt must accompany the written claim.</p>
+    </div>
+    <div class="tc-modal-foot">
+      <button class="tc-close-btn" onclick="closeTcOverlay()">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">
+  &copy; 2026 Sound Moving NW &nbsp;·&nbsp; DOT: 4501511 &nbsp;·&nbsp; UTC: HG069611 &nbsp;·&nbsp; <a href="index.html">Back to Home</a>
+</div>
+
+<script>
+  // Read-only T&C overlay
+  function openTcOverlay() {
+    document.getElementById('tcOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeTcOverlay(e) {
+    if (!e || e.target === document.getElementById('tcOverlay') || !e.target) {
+      document.getElementById('tcOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function openBolTerms() {
+    openTcOverlay();
+  }
+
+  // CHECKBOXES
+  function toggleAgree(n) {
+    const row = document.getElementById('agree-row-' + n);
+    const cb = document.getElementById('agree' + n);
+    cb.checked = !cb.checked;
+    row.classList.toggle('checked', cb.checked);
+  }
+
+  // VALUATION RADIO
+  let selectedValuation = null;
+  function selectValuation(n) {
+    [1,2,3].forEach(i => {
+      document.getElementById('val-opt-' + i).classList.remove('selected');
+    });
+    document.getElementById('val-opt-' + n).classList.add('selected');
+    document.getElementById('val' + n).checked = true;
+    selectedValuation = n;
+    document.getElementById('valuationChoice').value = document.getElementById('val' + n).value;
+  }
+
+  function calcFee(opt) {
+    const rateMap = { 2: 1.40, 3: 1.85 };
+    const val = parseFloat(document.getElementById('val' + opt + '-amount').value) || 0;
+    const fee = (val / 100) * rateMap[opt];
+    const el = document.getElementById('val' + opt + '-fee');
+    el.textContent = val > 0 ? 'Additional fee: $' + fee.toFixed(2) : '';
+  }
+
+  // ESTIMATE RADIO
+  let selectedEstimate = null;
+  function selectEstimate(n) {
+    [1,2].forEach(i => {
+      document.getElementById('est-opt-' + i).classList.remove('selected');
+    });
+    document.getElementById('est-opt-' + n).classList.add('selected');
+    document.getElementById('est' + n).checked = true;
+    selectedEstimate = n;
+    document.getElementById('estimateChoice').value = document.getElementById('est' + n).value;
+  }
+
+
+  // ── BOL TERMS INLINE SECTION ─────────────────────────────────────────────
+
+  // I Accept checkboxes in terms section
+  function toggleBolAccept(id) {
+    const wrap = document.getElementById('bol-accept-' + id);
+    const cb   = document.getElementById('bol-cb-' + id);
+    cb.checked = !cb.checked;
+    wrap.classList.toggle('checked', cb.checked);
+  }
+
+  // BOL terms signature pad — init on page load
+  let bolSigPad = null;
+  let bolSigMode = 'draw';
+
+  window.addEventListener('load', () => {
+    // Auto-fill today's date in terms section
+    const today = new Date().toISOString().split('T')[0];
+    const bolToday = document.getElementById('bol-today');
+    if (bolToday) bolToday.value = today;
+
+    // Init BOL terms sig pad
+    const canvas = document.getElementById('bolSigCanvas');
+    const wrap   = document.getElementById('bolCanvasWrap');
+    if (canvas && wrap) {
+      const ratio = Math.max(window.devicePixelRatio || 1, 1);
+      canvas.width  = wrap.offsetWidth * ratio;
+      canvas.height = 130 * ratio;
+      canvas.getContext('2d').scale(ratio, ratio);
+      bolSigPad = new SignaturePad(canvas, { penColor: '#1b2d5b', minWidth: 1, maxWidth: 3 });
+    }
+  });
+
+  function switchBolTab(mode) {
+    bolSigMode = mode;
+    document.getElementById('bol-tab-draw').classList.toggle('active', mode === 'draw');
+    document.getElementById('bol-tab-type').classList.toggle('active', mode === 'type');
+    document.getElementById('bolCanvasWrap').style.display  = mode === 'draw' ? 'block' : 'none';
+    document.getElementById('bolSigType').style.display     = mode === 'type' ? 'block' : 'none';
+  }
+
+  function clearBolSig() {
+    if (bolSigPad) bolSigPad.clear();
+  }
+
+  async function submitBolTerms() {
+    // Validate all 7 I Accept boxes (s1a, s1b, s2, s3, s4, s5, s6)
+    const required = ['s1a','s1b','s2','s3','s4','s5','s6'];
+    for (const id of required) {
+      if (!document.getElementById('bol-cb-' + id).checked) {
+        alert('Please check all "I Accept" boxes before submitting.');
+        return;
+      }
+    }
+
+    // Validate name + email
+    const name  = document.getElementById('bol-cust-name').value.trim();
+    const email = document.getElementById('bol-cust-email').value.trim();
+    if (!name)  { alert('Please enter your name.'); return; }
+    if (!email) { alert('Please enter your email address.'); return; }
+
+    // Validate signature
+    if (bolSigMode === 'draw') {
+      if (!bolSigPad || bolSigPad.isEmpty()) {
+        alert('Please provide your signature before submitting.');
+        return;
+      }
+    } else {
+      if (!document.getElementById('bolSigType').value.trim()) {
+        alert('Please type your signature before submitting.');
+        return;
+      }
+    }
+
+    const submitBtn = document.querySelector('.bol-submit-btn');
+    if (submitBtn) { submitBtn.textContent = 'Sending…'; submitBtn.disabled = true; }
+
+    const valuation = document.querySelector('input[name="valuation"]:checked')?.value || 'not selected';
+    const estimateType = document.querySelector('input[name="estimate_type"]:checked')?.value || 'not selected';
+    const dateToday = document.getElementById('bol-today').value;
+    const dateService = document.getElementById('bol-service-date').value;
+
+    let sigText = '';
+    if (bolSigMode === 'draw') {
+      try {
+        const base64 = bolSigPad.toDataURL().split(',')[1];
+        const fd = new FormData();
+        fd.append('key', '66e68ebcab92c922b0b8617ebf7814e7');
+        fd.append('image', base64);
+        const imgRes = await fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: fd });
+        const imgJson = await imgRes.json();
+        sigText = imgJson.data.url;
+      } catch {
+        sigText = '[Drawn signature — upload failed]';
+      }
+    } else {
+      sigText = document.getElementById('bolSigType').value.trim();
+    }
+
+    const message = [
+      `Date Signed: ${dateToday}`,
+      `Date of Service: ${dateService}`,
+      `Valuation: ${valuation}`,
+      `Estimate Type: ${estimateType}`,
+      `Signature: ${sigText}`,
+      `Sections Accepted: 1A ✓  1B ✓  2 ✓  3 ✓  4 ✓  5 ✓  6 ✓`,
+    ].join('\n');
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'cf4c552f-1dbd-420d-84c9-0454923f8488',
+          subject: 'Bill of Lading Signed — ' + name,
+          name,
+          email,
+          message,
+        })
+      });
+      document.getElementById('bolTermsForm').style.display = 'none';
+      document.getElementById('bolThankYou').style.display  = 'block';
+    } catch {
+      if (submitBtn) { submitBtn.textContent = 'Submit Bill of Lading'; submitBtn.disabled = false; }
+      alert('Something went wrong. Please call us at (425) 540-6440.');
+    }
+  }
+</script>
+</body>
+</html>
