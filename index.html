@@ -875,23 +875,29 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 }
 .sm-header .sm-panel > a, .sm-header .sm-dd-btn, .sm-header .sm-dd-menu a { color:#fff !important; opacity:1 !important; }
 
-/* Why choose us: comparison cards */
-section.why2-section { background: #f5f8fc !important; color: #1b2d5b; }
-.why2-wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-.why2-head h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 2.8rem); color: #1b2d5b; margin: 8px 0 12px; }
-.why2-head p { color: #4a5568; max-width: 60ch; }
-.why2-list { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 16px; grid-template-columns: 1fr; }
-@media (min-width: 800px) { .why2-list { grid-template-columns: 1fr 1fr; } }
-.why2-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 22px; box-shadow: 0 6px 24px rgba(27,45,91,.06); transition: transform .25s ease, box-shadow .25s ease; }
-.why2-item:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(27,45,91,.12); }
-.why2-item h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #1b2d5b; margin: 0 0 16px; }
-.why2-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.why2-us, .why2-them { border-radius: 12px; padding: 12px 14px; font-size: 15px; line-height: 1.35; }
-.why2-us { background: #1b2d5b; color: #fff; }
-.why2-us strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #f26522; line-height: 1.1; }
-.why2-them { background: #eef2f7; color: #4a5568; font-weight: 600; }
-.why2-us small, .why2-them small { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; opacity: .8; }
-@media (prefers-reduced-motion: reduce) { .why2-item { transition: none; } .why2-item:hover { transform: none; } }
+/* Why choose us: one quiet table */
+section.why3-section { background: #fff !important; color: #1b2d5b; }
+.why3-section .why2-head { text-align: left; }
+.why3-section .why2-head .section-label { display: block; text-align: left; }
+.why3-wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.why3-section .why2-head h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 2.6rem); color: #1b2d5b; margin: 8px 0 10px; }
+.why3-section .why2-head p { color: #5b6b80; max-width: 60ch; }
+.why3-table { margin-top: 36px; }
+.why3-head, .why3-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 16px; align-items: center; }
+.why3-head { padding: 0 0 12px; border-bottom: 2px solid #1b2d5b; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #5b6b80; }
+.why3-head span:nth-child(2) { color: #1b2d5b; }
+.why3-list { list-style: none; margin: 0; padding: 0; }
+.why3-row { padding: 16px 0; border-bottom: 1px solid #e5eaf1; }
+.why3-feat { font-weight: 600; font-size: 16px; color: #1b2d5b; }
+.why3-us { font-weight: 700; color: #1b2d5b; font-size: 16px; }
+.why3-them { color: #6b7a90; font-size: 15px; }
+@media (max-width: 639px) {
+  .why3-head { display: none; }
+  .why3-row { grid-template-columns: 1fr 1fr; gap: 6px 16px; padding: 18px 0; }
+  .why3-feat { grid-column: 1 / -1; }
+  .why3-us, .why3-them { font-size: 15px; }
+  .why3-us::before, .why3-them::before { content: attr(data-label); display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8a97a8; margin-bottom: 2px; }
+}
 /* How it works: the three steps appear one after another */
 .how-section .how-step.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
 .how-section.is-in .how-step.reveal { opacity: 1; transform: none; }
@@ -1373,23 +1379,26 @@ section.rv.is-in { opacity: 1; transform: none; }
 
 
 <!-- WHY US -->
-<section class="whyus-section why2-section" id="whyus" aria-labelledby="why-title">
-  <div class="why2-wrap">
+<section class="whyus-section why3-section" id="whyus" aria-labelledby="why-title">
+  <div class="why3-wrap">
     <div class="why2-head">
       <div class="section-label">Why choose us</div>
       <h2 id="why-title">Local vs. The Big Guys</h2>
       <p>National chains have call centers, hidden fees, and strangers handling your stuff. We're your neighbors, and it shows.</p>
     </div>
-    <ul class="why2-list">
-      <li class="why2-item"><h3>Family-owned &amp; locally operated</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>No</div></div></li>
-      <li class="why2-item"><h3>Upfront pricing with no hidden fees</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Sometimes</div></div></li>
-      <li class="why2-item"><h3>Online estimate in under 2 minutes</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Usually requires a call</div></div></li>
-      <li class="why2-item"><h3>Same crew from start to finish</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>No</div></div></li>
-      <li class="why2-item"><h3>Rates starting at $150/hr</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Often $180&ndash;$250/hr</div></div></li>
-      <li class="why2-item"><h3>Live chat &amp; fast response</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Call center queues</div></div></li>
-      <li class="why2-item"><h3>Full walk-through before &amp; after</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Not always included</div></div></li>
-      <li class="why2-item"><h3>45+ years of moving experience</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Varies by franchise</div></div></li>
-    </ul>
+    <div class="why3-table" role="table" aria-label="Sound Moving NW compared with national chains">
+      <div class="why3-head" role="row"><span role="columnheader"></span><span role="columnheader">Sound Moving NW</span><span role="columnheader">National chains</span></div>
+      <ul class="why3-list">
+      <li class="why3-row"><span class="why3-feat">Family-owned &amp; locally operated</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">No</span></li>
+      <li class="why3-row"><span class="why3-feat">Upfront pricing with no hidden fees</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Sometimes</span></li>
+      <li class="why3-row"><span class="why3-feat">Online estimate in under 2 minutes</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Usually requires a call</span></li>
+      <li class="why3-row"><span class="why3-feat">Same crew from start to finish</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">No</span></li>
+      <li class="why3-row"><span class="why3-feat">Rates starting at $150/hr</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Often $180&ndash;$250/hr</span></li>
+      <li class="why3-row"><span class="why3-feat">Live chat &amp; fast response</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Call center queues</span></li>
+      <li class="why3-row"><span class="why3-feat">Full walk-through before &amp; after</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Not always included</span></li>
+      <li class="why3-row"><span class="why3-feat">45+ years of moving experience</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Varies by franchise</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 <!-- GOOGLE REVIEWS SLIDER -->
