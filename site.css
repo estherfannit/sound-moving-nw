@@ -24,9 +24,9 @@
 .sm-btn-sm { min-height:42px; padding:0 16px; font-size:15px; white-space:nowrap; }
 .sm-cta-desktop { display:none; }
 .sm-panel > .sm-cta-desktop { margin-top:16px; }
-@media (max-width:519px) { .sm-brand span { display:none; } }
-@media (min-width:1320px) {
-  .sm-menu, .sm-right { display:none; }
+@media (max-width:419px) { .sm-brand span { display:none; } }
+@media (min-width:1440px) {
+  .sm-menu { display:none; }
   .sm-panel { display:flex; position:static; flex:1; justify-content:center; align-items:center; gap:2px; padding:0; border:0; box-shadow:none; max-height:none; overflow:visible; background:none; }
   .sm-panel > a:not(.sm-btn), .sm-dd-btn { white-space:nowrap; width:auto; padding:10px; border:0; font-size:14.5px; font-weight:600; color:var(--sm-ink-2); justify-content:flex-start; gap:6px; }
   .sm-panel > a:not(.sm-btn):hover, .sm-dd-btn:hover { color:#f26522; }
@@ -34,9 +34,8 @@
   .sm-dd:hover .sm-dd-menu, .sm-dd:focus-within .sm-dd-menu, .sm-dd-menu.open { display:block; }
   .sm-dd-menu a { padding:10px 12px; border-radius:6px; }
   .sm-dd-menu a:hover { background:rgba(255,255,255,.08); color:#fff; }
-  .sm-cta-desktop { display:inline-flex; margin:0 0 0 10px; min-height:42px; padding:0 18px; font-size:15px; }
-  .sm-panel > .sm-cta-desktop { margin-top:0; }
   .sm-brand span { font-size:19px; }
+  .sm-brand img { width:56px; height:56px; flex-basis:56px; }
 }
 .sm-wrap { width:100%; max-width:1160px; margin:0 auto; padding:0 20px; box-sizing:border-box; }
 .sm-hero { padding:56px 0 48px; background:#1b2d5b; font-family:var(--sm-body); color:#fff; }
@@ -91,4 +90,11 @@
 .sm-header .sm-panel > a, .sm-header .sm-dd-btn, .sm-header .sm-dd-menu a, .sm-header .sm-brand span { color:#fff !important; opacity:1 !important; }
 
 /* Header: Check Availability at the far right on wide screens */
-@media (min-width:1320px) { .sm-cta-desktop { margin-left:auto; } }
+@media (min-width:1440px) { .sm-cta-desktop { margin-left:auto; } }
+
+/* Header on wide screens: logo left, menu centred, Check Availability right */
+@media (min-width:1440px) { .sm-bar { justify-content:space-between; } .sm-panel { flex:1; } }
+/* Wide screens: menu centred on the page, logo far left, Check Availability far right */
+@media (min-width:1440px) { .sm-panel { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); flex:none; } }
+/* Wide screens: company name sits in two lines beside the logo so the centred menu has room */
+@media (min-width:1440px) { .sm-brand span { white-space:normal; font-size:16px; line-height:1.15; max-width:150px; } }

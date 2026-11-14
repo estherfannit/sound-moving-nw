@@ -875,14 +875,18 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 }
 .sm-header .sm-panel > a, .sm-header .sm-dd-btn, .sm-header .sm-dd-menu a { color:#fff !important; opacity:1 !important; }
 
-/* Hero logo: bigger, with a soft glow and a slow float */
+/* How it works: the three steps appear one after another */
+.how-section .how-step.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.how-section.is-in .how-step.reveal { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .how-section .how-step.reveal { opacity: 1; transform: none; transition: none; } }
+/* Hero logo: much bigger, with a soft glow and a slow float */
 .hero-logo { position: relative; }
-.hero-logo img { position: relative; z-index: 1; width: 300px; height: auto; border-radius: 22px; box-shadow: 0 30px 60px rgba(0,0,0,.35); animation: logoFloat 6s ease-in-out infinite; }
+.hero-logo img { position: relative; z-index: 1; width: 440px; height: auto; border-radius: 22px; box-shadow: 0 30px 60px rgba(0,0,0,.35); animation: logoFloat 6s ease-in-out infinite; }
 .logo-orb { position: absolute; inset: -40px; border-radius: 50%; background: radial-gradient(circle, rgba(242,101,34,.45) 0%, rgba(242,101,34,0) 65%); animation: orbPulse 4s ease-in-out infinite; z-index: 0; }
 @keyframes logoFloat { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-14px) rotate(1deg); } }
 @keyframes orbPulse { 0%,100% { transform: scale(1); opacity: .7; } 50% { transform: scale(1.12); opacity: 1; } }
-@media (max-width: 719px) { .hero-logo img { width: 230px; } .logo-orb { inset: -26px; } }
-@media (min-width: 720px) and (max-width: 1023px) { .hero-logo img { width: 280px; } }
+@media (max-width: 719px) { .hero-logo img { width: 280px; } .logo-orb { inset: -26px; } }
+@media (min-width: 720px) and (max-width: 1023px) { .hero-logo img { width: 340px; } }
 
 /* Header menu: the nav inherits no background from the page on wide screens */
 @media (min-width: 1320px) { .sm-header nav.sm-panel { background: transparent !important; box-shadow: none !important; padding: 0 !important; border: 0 !important; } }
@@ -908,7 +912,7 @@ section.rv { opacity: 0; transform: translateY(28px); transition: opacity .8s ea
 section.rv.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { section.rv { opacity: 1; transform: none; transition: none; } .hero-logo img, .logo-orb { animation: none; } }
 .hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
-@media (min-width: 1024px) { .hero-inner .hero-left { flex: 1 1 520px; } }
+@media (min-width: 1024px) { .hero-inner .hero-left { flex: 1 1 0; min-width: 0; } }
 .hero-logo { flex: 0 0 auto; }
 .hero-logo img { width: 220px; height: auto; border-radius: 14px; }
 @media (max-width: 719px) { .hero-logo img { width: 150px; } }
@@ -941,13 +945,8 @@ section.rv.is-in { opacity: 1; transform: none; }
 <!-- NAV -->
 <header class="sm-header">
   <div class="sm-bar">
-    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="44" height="44"></a>
-    <div class="sm-right">
-      <a class="sm-btn sm-btn-primary sm-btn-sm" href="quote.html">Check Availability</a>
-      <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
-    </div>
+    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="56" height="56"><span>Sound Moving Northwest</span></a>
     <nav class="sm-panel" id="smPanel" aria-label="Main">
-      <a href="index.html">Home</a>
       <a href="#our-work">Our Work</a>
       <div class="sm-dd">
         <button type="button" class="sm-dd-btn" aria-expanded="false">Services</button>
@@ -958,11 +957,19 @@ section.rv.is-in { opacity: 1; transform: none; }
         <ul class="sm-dd-menu"><li><a href="marysville.html">Marysville</a></li><li><a href="everett.html">Everett</a></li><li><a href="lynnwood.html">Lynnwood</a></li><li><a href="north-seattle.html">North Seattle</a></li></ul>
       </div>
       <a href="articles.html">Tips &amp; Tricks</a>
-      <a href="#story">Our Story</a>
-      <a href="javascript:void(0)" onclick="openFaqModal();return false;">FAQ</a>
-      <a href="javascript:void(0)" onclick="openFormsModal();return false;">Documents</a>
-      <a class="sm-btn sm-btn-primary sm-btn-sm sm-cta-desktop" href="quote.html">Check Availability</a>
+      <div class="sm-dd">
+        <button type="button" class="sm-dd-btn" aria-expanded="false">About Us</button>
+        <ul class="sm-dd-menu">
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="javascript:void(0)" onclick="openFaqModal();return false;">FAQ</a></li>
+          <li><a href="javascript:void(0)" onclick="openFormsModal();return false;">Documents</a></li>
+        </ul>
+      </div>
     </nav>
+    <div class="sm-right">
+      <a class="sm-btn sm-btn-primary sm-btn-sm" href="quote.html">Check Availability</a>
+      <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
+    </div>
   </div>
 </header>
 
@@ -1177,6 +1184,25 @@ section.rv.is-in { opacity: 1; transform: none; }
 </div>
 
 </section>
+<!-- OUR STORY -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <div class="story-left">
+      <div class="section-label">Our Story</div>
+      <h2>Let Our Family Move Yours</h2>
+      <p>Raised in Seattle, our father started his first moving company in 1979 and taught us from day one to be professional and focused on you — the customer.</p>
+      <p>Learning the ins and outs of the moving business since high school, we've continued that family tradition: putting customers first and delivering a moving experience you can actually rest easy about.</p>
+      <p>Sound Moving NW is fully licensed and insured, and every customer gets a personalized moving experience. There may be other moving companies — but none retain the customer appreciation we do.</p>
+    </div>
+    <div class="story-right">
+      <div class="stat-card"><div class="stat-num">45+</div><div class="stat-label">Years in the Family Business</div></div>
+      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Star Rated</div></div>
+      <div class="stat-card"><div class="stat-num">Yes</div><div class="stat-label">Licensed & Fully Insured</div></div>
+      <div class="stat-card"><div class="stat-num">Yes</div><div class="stat-label">Kind & Respectful Staff</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="how-section" id="how">
   <div class="section-label">Simple Process</div>
@@ -1624,25 +1650,6 @@ section.rv.is-in { opacity: 1; transform: none; }
 
   <div class="reviews-cta" style="padding-bottom: 60px;">
     <a href="https://www.yelp.com/biz/sound-moving-nw-marysville-6" target="_blank" rel="noopener noreferrer" title="See all Sound Moving NW reviews on Yelp">See all Yelp reviews →</a>
-  </div>
-</section>
-
-<!-- OUR STORY -->
-<section class="story-section" id="story">
-  <div class="story-inner">
-    <div class="story-left">
-      <div class="section-label">Our Story</div>
-      <h2>Let Our Family Move Yours</h2>
-      <p>Raised in Seattle, our father started his first moving company in 1979 and taught us from day one to be professional and focused on you — the customer.</p>
-      <p>Learning the ins and outs of the moving business since high school, we've continued that family tradition: putting customers first and delivering a moving experience you can actually rest easy about.</p>
-      <p>Sound Moving NW is fully licensed and insured, and every customer gets a personalized moving experience. There may be other moving companies — but none retain the customer appreciation we do.</p>
-    </div>
-    <div class="story-right">
-      <div class="stat-card"><div class="stat-num">45+</div><div class="stat-label">Years in the Family Business</div></div>
-      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Star Rated</div></div>
-      <div class="stat-card"><div class="stat-num">Yes</div><div class="stat-label">Licensed & Fully Insured</div></div>
-      <div class="stat-card"><div class="stat-num">Yes</div><div class="stat-label">Kind & Respectful Staff</div></div>
-    </div>
   </div>
 </section>
 
@@ -2339,6 +2346,11 @@ function closeMobileNav() {
     }, { threshold: 0.12 });
     secs.forEach(function (x) { io.observe(x); });
   }
+  // Steps appear one after another
+  Array.prototype.forEach.call(document.querySelectorAll('.how-step'), function (el, i) { el.style.transitionDelay = (i * 0.35) + 's'; });
+  // Links from other pages to #faq or #documents open the matching popup
+  if (location.hash === '#faq' && typeof openFaqModal === 'function') openFaqModal();
+  if (location.hash === '#documents' && typeof openFormsModal === 'function') openFormsModal();
   // Stats count up once when the banner is seen
   var nums = Array.prototype.slice.call(document.querySelectorAll('.stats-banner .num[data-count]'));
   function run(el) {
