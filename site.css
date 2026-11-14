@@ -89,3 +89,6 @@
 
 /* Header menu copy: solid white on every page, regardless of page styles */
 .sm-header .sm-panel > a, .sm-header .sm-dd-btn, .sm-header .sm-dd-menu a, .sm-header .sm-brand span { color:#fff !important; opacity:1 !important; }
+
+/* Header: Check Availability at the far right on wide screens */
+@media (min-width:1320px) { .sm-cta-desktop { margin-left:auto; } }
