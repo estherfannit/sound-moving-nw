@@ -844,8 +844,37 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 .footer-socials a:hover { background: #fff; color: #1b2d5b; }
 .footer-socials svg { width: 20px; height: 20px; fill: currentColor; }
 .our-work-wrap { scroll-margin-top: 90px; }
+
+/* Touch and tablet fit: bigger tap targets, readable labels, tidy spacing */
+@media (max-width: 1023px) {
+  .hero { padding-top: 48px; padding-bottom: 48px; }
+  .hero-inner { gap: 28px; }
+  .hero-logo img { width: 180px; }
+  .hero-btns-left a { min-height: 52px; }
+  .hero-proof a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px; }
+  .trust-bar .trust-item { min-height: 48px; }
+  .section-label { font-size: 13px !important; }
+  footer a { display: inline-flex; align-items: center; min-height: 44px; }
+  footer p, footer li { line-height: 1.6; }
+  .footer-socials a, .footer-socials svg { min-width: 44px; min-height: 44px; }
+}
+@media (max-width: 719px) {
+  .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+  .hero-logo { align-self: center; }
+  .hero-logo img { width: 140px; }
+  .hero-clean h1 { font-size: clamp(2.6rem, 12vw, 3.4rem); }
+  .hero-proof { gap: 4px 8px; }
+  .trust-bar { overflow-x: auto; }
+  .trust-track { min-width: max-content; }
+  .services-section, .pricing-section, .whyus-section, .story-section { padding-left: 18px; padding-right: 18px; }
+}
+@media (min-width: 720px) and (max-width: 1023px) {
+  .hero-clean h1 { font-size: clamp(3rem, 7vw, 4.2rem); max-width: 16ch; }
+  .hero-logo img { width: 200px; }
+  .hero-inner .hero-left { flex: 1 1 0; min-width: 0; max-width: none; }
+}
 .hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
-.hero-inner .hero-left { flex: 1 1 520px; }
+@media (min-width: 1024px) { .hero-inner .hero-left { flex: 1 1 520px; } }
 .hero-logo { flex: 0 0 auto; }
 .hero-logo img { width: 220px; height: auto; border-radius: 14px; }
 @media (max-width: 719px) { .hero-logo img { width: 150px; } }
