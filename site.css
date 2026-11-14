@@ -86,3 +86,6 @@
   .sm-socials a { width:48px; height:48px; }
   .sm-cta-desktop, .sm-btn { min-height:48px; }
 }
+
+/* Header menu copy: solid white on every page, regardless of page styles */
+.sm-header .sm-panel > a, .sm-header .sm-dd-btn, .sm-header .sm-dd-menu a, .sm-header .sm-brand span { color:#fff !important; opacity:1 !important; }
