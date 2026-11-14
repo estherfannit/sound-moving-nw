@@ -875,6 +875,23 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 }
 .sm-header .sm-panel > a, .sm-header .sm-dd-btn, .sm-header .sm-dd-menu a { color:#fff !important; opacity:1 !important; }
 
+/* Why choose us: comparison cards */
+section.why2-section { background: #f5f8fc !important; color: #1b2d5b; }
+.why2-wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.why2-head h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 2.8rem); color: #1b2d5b; margin: 8px 0 12px; }
+.why2-head p { color: #4a5568; max-width: 60ch; }
+.why2-list { list-style: none; margin: 36px 0 0; padding: 0; display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 800px) { .why2-list { grid-template-columns: 1fr 1fr; } }
+.why2-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 22px; box-shadow: 0 6px 24px rgba(27,45,91,.06); transition: transform .25s ease, box-shadow .25s ease; }
+.why2-item:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(27,45,91,.12); }
+.why2-item h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #1b2d5b; margin: 0 0 16px; }
+.why2-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.why2-us, .why2-them { border-radius: 12px; padding: 12px 14px; font-size: 15px; line-height: 1.35; }
+.why2-us { background: #1b2d5b; color: #fff; }
+.why2-us strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #f26522; line-height: 1.1; }
+.why2-them { background: #eef2f7; color: #4a5568; font-weight: 600; }
+.why2-us small, .why2-them small { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; opacity: .8; }
+@media (prefers-reduced-motion: reduce) { .why2-item { transition: none; } .why2-item:hover { transform: none; } }
 /* How it works: the three steps appear one after another */
 .how-section .how-step.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
 .how-section.is-in .how-step.reveal { opacity: 1; transform: none; }
@@ -945,7 +962,7 @@ section.rv.is-in { opacity: 1; transform: none; }
 <!-- NAV -->
 <header class="sm-header">
   <div class="sm-bar">
-    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="56" height="56"><span>Sound Moving Northwest</span></a>
+    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="56" height="56"><span>Sound Moving<br>Northwest</span></a>
     <nav class="sm-panel" id="smPanel" aria-label="Main">
       <a href="#our-work">Our Work</a>
       <div class="sm-dd">
@@ -1161,6 +1178,25 @@ section.rv.is-in { opacity: 1; transform: none; }
   </div>
 </div>
 
+<!-- OUR STORY -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <div class="story-left">
+      <div class="section-label">Our Story</div>
+      <h2>Let Our Family Move Yours</h2>
+      <p>Raised in Seattle, our father started his first moving company in 1979 and taught us from day one to be professional and focused on you — the customer.</p>
+      <p>Learning the ins and outs of the moving business since high school, we've continued that family tradition: putting customers first and delivering a moving experience you can actually rest easy about.</p>
+      <p>Sound Moving NW is fully licensed and insured, and every customer gets a personalized moving experience. There may be other moving companies — but none retain the customer appreciation we do.</p>
+    </div>
+    <div class="story-right">
+      <div class="stat-card"><div class="stat-num">45+</div><div class="stat-label">Years in the Family Business</div></div>
+      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Star Rated</div></div>
+      <div class="stat-card"><div class="stat-num">Yes</div><div class="stat-label">Licensed & Fully Insured</div></div>
+      <div class="stat-card"><div class="stat-num">Yes</div><div class="stat-label">Kind & Respectful Staff</div></div>
+    </div>
+  </div>
+</section>
+
 <section class="our-work-wrap" id="our-work" aria-label="Our work"><!-- PHOTO STRIP -->
 <div style="background:white; padding: 32px 0 0;">
 <div class="photo-strip-wrap">
@@ -1184,25 +1220,6 @@ section.rv.is-in { opacity: 1; transform: none; }
 </div>
 
 </section>
-<!-- OUR STORY -->
-<section class="story-section" id="story">
-  <div class="story-inner">
-    <div class="story-left">
-      <div class="section-label">Our Story</div>
-      <h2>Let Our Family Move Yours</h2>
-      <p>Raised in Seattle, our father started his first moving company in 1979 and taught us from day one to be professional and focused on you — the customer.</p>
-      <p>Learning the ins and outs of the moving business since high school, we've continued that family tradition: putting customers first and delivering a moving experience you can actually rest easy about.</p>
-      <p>Sound Moving NW is fully licensed and insured, and every customer gets a personalized moving experience. There may be other moving companies — but none retain the customer appreciation we do.</p>
-    </div>
-    <div class="story-right">
-      <div class="stat-card"><div class="stat-num">45+</div><div class="stat-label">Years in the Family Business</div></div>
-      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Star Rated</div></div>
-      <div class="stat-card"><div class="stat-num">Yes</div><div class="stat-label">Licensed & Fully Insured</div></div>
-      <div class="stat-card"><div class="stat-num">Yes</div><div class="stat-label">Kind & Respectful Staff</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- HOW IT WORKS -->
 <section class="how-section" id="how">
   <div class="section-label">Simple Process</div>
@@ -1354,61 +1371,27 @@ section.rv.is-in { opacity: 1; transform: none; }
   <p class="price-note"> Rates start at <strong>$150/hr</strong> (2 crew + truck) and <strong>$70/hr for packing</strong>.<br>Payments accepted: Cash, Check, Card, Venmo, or Zelle.</p>
 </section>
 
-<!-- WHY US -->
-<section class="whyus-section" id="whyus">
-  <div class="section-label">Why Choose Us</div>
-  <h2 class="section-title">Local vs. The Big Guys</h2>
-  <p class="section-sub">National chains have call centers, hidden fees, and strangers handling your stuff. We're your neighbors — and it shows.</p>
-  <div class="compare-table-wrap"><div class="compare-table">
-    <div class="compare-header">
-      <div></div>
-      <div class="col-us"> Sound Moving NW</div>
-      <div>National Chains</div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-feature">Family-owned & locally operated</div>
-      <div class="col-us"><span class="check">Yes</span></div>
-      <div><span class="cross">No</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-feature">Upfront pricing with no hidden fees</div>
-      <div class="col-us"><span class="check">Yes</span></div>
-      <div><span class="partial">Sometimes</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-feature">Online estimate in under 2 minutes</div>
-      <div class="col-us"><span class="check">Yes</span></div>
-      <div><span class="partial">Usually requires a call</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-feature">Same crew from start to finish</div>
-      <div class="col-us"><span class="check">Yes</span></div>
-      <div><span class="cross">No</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-feature">Rates starting at $150/hr</div>
-      <div class="col-us"><span class="check">Yes</span></div>
-      <div><span class="partial">Often $180–$250/hr</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-feature">Live chat & fast response</div>
-      <div class="col-us"><span class="check">Yes</span></div>
-      <div><span class="partial">Call center queues</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-feature">Full walk-through before & after</div>
-      <div class="col-us"><span class="check">Yes</span></div>
-      <div><span class="partial">Not always included</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-feature">45+ years of moving experience</div>
-      <div class="col-us"><span class="check">Yes</span></div>
-      <div><span class="partial">Varies by franchise</span></div>
-    </div>
-  </div></div><!-- /compare-table-wrap -->
-  <div class="compare-scroll-hint" id="compareScrollHint" style="display:none;">Swipe to compare &nbsp;→</div>
-</section>
 
+<!-- WHY US -->
+<section class="whyus-section why2-section" id="whyus" aria-labelledby="why-title">
+  <div class="why2-wrap">
+    <div class="why2-head">
+      <div class="section-label">Why choose us</div>
+      <h2 id="why-title">Local vs. The Big Guys</h2>
+      <p>National chains have call centers, hidden fees, and strangers handling your stuff. We're your neighbors, and it shows.</p>
+    </div>
+    <ul class="why2-list">
+      <li class="why2-item"><h3>Family-owned &amp; locally operated</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>No</div></div></li>
+      <li class="why2-item"><h3>Upfront pricing with no hidden fees</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Sometimes</div></div></li>
+      <li class="why2-item"><h3>Online estimate in under 2 minutes</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Usually requires a call</div></div></li>
+      <li class="why2-item"><h3>Same crew from start to finish</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>No</div></div></li>
+      <li class="why2-item"><h3>Rates starting at $150/hr</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Often $180&ndash;$250/hr</div></div></li>
+      <li class="why2-item"><h3>Live chat &amp; fast response</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Call center queues</div></div></li>
+      <li class="why2-item"><h3>Full walk-through before &amp; after</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Not always included</div></div></li>
+      <li class="why2-item"><h3>45+ years of moving experience</h3><div class="why2-row"><div class="why2-us"><small>Sound Moving NW</small><strong>Yes</strong></div><div class="why2-them"><small>National chains</small>Varies by franchise</div></div></li>
+    </ul>
+  </div>
+</section>
 <!-- GOOGLE REVIEWS SLIDER -->
 <section class="reviews-section" id="reviews">
   <div class="reviews-header" style="text-align:center; padding: 80px 40px 48px;">

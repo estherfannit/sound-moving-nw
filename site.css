@@ -4,7 +4,7 @@
 .sm-bar { position:relative; display:flex; align-items:center; justify-content:space-between; gap:12px; height:72px; max-width:1280px; margin:0 auto; padding:0 20px; box-sizing:border-box; }
 .sm-brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#fff; min-width:0; }
 .sm-brand img { width:44px; height:44px; flex:0 0 44px; background:#fff; border-radius:8px; padding:2px; box-sizing:border-box; }
-.sm-brand span { font:700 18px/1.1 var(--sm-head); text-transform:uppercase; letter-spacing:.03em; white-space:nowrap; }
+.sm-brand span { font:700 15px/1.15 var(--sm-head); text-transform:uppercase; letter-spacing:.04em; white-space:nowrap; }
 .sm-right { display:flex; align-items:center; gap:10px; }
 .sm-menu { min-height:42px; padding:0 14px; border:2px solid #fff; border-radius:6px; background:transparent; color:#fff; font:700 14px/1 var(--sm-body); cursor:pointer; }
 .sm-panel { display:none; position:absolute; left:0; right:0; top:100%; background:#1b2d5b; border-bottom:1px solid rgba(255,255,255,.1); padding:4px 20px 20px; max-height:calc(100vh - 72px); overflow-y:auto; box-shadow:0 18px 30px rgba(16,36,61,.08); box-sizing:border-box; }
@@ -97,4 +97,4 @@
 /* Wide screens: menu centred on the page, logo far left, Check Availability far right */
 @media (min-width:1440px) { .sm-panel { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); flex:none; } }
 /* Wide screens: company name sits in two lines beside the logo so the centred menu has room */
-@media (min-width:1440px) { .sm-brand span { white-space:normal; font-size:16px; line-height:1.15; max-width:150px; } }
+@media (min-width:1440px) { .sm-brand span { white-space:nowrap; font-size:13px; line-height:1.2; letter-spacing:.05em; } }
