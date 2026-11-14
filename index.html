@@ -877,6 +877,9 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 
 /* Why choose us: one quiet table */
 section.why3-section { background: #fff !important; color: #1b2d5b; }
+.why3-us .mk { color: #1b2d5b; } .why3-them .mk.no { color: #9b2c2c; }
+.mk { display: inline-flex; vertical-align: middle; }
+.mk-svg { width: 22px; height: 22px; }
 .why3-section .why2-head { text-align: left; }
 .why3-section .why2-head .section-label { display: block; text-align: left; }
 .why3-wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
@@ -930,6 +933,11 @@ section.why3-section { background: #fff !important; color: #1b2d5b; }
 @media (min-width: 720px) { .stats-grid { grid-template-columns: repeat(5, 1fr); } .stat { border-bottom: 0; } .stat:nth-child(2n) { border-right: 1px solid #e6ecf3; } .stat:last-child { grid-column: auto; border-right: 0; } .num { font-size: 2.4rem; } }
 @media (min-width: 1024px) { .stat { padding: 26px 16px; } }
 
+/* One blue for the hero, stats banner and Our Story: no pale strip between them */
+.stats-banner { background: #1b2d5b; margin-top: 0; padding: 0 16px 40px; }
+.stats-grid { margin-top: -76px; }
+#story, section.story-section { background: #1b2d5b !important; background-image: none !important; }
+#story::before, #story::after, section.story-section::before, section.story-section::after { display: none !important; }
 /* Dynamic site: sections rise in as they scroll into view */
 section.rv { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
 section.rv.is-in { opacity: 1; transform: none; }
@@ -1389,14 +1397,14 @@ section.rv.is-in { opacity: 1; transform: none; }
     <div class="why3-table" role="table" aria-label="Sound Moving NW compared with national chains">
       <div class="why3-head" role="row"><span role="columnheader"></span><span role="columnheader">Sound Moving NW</span><span role="columnheader">National chains</span></div>
       <ul class="why3-list">
-      <li class="why3-row"><span class="why3-feat">Family-owned &amp; locally operated</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">No</span></li>
-      <li class="why3-row"><span class="why3-feat">Upfront pricing with no hidden fees</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Sometimes</span></li>
-      <li class="why3-row"><span class="why3-feat">Online estimate in under 2 minutes</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Usually requires a call</span></li>
-      <li class="why3-row"><span class="why3-feat">Same crew from start to finish</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">No</span></li>
-      <li class="why3-row"><span class="why3-feat">Rates starting at $150/hr</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Often $180&ndash;$250/hr</span></li>
-      <li class="why3-row"><span class="why3-feat">Live chat &amp; fast response</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Call center queues</span></li>
-      <li class="why3-row"><span class="why3-feat">Full walk-through before &amp; after</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Not always included</span></li>
-      <li class="why3-row"><span class="why3-feat">45+ years of moving experience</span><span class="why3-us" data-label="Sound Moving NW">Yes</span><span class="why3-them" data-label="National chains">Varies by franchise</span></li>
+      <li class="why3-row"><span class="why3-feat">Family-owned &amp; locally operated</span><span class="why3-us" data-label="Sound Moving NW"><span class="mk yes" role="img" aria-label="Yes"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="why3-them" data-label="National chains"><span class="mk no" role="img" aria-label="No"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span></span></li>
+      <li class="why3-row"><span class="why3-feat">Upfront pricing with no hidden fees</span><span class="why3-us" data-label="Sound Moving NW"><span class="mk yes" role="img" aria-label="Yes"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="why3-them" data-label="National chains">Sometimes</span></li>
+      <li class="why3-row"><span class="why3-feat">Online estimate in under 2 minutes</span><span class="why3-us" data-label="Sound Moving NW"><span class="mk yes" role="img" aria-label="Yes"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="why3-them" data-label="National chains">Usually requires a call</span></li>
+      <li class="why3-row"><span class="why3-feat">Same crew from start to finish</span><span class="why3-us" data-label="Sound Moving NW"><span class="mk yes" role="img" aria-label="Yes"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="why3-them" data-label="National chains"><span class="mk no" role="img" aria-label="No"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span></span></li>
+      <li class="why3-row"><span class="why3-feat">Rates starting at $150/hr</span><span class="why3-us" data-label="Sound Moving NW"><span class="mk yes" role="img" aria-label="Yes"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="why3-them" data-label="National chains">Often $180&ndash;$250/hr</span></li>
+      <li class="why3-row"><span class="why3-feat">Live chat &amp; fast response</span><span class="why3-us" data-label="Sound Moving NW"><span class="mk yes" role="img" aria-label="Yes"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="why3-them" data-label="National chains">Call center queues</span></li>
+      <li class="why3-row"><span class="why3-feat">Full walk-through before &amp; after</span><span class="why3-us" data-label="Sound Moving NW"><span class="mk yes" role="img" aria-label="Yes"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="why3-them" data-label="National chains">Not always included</span></li>
+      <li class="why3-row"><span class="why3-feat">45+ years of moving experience</span><span class="why3-us" data-label="Sound Moving NW"><span class="mk yes" role="img" aria-label="Yes"><svg class="mk-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><span class="why3-them" data-label="National chains">Varies by franchise</span></li>
       </ul>
     </div>
   </div>
