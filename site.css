@@ -147,3 +147,5 @@
 @media (max-width: 719px) { .sm-footer { padding-top: 28px; } .sm-copy { margin-top: 22px; padding: 14px 20px 20px; } .sm-footer .sm-explore { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 720px) { .sm-footer .sm-explore { grid-template-columns: 1fr; } }
 @media (max-width: 719px) { .sm-footer .sm-explore { grid-template-columns: 1fr; gap: 6px; } .sm-footer .sm-explore li { font-size: 14px; } }
+@media (max-width: 719px) { .sm-footer .sm-explore { grid-template-columns: 1fr 1fr; gap: 8px 12px; } .sm-footer .sm-explore a { white-space: nowrap; } }
+footer.sm-footer { display: block !important; width: 100%; box-sizing: border-box; }
