@@ -911,6 +911,9 @@ section.why3-section { background: #fff !important; color: #1b2d5b; }
 .logo-orb { position: absolute; inset: -40px; border-radius: 50%; background: radial-gradient(circle, rgba(242,101,34,.45) 0%, rgba(242,101,34,0) 65%); animation: orbPulse 4s ease-in-out infinite; z-index: 0; }
 @keyframes logoFloat { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-14px) rotate(1deg); } }
 @keyframes orbPulse { 0%,100% { transform: scale(1); opacity: .7; } 50% { transform: scale(1.12); opacity: 1; } }
+/* Space between the hero copy and the logo card */
+@media (min-width: 1024px) { .hero-logo { margin-left: 12px; } }
+@media (min-width: 720px) and (max-width: 1023px) { .hero-logo { margin-left: 40px; } }
 /* No orange halo behind the card: the logo and card read as one block */
 .logo-orb { display: none; }
 @media (max-width: 719px) { .hero-logo { padding: 18px 20px; } .hero-logo img { width: 220px; } .logo-orb { inset: -26px; } }
