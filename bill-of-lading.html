@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bill of Lading — Sound Moving NW</title>
+<title>Bill of Lading | Sound Moving NW</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/4.1.7/signature_pad.umd.min.js"></script>
@@ -265,7 +265,7 @@
       <div class="ro-header">
         <input type="radio" name="valuation" id="val1" value="basic">
         <div>
-          <div class="ro-label">1. Basic Value Protection — No Cost</div>
+          <div class="ro-label">1. Basic Value Protection. No Cost</div>
           <div class="ro-desc">I release this shipment to a value of <strong>72 cents per pound per article</strong>, at no cost to me. This means I will be paid $0.72 per pound for the net weight of the lost or damaged item, regardless of the actual value of the item.</div>
         </div>
       </div>
@@ -275,7 +275,7 @@
       <div class="ro-header">
         <input type="radio" name="valuation" id="val2" value="replacement_deductible">
         <div>
-          <div class="ro-label">2. Replacement Cost Coverage — With $300 Deductible</div>
+          <div class="ro-label">2. Replacement Cost Coverage. With $300 Deductible</div>
           <div class="ro-desc">Includes a <strong>$300 deductible</strong> paid by me. This option costs <strong>$1.40 per $100.00 of declared value.</strong></div>
           <div class="ro-example">Example: If the total value of all your items is $10,000, this option will cost you an additional $140.00 added to your final bill.</div>
           <div class="value-input-row">
@@ -291,7 +291,7 @@
       <div class="ro-header">
         <input type="radio" name="valuation" id="val3" value="replacement_nodeductible">
         <div>
-          <div class="ro-label">3. Replacement Cost Coverage — No Deductible</div>
+          <div class="ro-label">3. Replacement Cost Coverage. No Deductible</div>
           <div class="ro-desc">Complete replacement or repair value with <strong>no deductible</strong>. This option costs <strong>$1.85 per $100.00 of declared value.</strong></div>
           <div class="ro-example">Example: If you have $10,000 worth of items, this option will cost you an additional $185.00 added to your final bill.</div>
           <div class="value-input-row">
@@ -364,7 +364,7 @@
 <div class="content" style="padding-top:0;padding-bottom:80px;">
 <div class="section" id="bol-terms-section">
   <h2>Bill of Lading – Terms &amp; Conditions</h2>
-  <p style="font-size:0.88rem;color:#6b7a99;margin-bottom:20px;">UNIFORM HOUSEHOLD GOODS CONTRACT TERMS &amp; CONDITIONS — Washington Utilities &amp; Transportation Commission</p>
+  <p style="font-size:0.88rem;color:#6b7a99;margin-bottom:20px;">UNIFORM HOUSEHOLD GOODS CONTRACT TERMS &amp; CONDITIONS. Washington Utilities &amp; Transportation Commission</p>
   <div id="bolModalBody">
 
       <p>The following terms and conditions apply to all services performed by the carrier under this contract. This contract is also subject to all rules, rates, and charges in the current tariff published by, or on file with, the Washington Utilities and Transportation Commission.</p>
@@ -501,7 +501,7 @@
           </div>
         </div>
         <p class="bol-footer-note">Thank you for your business!</p>
-        <p class="bol-rep"><strong>SMNW Representative</strong> — Ben Jablonsky</p>
+        <p class="bol-rep"><strong>SMNW Representative</strong>. Ben Jablonsky</p>
         <div class="bol-modal-btns">
           <button type="button" class="bol-prev-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to Top</button>
           <button type="button" class="bol-submit-btn" onclick="submitBolTerms()">Submit Bill of Lading</button>
@@ -662,7 +662,7 @@
     wrap.classList.toggle('checked', cb.checked);
   }
 
-  // BOL terms signature pad — init on page load
+  // BOL terms signature pad, init on page load
   let bolSigPad = null;
   let bolSigMode = 'draw';
 
@@ -744,7 +744,7 @@
         const imgJson = await imgRes.json();
         sigText = imgJson.data.url;
       } catch {
-        sigText = '[Drawn signature — upload failed]';
+        sigText = '[Drawn signature, upload failed]';
       }
     } else {
       sigText = document.getElementById('bolSigType').value.trim();
@@ -765,7 +765,7 @@
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: 'cf4c552f-1dbd-420d-84c9-0454923f8488',
-          subject: 'Bill of Lading Signed — ' + name,
+          subject: 'Bill of Lading Signed, ' + name,
           name,
           email,
           message,
