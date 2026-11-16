@@ -1223,6 +1223,35 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
 .sm-btn-primary { background: #f26522 !important; color: #fff !important; }
 .sm-btn-primary:hover { background: #e0561c !important; }
 .sm-hero .sm-btn-outline, .sm-band .sm-btn-outline { border-color: #fff; color: #fff; }
+
+/* Service and location pages: facts strip, ticked list, steps and FAQs */
+.sm-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: #1b2d5b; color: #fff; }
+.sm-facts div { padding: 18px 16px; border-right: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); }
+.sm-facts div:nth-child(2n) { border-right: 0; }
+.sm-facts strong { display: block; font: 800 22px/1.1 var(--sm-head); color: #f26522; }
+.sm-facts span { display: block; font-size: 13px; color: rgba(255,255,255,.8); margin-top: 4px; }
+@media (min-width: 720px) { .sm-facts { grid-template-columns: repeat(4, 1fr); } .sm-facts div { border-bottom: 0; } .sm-facts div:nth-child(2n) { border-right: 1px solid rgba(255,255,255,.12); } .sm-facts div:last-child { border-right: 0; } }
+.sm-ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.sm-ticks li { position: relative; padding-left: 34px; color: var(--sm-ink-2); font-size: 15.5px; line-height: 1.55; }
+.sm-ticks li::before { content: ''; position: absolute; left: 0; top: 5px; width: 20px; height: 20px; border-radius: 50%; background: #f26522 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat; }
+.sm-ticks li strong { display: block; color: var(--sm-ink); font-size: 16.5px; margin-bottom: 2px; }
+.sm-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; counter-reset: st; }
+.sm-steps li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+.sm-steps li::before { counter-increment: st; content: counter(st); width: 44px; height: 44px; border-radius: 50%; background: #1b2d5b; color: #fff; display: grid; place-items: center; font: 800 20px/1 var(--sm-head); }
+.sm-steps strong { display: block; color: var(--sm-ink); font-size: 16.5px; margin-bottom: 2px; }
+.sm-steps span { color: var(--sm-ink-2); font-size: 15px; line-height: 1.55; }
+.sm-faq details { border-top: 1px solid var(--sm-line); padding: 16px 0; }
+.sm-faq details:last-child { border-bottom: 1px solid var(--sm-line); }
+.sm-faq summary { cursor: pointer; font: 700 17px/1.4 var(--sm-body); color: var(--sm-ink); list-style: none; position: relative; padding-right: 28px; }
+.sm-faq summary::-webkit-details-marker { display: none; }
+.sm-faq summary::after { content: '+'; position: absolute; right: 2px; top: -2px; font-size: 22px; color: #f26522; }
+.sm-faq details[open] summary::after { content: '\2013'; }
+.sm-faq details p { margin: 10px 0 0; color: var(--sm-ink-2); font-size: 15px; line-height: 1.6; }
+.sm-two { display: grid; gap: 36px; }
+@media (min-width: 900px) { .sm-two { grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: start; } }
+.sm-hero .sm-lead { color: rgba(255,255,255,.85); }
+.sm-hero .sm-h1 { color: #fff; }
+.sm-facts, .sm-facts div, .sm-links a, .sm-ticks, .sm-steps, .sm-faq, .sm-two { font-family: var(--sm-body); }
 .hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
 @media (min-width: 1024px) { .hero-inner .hero-left { flex: 1 1 0; min-width: 0; } }
 .hero-logo { flex: 0 0 auto; }
