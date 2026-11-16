@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Device preview | Sound Moving NW</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background: #e9eef5; color: #1b2d5b; display: flex; flex-direction: column; }
+  header.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 14px 20px; background: #1b2d5b; color: #fff; }
+  header.bar h1 { font-size: 16px; margin: 0; font-weight: 700; letter-spacing: .02em; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .seg { display: inline-flex; background: rgba(255,255,255,.1); border-radius: 999px; padding: 4px; }
+  .seg button { font-weight: 600; font-size: 14px; font-family: inherit; color: #fff; background: transparent; border: 0; padding: 10px 16px; border-radius: 999px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: #f26522; color: #1b2d5b; }
+  select { font-weight: 600; font-size: 14px; font-family: inherit; padding: 10px 12px; border-radius: 10px; border: 0; background: #fff; color: #1b2d5b; min-width: 200px; }
+  .stage { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; padding: 16px; overflow: hidden; }
+  .frame-wrap { position: relative; }
+  .frame { border: 0; background: #fff; display: block; transform-origin: top left; }
+  .device { background: #0f1729; padding: 14px; border-radius: 34px; box-shadow: 0 30px 60px rgba(15,23,41,.35); }
+  .device.is-desktop { padding: 10px 10px 16px; border-radius: 14px; background: #2b3550; }
+  .device.is-tablet { border-radius: 26px; padding: 14px; }
+  .device .frame { border-radius: 22px; }
+  .device.is-desktop .frame { border-radius: 4px; }
+  .label { position: absolute; left: 0; right: 0; bottom: -34px; text-align: center; font-size: 13px; color: #44566d; }
+  .note { position: fixed; bottom: 10px; left: 0; right: 0; text-align: center; font-size: 12px; color: #6b7a90; pointer-events: none; }
+</style>
+</head>
+<body>
+<header class="bar">
+  <h1>Sound Moving NW · Device preview</h1>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Device">
+      <button type="button" data-device="mobile" aria-pressed="true">Mobile</button>
+      <button type="button" data-device="tablet" aria-pressed="false">Tablet</button>
+      <button type="button" data-device="desktop" aria-pressed="false">Desktop</button>
+    </div>
+    <select id="page" aria-label="Page">
+      <option value="index.html">Homepage</option>
+      <option value="quote.html">Online estimate planner</option>
+      <option value="residential-moving.html">Residential Moving</option>
+      <option value="packing.html">Packing</option>
+      <option value="loading-unloading.html">Loading &amp; Unloading</option>
+      <option value="marysville.html">Marysville</option>
+      <option value="everett.html">Everett</option>
+      <option value="lynnwood.html">Lynnwood</option>
+      <option value="north-seattle.html">North Seattle</option>
+      <option value="articles.html">Tips &amp; Tricks</option>
+      <option value="terms-and-conditions.html">Terms and conditions</option>
+    </select>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+  <div class="frame-wrap" id="wrap">
+    <div class="device is-mobile" id="device">
+      <iframe class="frame" id="frame" title="Site preview" src="index.html" width="390" height="844" loading="eager"></iframe>
+    </div>
+    <div class="label" id="label">Phone · 390 × 844</div>
+  </div>
+</main>
+
+<script>
+(function () {
+  var SIZES = {
+    mobile:  { w: 390,  h: 844,  cls: 'is-mobile',  name: 'Phone · 390 × 844' },
+    tablet:  { w: 820,  h: 1180, cls: 'is-tablet',  name: 'Tablet · 820 × 1180' },
+    desktop: { w: 1440, h: 900,  cls: 'is-desktop', name: 'Desktop · 1440 × 900' }
+  };
+  var current = 'mobile';
+  var stage = document.getElementById('stage');
+  var wrap = document.getElementById('wrap');
+  var device = document.getElementById('device');
+  var frame = document.getElementById('frame');
+  var label = document.getElementById('label');
+  var page = document.getElementById('page');
+  var PAD = 40; // room for the bezel and label
+
+  function fit() {
+    var s = SIZES[current];
+    var availW = stage.clientWidth - 32;
+    var availH = stage.clientHeight - 32 - PAD;
+    var bezelW = current === 'mobile' ? 28 : current === 'tablet' ? 28 : 20;
+    var bezelH = current === 'mobile' ? 28 : current === 'tablet' ? 28 : 26;
+    var scale = Math.min(1, (availW - bezelW) / s.w, (availH - bezelH) / s.h);
+    frame.style.transform = 'scale(' + scale + ')';
+    frame.style.transformOrigin = 'top left';
+    // size the wrapper to the scaled device so the frame centres correctly
+    var sw = Math.round(s.w * scale) + bezelW, sh = Math.round(s.h * scale) + bezelH;
+    wrap.style.width = sw + 'px';
+    wrap.style.height = (sh + PAD) + 'px';
+    device.style.width = sw + 'px';
+    device.style.height = sh + 'px';
+    frame.style.width = s.w + 'px';
+    frame.style.height = s.h + 'px';
+    label.textContent = s.name + (scale < 1 ? ' · shown at ' + Math.round(scale * 100) + '%' : '');
+  }
+
+  function show(name) {
+    current = name;
+    var s = SIZES[name];
+    device.className = 'device ' + s.cls;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-device]'), function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-device') === name));
+    });
+    fit();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-device]'), function (b) {
+    b.addEventListener('click', function () { show(b.getAttribute('data-device')); });
+  });
+  page.addEventListener('change', function () { frame.src = page.value; });
+  window.addEventListener('resize', fit);
+  show('mobile');
+})();
+</script>
+</body>
+</html>
