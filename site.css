@@ -24,7 +24,7 @@
 .sm-btn-sm { min-height:42px; padding:0 16px; font-size:15px; white-space:nowrap; }
 .sm-cta-desktop { display:none; }
 .sm-panel > .sm-cta-desktop { margin-top:16px; }
-@media (max-width:419px) { .sm-brand span { display:none; } }
+@media (max-width:479px) { .sm-brand span { display:none; } }
 @media (min-width:1440px) {
   .sm-menu { display:none; }
   .sm-panel { display:flex; position:static; flex:1; justify-content:center; align-items:center; gap:2px; padding:0; border:0; box-shadow:none; max-height:none; overflow:visible; background:none; }
