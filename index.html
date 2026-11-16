@@ -911,6 +911,8 @@ section.why3-section { background: #fff !important; color: #1b2d5b; }
 .logo-orb { position: absolute; inset: -40px; border-radius: 50%; background: radial-gradient(circle, rgba(242,101,34,.45) 0%, rgba(242,101,34,0) 65%); animation: orbPulse 4s ease-in-out infinite; z-index: 0; }
 @keyframes logoFloat { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-14px) rotate(1deg); } }
 @keyframes orbPulse { 0%,100% { transform: scale(1); opacity: .7; } 50% { transform: scale(1.12); opacity: 1; } }
+/* No orange halo behind the card: the logo and card read as one block */
+.logo-orb { display: none; }
 @media (max-width: 719px) { .hero-logo { padding: 18px 20px; } .hero-logo img { width: 220px; } .logo-orb { inset: -26px; } }
 @media (min-width: 720px) and (max-width: 1023px) { .hero-logo img { width: 300px; } }
 
@@ -1021,7 +1023,7 @@ section.rv.is-in { opacity: 1; transform: none; }
       <a href="tel:4255406440" class="btn-secondary">Call 425-540-6440</a>
     </div>
   </div>
-  <div class="hero-logo"><span class="logo-orb" aria-hidden="true"></span><img src="images/logo.png" alt="Sound Moving Northwest logo" width="1254" height="1254"></div>
+  <div class="hero-logo"><span class="logo-orb" aria-hidden="true"></span><img src="images/logo-clear.png" alt="Sound Moving Northwest logo" width="800" height="800"></div>
   </div>
 </section>
 
