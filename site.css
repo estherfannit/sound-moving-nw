@@ -98,3 +98,25 @@
 @media (min-width:1440px) { .sm-panel { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); flex:none; } }
 /* Wide screens: company name sits in two lines beside the logo so the centred menu has room */
 @media (min-width:1440px) { .sm-brand span { white-space:nowrap; font-size:13px; line-height:1.2; letter-spacing:.05em; } }
+
+/* Phone and tablet: the menu panel is not clipped by the page's own nav rules; the header never overlaps */
+.sm-header nav.sm-panel { height: auto !important; min-height: 0 !important; background: #1b2d5b !important; box-shadow: none !important; }
+@media (max-width: 1439px) {
+  .sm-header nav.sm-panel { position: absolute !important; left: 0 !important; right: 0 !important; top: 100% !important; transform: none !important; padding: 4px 20px 20px !important; display: none; flex-direction: column !important; align-items: stretch !important; max-height: calc(100vh - 72px) !important; overflow-y: auto !important; }
+  .sm-header nav.sm-panel.open { display: flex !important; }
+}
+@media (min-width: 1440px) {
+  .sm-header nav.sm-panel { position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; display: flex !important; padding: 0 !important; background: transparent !important; }
+}
+.sm-brand, .sm-right { flex: 0 0 auto; }
+@media (max-width: 419px) { .sm-btn-sm { padding: 0 10px; font-size: 13px; } .sm-menu { padding: 0 10px; } .sm-right { gap: 6px; } }
+
+/* Phones: reviews swipe one card at a time instead of drifting past the screen edge */
+@media (max-width: 719px) {
+  #google-slider-track, #slider-track { animation: none !important; width: 100%; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 20px 16px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  #google-slider-track::-webkit-scrollbar, #slider-track::-webkit-scrollbar { display: none; }
+  #google-slider-track > *, #slider-track > * { flex: 0 0 84%; scroll-snap-align: center; }
+}
+
+/* Section headings are always visible (their scroll animation was not firing on some devices) */
+.section-title, .section-label, .section-sub { opacity: 1 !important; transform: none !important; }
