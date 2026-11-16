@@ -1181,6 +1181,48 @@ section.rv.is-in { opacity: 1; transform: none; }
 footer.sm-footer { display: block !important; width: 100%; box-sizing: border-box; }
 @media (max-width: 359px) { .sm-footer .sm-explore { grid-template-columns: 1fr; } .sm-footer .sm-explore a { white-space: normal; } }
 @media (max-width: 719px) { .sm-footer .sm-col-explore { display: none; } }
+
+/* 1. Phone: the comparison reads as a compact three-column table */
+@media (max-width: 639px) {
+  .why3-section .why3-head { display: grid !important; grid-template-columns: 1.5fr .8fr 1fr; gap: 8px; padding: 0 0 10px; font-size: 10.5px; }
+  .why3-section .why3-row { display: grid !important; grid-template-columns: 1.5fr .8fr 1fr; gap: 8px; padding: 12px 0; align-items: center; }
+  .why3-section .why3-feat { grid-column: auto; font-size: 13.5px; line-height: 1.35; }
+  .why3-section .why3-us::before, .why3-section .why3-them::before { content: none !important; display: none !important; }
+  .why3-section .why3-us { font-size: 14px; text-align: center; }
+  .why3-section .why3-us .mk-svg { width: 18px; height: 18px; }
+  .why3-section .why3-them { font-size: 12.5px; line-height: 1.3; }
+  .why3-section .why3-head span { text-align: left; }
+  .why3-section .why3-head span:nth-child(2) { text-align: center; }
+}
+
+/* 2. Tablet: the stats panel sits neatly beside the copy with readable sizes */
+@media (min-width: 720px) and (max-width: 1023px) {
+  .hero-panel { max-width: 460px; width: 100%; padding: 26px; }
+  .hp-big { font-size: 2.6rem; }
+  .hp-sub { font-size: 1rem; }
+  .hp-grid strong { font-size: 2.1rem; }
+  .hp-grid span { font-size: .95rem; }
+  .hp-list li { font-size: 1.02rem; }
+  .hp-tick { width: 22px; height: 22px; flex-basis: 22px; }
+}
+
+/* 3. Footer explore links sit close together */
+.sm-footer .sm-explore { gap: 4px; }
+.sm-footer .sm-explore li { line-height: 1.35; }
+@media (min-width: 720px) and (max-width: 1023px) { .sm-footer .sm-explore { gap: 2px; } .sm-footer .sm-explore a { white-space: normal; } }
+
+/* 4. Phone footer: one tidy column, clear of the chat button */
+@media (max-width: 719px) {
+  .sm-footer .sm-footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  .sm-footer h3 { margin-bottom: 6px; }
+  .sm-footer .sm-socials { margin-top: 12px; }
+  .sm-copy { padding-bottom: 90px; }
+}
+
+/* 5. Buttons match the homepage on every page: orange with white text, outline buttons white on navy */
+.sm-btn-primary { background: #f26522 !important; color: #fff !important; }
+.sm-btn-primary:hover { background: #e0561c !important; }
+.sm-hero .sm-btn-outline, .sm-band .sm-btn-outline { border-color: #fff; color: #fff; }
 .hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
 @media (min-width: 1024px) { .hero-inner .hero-left { flex: 1 1 0; min-width: 0; } }
 .hero-logo { flex: 0 0 auto; }
