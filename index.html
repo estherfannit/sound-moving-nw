@@ -933,21 +933,10 @@ section.why3-section { background: #fff !important; color: #1b2d5b; }
 @media (min-width: 720px) { .stats-grid { grid-template-columns: repeat(5, 1fr); } .stat { border-bottom: 0; } .stat:nth-child(2n) { border-right: 1px solid #e6ecf3; } .stat:last-child { grid-column: auto; border-right: 0; } .num { font-size: 2.4rem; } }
 @media (min-width: 1024px) { .stat { padding: 26px 16px; } }
 
-/* One continuous navy run: hero, stats, photos and Our Story, with no pale gaps or cards */
-.hero { padding-bottom: 56px !important; }
-.stats-banner { background: #1b2d5b; margin-top: 0; padding: 4px 0 40px; position: relative; z-index: auto; }
-.stats-grid { margin-top: 0; max-width: 1120px; background: transparent; border-radius: 0; border-top: 0; box-shadow: none; overflow: visible; }
-.stat { border-right: 1px solid rgba(255,255,255,.14); border-bottom: 0; padding: 22px 12px; }
-.stat:last-child { border-right: 0; }
-.num { color: #fff; font-size: 1.9rem; }
-.num .star svg { fill: #f26522; }
-.lbl { color: rgba(255,255,255,.72); font-weight: 500; letter-spacing: .01em; }
-@media (min-width: 720px) { .stat:nth-child(2n) { border-right: 1px solid rgba(255,255,255,.14); } .stat:last-child { border-right: 0; } .num { font-size: 2.3rem; } }
-@media (max-width: 719px) { .stats-grid { grid-template-columns: 1fr 1fr; } .stat { border-bottom: 1px solid rgba(255,255,255,.14); } .stat:nth-child(2n) { border-right: 0; } .stat:last-child { grid-column: span 2; border-bottom: 0; } }
-/* Photos run full width on the same navy, flush with the sections either side */
-.our-work-wrap { background: #1b2d5b; }
-.our-work-wrap > div { background: #1b2d5b !important; padding: 0 !important; }
-.our-work-wrap .photo-strip-wrap { margin: 0; border-radius: 0; height: 300px; gap: 4px; background: #1b2d5b; }
+/* Photos: full width on a white band, edge to edge, with the navy stats above and Our Story below */
+.our-work-wrap { background: #fff; }
+.our-work-wrap > div { background: #fff !important; padding: 36px 0 !important; }
+.our-work-wrap .photo-strip-wrap { margin: 0; border-radius: 0; height: 300px; gap: 4px; background: #fff; }
 @media (max-width: 719px) { .our-work-wrap .photo-strip-wrap { height: auto; grid-template-rows: repeat(2, 160px); gap: 4px; } }
 /* One blue for the hero, stats banner and Our Story: no pale strip between them */
 .stats-banner { background: #1b2d5b; margin-top: 0; padding: 0 16px 40px; }
