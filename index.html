@@ -859,7 +859,7 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
   .footer-socials a, .footer-socials svg { min-width: 44px; min-height: 44px; }
 }
 @media (max-width: 719px) {
-  .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+  .hero-inner { flex-direction: column; align-items: stretch; }
   .hero-logo { align-self: center; }
   .hero-logo img { width: 140px; }
   .hero-clean h1 { font-size: clamp(2.6rem, 12vw, 3.4rem); }
@@ -993,6 +993,9 @@ section.rv { opacity: 0; transform: translateY(28px); transition: opacity .8s ea
 section.rv.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { section.rv { opacity: 1; transform: none; transition: none; } .hero-logo img, .logo-orb { animation: none; } }
 
+/* Tablet and phone fit */
+@media (min-width: 720px) and (max-width: 1023px) { .services-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 760px !important; } .pricing2-price { font-size: clamp(2rem, 5vw, 2.8rem); } }
+@media (max-width: 719px) { .pricing2-price { font-size: 2.2rem; } .pricing2-card { padding: 26px 22px; } .hp-big { font-size: 2.2rem; } .stats-grid { grid-template-columns: 1fr 1fr; } }
 /* Hero: the stats panel sits on the right, beside the headline */
 .hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
 .hero-panel { width: 100%; max-width: 380px; background: rgba(15,28,65,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 28px; color: #fff; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
