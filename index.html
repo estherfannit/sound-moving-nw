@@ -875,6 +875,30 @@ nav.scrolled { background: rgba(10,16,32,.9) !important; backdrop-filter: blur(2
 }
 .sm-header .sm-panel > a, .sm-header .sm-dd-btn, .sm-header .sm-dd-menu a { color:#fff !important; opacity:1 !important; }
 
+/* Pricing: one size selector and a single cost card */
+.pricing2 { background: #f5f7fb; }
+.pricing2-wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.pricing2 .section-label { display: block; text-align: left; }
+.pricing2 h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 2.8rem); color: #1b2d5b; margin: 8px 0 12px; text-align: left; }
+.pricing2-lead { color: #4a5568; max-width: 62ch; margin-bottom: 28px; }
+.pricing2-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.pricing2-tabs button { font: 600 15px/1.2 'Inter', sans-serif; padding: 12px 18px; border-radius: 999px; border: 1.5px solid #c9d3e0; background: #fff; color: #1b2d5b; cursor: pointer; transition: background-color .2s, color .2s, border-color .2s; }
+.pricing2-tabs button:hover { border-color: #1b2d5b; }
+.pricing2-tabs button.on { background: #1b2d5b; border-color: #1b2d5b; color: #fff; }
+.pricing2-tabs button:focus-visible { outline: 3px solid #f26522; outline-offset: 3px; }
+.pricing2-card { background: #1b2d5b; color: #fff; border-radius: 20px; padding: 36px 32px; display: grid; gap: 28px; box-shadow: 0 24px 60px rgba(27,45,91,.22); }
+.pricing2-label { font-size: 15px; color: rgba(255,255,255,.72); }
+.pricing2-price { display: block; font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2.6rem, 8vw, 4.2rem); color: #f26522; line-height: 1.05; margin: 8px 0 12px; }
+.pricing2-note { color: rgba(255,255,255,.8); font-size: 15px; max-width: 46ch; }
+.pricing2-facts { margin: 0; display: grid; gap: 22px; align-content: center; }
+.pricing2-facts dt { font-size: 14px; color: rgba(255,255,255,.7); }
+.pricing2-facts dd { margin: 4px 0 0; font-size: 1.25rem; font-weight: 700; color: #fff; }
+@media (min-width: 800px) { .pricing2-card { grid-template-columns: 1.4fr 1fr; padding: 44px 48px; } }
+.pricing2-foot { margin-top: 24px; display: grid; gap: 18px; }
+.pricing2-foot p { font-size: 14px; color: #5b6b80; }
+.pricing2-cta { justify-self: start; display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 6px; background: #f26522; color: #1b2d5b; font: 700 16px 'Inter', sans-serif; text-decoration: none; }
+.pricing2-cta:hover { background: #e0561c; }
+@media (prefers-reduced-motion: reduce) { .pricing2-tabs button { transition: none; } }
 /* Why choose us: one quiet table */
 section.why3-section { background: #fff !important; color: #1b2d5b; }
 .why3-us .mk { color: #1b2d5b; } .why3-them .mk.no { color: #9b2c2c; }
@@ -1344,55 +1368,37 @@ section.rv.is-in { opacity: 1; transform: none; }
   </div>
 </div>
 
+
 <!-- PRICING -->
-<section class="pricing-section" id="pricing">
-  <div class="section-label">Transparent Pricing</div>
-  <h2 class="section-title">Know Your Cost Before Moving Day</h2>
-  <p class="section-sub">Many factors can affect the final cost. Estimates are based on distance, stairs, the number of items, and more.</p>
-  <div class="pricing-grid">
-    <div class="price-card reveal reveal-delay-1">
-      <div class="price-size">Studio / Small 1BR</div>
-      <div class="price-label">About 1–20 Items</div>
-      <div class="price-items">2 movers · 1–3 hours</div>
-      <div class="price-range">$500–$650 <span>approx</span></div>
-      <div class="price-detail">Perfect for apartments and small single-room moves.</div>
+<section class="pricing-section pricing2" id="pricing" aria-labelledby="pricing-title">
+  <div class="pricing2-wrap">
+    <div class="section-label">Transparent pricing</div>
+    <h2 id="pricing-title">Know Your Cost Before Moving Day</h2>
+    <p class="pricing2-lead">Many factors can affect the final cost. Estimates are based on distance, stairs, the number of items, and more.</p>
+    <div class="pricing2-tabs" role="tablist" aria-label="Home size">
+      <button type="button" role="tab" aria-selected="true" class="on" data-i="0">Studio or small 1 bedroom</button>
+      <button type="button" role="tab" aria-selected="false" data-i="1">Large 1 or 2 bedroom</button>
+      <button type="button" role="tab" aria-selected="false" data-i="2">3 bedroom</button>
+      <button type="button" role="tab" aria-selected="false" data-i="3">4 bedroom</button>
+      <button type="button" role="tab" aria-selected="false" data-i="4">5 bedroom</button>
     </div>
-    <div class="price-card">
-      <div class="price-size">Large 1BR / 2BR</div>
-      <div class="price-label">About 21–50 Items</div>
-      <div class="price-items">2 movers · 4–6 hours</div>
-      <div class="price-range">$800–$1,100 <span>approx</span></div>
-      <div class="price-detail">Great for 1–2 bedroom moves across town.</div>
+    <div class="pricing2-card" role="tabpanel" aria-live="polite">
+      <div class="pricing2-cost">
+        <span class="pricing2-label">Approximate cost</span>
+        <strong class="pricing2-price" id="p2Price">$500&ndash;$650</strong>
+        <p class="pricing2-note" id="p2Note">Perfect for apartments and small single-room moves.</p>
+      </div>
+      <dl class="pricing2-facts">
+        <div><dt>Crew &amp; time</dt><dd id="p2Crew">2 movers &middot; 1&ndash;3 hours</dd></div>
+        <div><dt>About</dt><dd id="p2Items">1&ndash;20 items</dd></div>
+      </dl>
     </div>
-    <div class="price-card highlight">
-      <div class="price-size">3 Bedroom</div>
-      <div class="price-label">About 50–100 Items</div>
-      <div class="price-items">3 movers · 6–9 hours</div>
-      <div class="price-range">$1,350–$1,900 <span>approx</span></div>
-      <div class="price-detail">Our most common move. Full crew, full truck, full service.</div>
-    </div>
-    <div class="price-card">
-      <div class="price-size">4 Bedroom</div>
-      <div class="price-label">About 101–200 Items</div>
-      <div class="price-items">3–4 movers · 7–9 hours</div>
-      <div class="price-range">$1,900–$2,500 <span>approx</span></div>
-      <div class="price-detail">May require a second vehicle. Walk-through available on request.</div>
-    </div>
-    <div class="price-card">
-      <div class="price-size">5 Bedroom</div>
-      <div class="price-label">About 201–350 Items</div>
-      <div class="price-items">5–6 movers · 7–9 hours</div>
-      <div class="price-range">$2,500–$3,600 <span>approx</span></div>
-      <div class="price-detail">Large home moves. Walk-through recommended.</div>
-    </div>
-    <div class="price-card" onclick="window.location.href='quote.html'" style="cursor:pointer;">
-      <div class="price-size">Not Sure?</div>
-      <div class="price-detail" style="margin-top:16px"><button class="btn-primary" style="width:100%;justify-content:center;font-size:0.85rem;padding:10px" onclick="window.location.href='quote.html'">Get My Free Estimate</button></div>
+    <div class="pricing2-foot">
+      <p>Rates start at $150/hr (2 crew + truck) and $70/hr for packing. Payments accepted: cash, check, card, Venmo or Zelle.</p>
+      <a class="pricing2-cta" href="quote.html">Start your online estimate</a>
     </div>
   </div>
-  <p class="price-note"> Rates start at <strong>$150/hr</strong> (2 crew + truck) and <strong>$70/hr for packing</strong>.<br>Payments accepted: Cash, Check, Card, Venmo, or Zelle.</p>
 </section>
-
 
 <!-- WHY US -->
 <section class="whyus-section why3-section" id="whyus" aria-labelledby="why-title">
@@ -2354,6 +2360,24 @@ function closeMobileNav() {
     }, { threshold: 0.12 });
     secs.forEach(function (x) { io.observe(x); });
   }
+  // Pricing selector: choose a home size, the card updates
+  var TIERS = [
+    ['$500–$650', '2 movers · 1–3 hours', '1–20 items', 'Perfect for apartments and small single-room moves.'],
+    ['$800–$1,100', '2 movers · 4–6 hours', '21–50 items', 'Great for 1–2 bedroom moves across town.'],
+    ['$1,350–$1,900', '3 movers · 6–9 hours', '50–100 items', 'Our most common move. Full crew, full truck, full service.'],
+    ['$1,900–$2,500', '3–4 movers · 7–9 hours', '101–200 items', 'May require a second vehicle. Walk-through available on request.'],
+    ['$2,500–$3,600', '5–6 movers · 7–9 hours', '201–350 items', 'Large home moves. Walk-through recommended.']
+  ];
+  var tabs = document.querySelectorAll('.pricing2-tabs button');
+  function showTier(i) {
+    var t = TIERS[i];
+    document.getElementById('p2Price').innerHTML = t[0];
+    document.getElementById('p2Crew').textContent = t[1];
+    document.getElementById('p2Items').textContent = t[2];
+    document.getElementById('p2Note').textContent = t[3];
+    Array.prototype.forEach.call(tabs, function (b, n) { b.classList.toggle('on', n === i); b.setAttribute('aria-selected', String(n === i)); });
+  }
+  Array.prototype.forEach.call(tabs, function (b, n) { b.addEventListener('click', function () { showTier(n); }); });
   // Steps appear one after another
   Array.prototype.forEach.call(document.querySelectorAll('.how-step'), function (el, i) { el.style.transitionDelay = (i * 0.35) + 's'; });
   // Links from other pages to #faq or #documents open the matching popup
