@@ -150,3 +150,4 @@
 @media (max-width: 719px) { .sm-footer .sm-explore { grid-template-columns: 1fr 1fr; gap: 8px 12px; } .sm-footer .sm-explore a { white-space: nowrap; } }
 footer.sm-footer { display: block !important; width: 100%; box-sizing: border-box; }
 @media (max-width: 359px) { .sm-footer .sm-explore { grid-template-columns: 1fr; } .sm-footer .sm-explore a { white-space: normal; } }
+@media (max-width: 719px) { .sm-footer .sm-col-explore { display: none; } }
