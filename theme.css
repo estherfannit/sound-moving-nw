@@ -176,3 +176,5 @@
   .hp-statgrid strong { font-size: 1.7rem; }
 }
 .hp-statgrid strong .hp-inline-star { display:inline-flex; color:#f26522; margin:0; font-size:inherit; }
+.hp-hero-copy .lead { margin: 18px 0 0; max-width: 560px; }
+.hp-hero-copy .hp-btns { margin-top: 30px; }
