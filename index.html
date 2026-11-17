@@ -979,10 +979,6 @@ section.why3-section { background: #fff !important; color: #1b2d5b; }
 @media (min-width: 1024px) { .stat { padding: 26px 16px; } }
 
 /* Photos: full width on a white band, edge to edge, with the navy stats above and Our Story below */
-.our-work-wrap { background: #fff; }
-.our-work-wrap > div { background: #fff !important; padding: 36px 0 !important; }
-.our-work-wrap .photo-strip-wrap { margin: 0; border-radius: 0; height: 300px; gap: 4px; background: #fff; }
-@media (max-width: 719px) { .our-work-wrap .photo-strip-wrap { height: auto; grid-template-rows: repeat(2, 160px); gap: 4px; } }
 /* One blue for the hero, stats banner and Our Story: no pale strip between them */
 .stats-banner { background: #1b2d5b; margin-top: 0; padding: 0 16px 40px; }
 .stats-grid { margin-top: -76px; }
@@ -1022,10 +1018,6 @@ section.rv.is-in { opacity: 1; transform: none; }
 /* Hero fills the window below the header */
 .hero { min-height: calc(100vh - 72px) !important; align-items: center !important; padding-top: 80px !important; padding-bottom: 80px !important; }
 /* Photo band under the hero is navy, not white */
-.our-work-wrap { background: #1b2d5b !important; }
-.our-work-wrap > div { background: #1b2d5b !important; padding: 40px 0 !important; }
-/* The hero photo melts into the navy below it, so the sections flow together */
-.hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 180px; background: linear-gradient(180deg, rgba(27,45,91,0) 0%, #1b2d5b 100%); z-index: 1; pointer-events: none; }
 /* One left edge for the content: Our Story lines up with the hero copy */
 #story .story-inner { max-width: none !important; }
 /* Shared header, footer and page parts for every page on the site. Class names use the sm- prefix so they do not clash with page styles. */
