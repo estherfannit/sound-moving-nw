@@ -9,9 +9,16 @@
       btn.textContent = open ? 'Close' : 'Menu';
     });
   }
+  var wide = window.matchMedia('(min-width:1440px)');
   document.querySelectorAll('.sm-dd-btn').forEach(function (b) {
     b.addEventListener('click', function () {
-      var menu = b.nextElementSibling;
+      var menu = b.nextElementSibling, dd = b.parentNode;
+      // Desktop: if hover already shows the menu, a click on the heading closes it
+      if (wide.matches && getComputedStyle(menu).visibility === 'visible') {
+        menu.classList.remove('open'); b.setAttribute('aria-expanded', 'false');
+        dd.classList.add('sm-dd-suppress'); b.blur(); return;
+      }
+      dd.classList.remove('sm-dd-suppress');
       var open = !menu.classList.contains('open');
       document.querySelectorAll('.sm-dd-menu.open').forEach(function (m) { m.classList.remove('open'); });
       document.querySelectorAll('.sm-dd-btn').forEach(function (x) { x.setAttribute('aria-expanded', 'false'); });
@@ -24,9 +31,17 @@
     document.querySelectorAll('.sm-dd-menu.open').forEach(function (m) { m.classList.remove('open'); });
     document.querySelectorAll('.sm-dd-btn').forEach(function (x) { x.setAttribute('aria-expanded', 'false'); });
   }
-  var desktop = window.matchMedia('(min-width:1024px)');
+  var desktop = window.matchMedia('(min-width:1440px)');
   document.querySelectorAll('.sm-dd').forEach(function (dd) {
+    // Picking a sub-page closes the dropdown straight away
+    dd.querySelectorAll('.sm-dd-menu a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        closeAll();
+        if (desktop.matches) { dd.classList.add('sm-dd-suppress'); a.blur(); }
+      });
+    });
     dd.addEventListener('mouseleave', function () {
+      dd.classList.remove('sm-dd-suppress');
       if (!desktop.matches) return;
       closeAll();
       if (dd.contains(document.activeElement)) document.activeElement.blur();
