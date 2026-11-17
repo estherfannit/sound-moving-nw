@@ -14,7 +14,7 @@
   .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
   .seg { display: inline-flex; background: rgba(255,255,255,.1); border-radius: 999px; padding: 4px; }
   .seg button { font-weight: 600; font-size: 14px; font-family: inherit; color: #fff; background: transparent; border: 0; padding: 10px 16px; border-radius: 999px; cursor: pointer; }
-  .seg button[aria-pressed="true"] { background: #f26522; color: #1b2d5b; }
+  .seg button[aria-pressed="true"] { background: #f26522; color: #fff; }
   select { font-weight: 600; font-size: 14px; font-family: inherit; padding: 10px 12px; border-radius: 10px; border: 0; background: #fff; color: #1b2d5b; min-width: 200px; }
   .stage { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; padding: 16px; overflow: hidden; }
   .frame-wrap { position: relative; }
@@ -38,17 +38,35 @@
       <button type="button" data-device="desktop" aria-pressed="false">Desktop</button>
     </div>
     <select id="page" aria-label="Page">
-      <option value="index.html">Homepage</option>
-      <option value="quote.html">Online estimate planner</option>
-      <option value="residential-moving.html">Residential Moving</option>
-      <option value="packing.html">Packing</option>
-      <option value="loading-unloading.html">Loading &amp; Unloading</option>
-      <option value="marysville.html">Marysville</option>
-      <option value="everett.html">Everett</option>
-      <option value="lynnwood.html">Lynnwood</option>
-      <option value="north-seattle.html">North Seattle</option>
-      <option value="articles.html">Tips &amp; Tricks</option>
-      <option value="terms-and-conditions.html">Terms and conditions</option>
+      <optgroup label="Main pages">
+        <option value="index.html">Homepage</option>
+        <option value="quote.html">Online estimate planner</option>
+        <option value="articles.html">Tips &amp; Tricks</option>
+      </optgroup>
+      <optgroup label="Services">
+        <option value="residential-moving.html">Residential Moving</option>
+        <option value="packing.html">Packing</option>
+        <option value="loading-unloading.html">Loading &amp; Unloading</option>
+      </optgroup>
+      <optgroup label="Locations">
+        <option value="marysville.html">Marysville</option>
+        <option value="everett.html">Everett</option>
+        <option value="lynnwood.html">Lynnwood</option>
+        <option value="north-seattle.html">North Seattle</option>
+      </optgroup>
+      <optgroup label="Articles">
+        <option value="article-packing-tips.html">Packing tips</option>
+        <option value="article-family-owned.html">Why choose a family-owned mover</option>
+        <option value="article-lower-costs.html">Lower your moving costs</option>
+        <option value="article-customer-service.html">Customer service</option>
+        <option value="article-scammers.html">Scammers and bad movers</option>
+        <option value="article-rogue-movers.html">Rogue vs licensed movers</option>
+      </optgroup>
+      <optgroup label="Documents">
+        <option value="terms-and-conditions.html">Terms and conditions</option>
+        <option value="bill-of-lading.html">Bill of lading</option>
+        <option value="estimate-link.html">Signed estimate</option>
+      </optgroup>
     </select>
   </div>
 </header>

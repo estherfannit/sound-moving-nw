@@ -39,3 +39,14 @@
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (e) { io.observe(e); });
 })();
+
+// Open the FAQ or Documents pop-up when the homepage is reached from another page's menu
+(function () {
+  function openFromHash() {
+    var h = location.hash;
+    if (h === '#faq' && typeof window.openFaqModal === 'function') window.openFaqModal();
+    else if (h === '#documents' && typeof window.openFormsModal === 'function') window.openFormsModal();
+  }
+  if (document.readyState === 'complete') openFromHash(); else window.addEventListener('load', openFromHash);
+  window.addEventListener('hashchange', openFromHash);
+})();

@@ -1053,7 +1053,9 @@ section.rv.is-in { opacity: 1; transform: none; }
   .sm-panel > a:not(.sm-btn), .sm-dd-btn { white-space:nowrap; width:auto; padding:10px; border:0; font-size:14.5px; font-weight:600; color:var(--sm-ink-2); justify-content:flex-start; gap:6px; }
   .sm-panel > a:not(.sm-btn):hover, .sm-dd-btn:hover { color:#f26522; }
   .sm-dd-menu { display:none; position:absolute; top:calc(100% + 6px); left:0; min-width:240px; background:#1b2d5b; border:1px solid rgba(255,255,255,.12); border-radius:8px; box-shadow:0 18px 40px rgba(16,36,61,.14); padding:8px; margin:0; z-index:200; }
-  .sm-dd:hover .sm-dd-menu, .sm-dd:focus-within .sm-dd-menu, .sm-dd-menu.open { display:block; }
+  .sm-dd-menu { display:block; visibility:hidden; opacity:0; transform:translateY(4px); pointer-events:none; transition:opacity .16s ease, transform .16s ease, visibility 0s linear .25s; }
+  .sm-dd-menu::before { content:''; position:absolute; left:0; right:0; top:-14px; height:14px; }
+  .sm-dd:hover .sm-dd-menu, .sm-dd:focus-within .sm-dd-menu, .sm-dd-menu.open { visibility:visible; opacity:1; transform:none; pointer-events:auto; transition-delay:0s; }
   .sm-dd-menu a { padding:10px 12px; border-radius:6px; }
   .sm-dd-menu a:hover { background:rgba(255,255,255,.08); color:#fff; }
   .sm-brand span { font-size:19px; }
@@ -1244,6 +1246,45 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
 .sm-hero .sm-lead { color: rgba(255,255,255,.85); }
 .sm-hero .sm-h1 { color: #fff; }
 .sm-facts, .sm-facts div, .sm-links a, .sm-ticks, .sm-steps, .sm-faq, .sm-two { font-family: var(--sm-body); }
+
+/* ===== Header phone ===== */
+.sm-call { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:40px; height:40px; border-radius:999px; border:1.5px solid rgba(255,255,255,.35); color:#fff; text-decoration:none; font:700 15px/1 var(--sm-body); transition:border-color .2s, background .2s; flex:0 0 auto; }
+.sm-call svg { width:18px; height:18px; flex:0 0 18px; }
+.sm-call span { display:none; }
+.sm-call:hover { border-color:#f26522; background:rgba(242,101,34,.12); }
+@media (max-width:359px) { .sm-call { display:none; } }
+@media (min-width:1280px) { .sm-call { width:auto; height:auto; padding:10px 6px; border:0; border-radius:0; } .sm-call span { display:inline; } .sm-call svg { color:#f26522; } .sm-call:hover { background:none; color:#f26522; } }
+
+/* ===== Type: form controls use the site font ===== */
+button, input, select, textarea { font-family:inherit; }
+
+/* ===== Contrast: small orange text on light backgrounds uses a deeper orange (5.2:1) ===== */
+:root { --sm-orange-ink:#c2410c; }
+.section-label, .hp-section .hp-label, .service-rate, .service-learn, .faq-category, .rates-price, .faq-arrow,
+.article-card-meta, .read-more, .article-meta, .back-link, .clause-num, .sig-clear, .bol-clear-btn,
+.article-content a:not([class]), .content a:not([class]), #tcOverlay h4, #bolModalBody h4, .section h2 { color:var(--sm-orange-ink) !important; }
+#reviews .section-label, #story .section-label, #yelp-reviews .section-label { color:#f26522 !important; }
+.article-author, .article-card-author { color:#5b6b8c !important; }
+.article-card-excerpt, .why3-them, .ro-example, .sig-tab:not(.active), .bol-sig-tab:not(.active), .service-card p { color:#55647f !important; }
+
+/* ===== Button states ===== */
+.sm-btn, .hp-btn-primary, .hp-btn-secondary, .btn-primary, .btn-secondary, .btn-next, .btn-prev, .submit-btn, .bol-submit-btn, .pricing2-cta {
+  transition:background-color .2s ease, border-color .2s ease, color .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+.hp-btn-primary:hover, .btn-primary:hover, .btn-next:hover, .submit-btn:hover, .bol-submit-btn:hover { background:#e0561c !important; transform:translateY(-1px); }
+.sm-btn:active, .hp-btn-primary:active, .hp-btn-secondary:active, .btn-primary:active, .btn-secondary:active, .btn-next:active, .btn-prev:active, .submit-btn:active, .bol-submit-btn:active, .pricing2-cta:active { transform:translateY(1px) scale(.985) !important; box-shadow:none !important; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline:3px solid #f26522; outline-offset:3px; }
+button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; cursor:not-allowed !important; transform:none !important; box-shadow:none !important; }
+.is-loading, button.is-loading:disabled { opacity:.9; cursor:progress !important; pointer-events:none; }
+.is-loading::after { content:''; display:inline-block; width:14px; height:14px; margin-left:10px; vertical-align:-2px; border:2px solid currentColor; border-right-color:transparent; border-radius:50%; animation:sm-spin .7s linear infinite; }
+@keyframes sm-spin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .is-loading::after { animation-duration:2s; } }
+
+/* ===== Form feedback ===== */
+.sm-field-error { border-color:#c62828 !important; box-shadow:0 0 0 3px rgba(198,40,40,.12) !important; }
+.sm-error-msg { display:block; margin-top:6px; color:#b71c1c; font-size:.85rem; font-weight:600; }
+.sm-form-alert { display:flex; gap:10px; align-items:flex-start; margin:16px 0 0; padding:14px 16px; border-radius:10px; background:#fdecea; border:1px solid #f5c2bd; color:#8a1c12; font-size:.92rem; line-height:1.5; }
+.sm-form-alert a { color:#8a1c12; font-weight:700; }
 .hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
 @media (min-width: 1024px) { .hero-inner .hero-left { flex: 1 1 0; min-width: 0; } }
 .hero-logo { flex: 0 0 auto; }
@@ -1276,7 +1317,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
 <!-- NAV -->
 <header class="sm-header">
   <div class="sm-bar">
-    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo.png" alt="" width="56" height="56"><span>Sound Moving<br>Northwest</span></a>
+    <a class="sm-brand" href="index.html" aria-label="Sound Moving Northwest home"><img src="images/logo-sm.png" alt="" width="56" height="56"><span>Sound Moving<br>Northwest</span></a>
     <nav class="sm-panel" id="smPanel" aria-label="Main">
       <a href="#our-work">Our Work</a>
       <div class="sm-dd">
@@ -1298,6 +1339,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
       </div>
     </nav>
     <div class="sm-right">
+      <a class="sm-call" href="tel:4255406440" aria-label="Call 425-540-6440"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg><span>425-540-6440</span></a>
       <a class="sm-btn sm-btn-primary sm-btn-sm" href="quote.html">Check Availability</a>
       <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
     </div>
@@ -1340,7 +1382,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
   <div class="rates-modal">
     <div class="rates-modal-header">
       <h3> Our Rates</h3>
-      <button class="rates-close" onclick="closeRatesModal()">No</button>
+      <button class="rates-close" onclick="closeRatesModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     </div>
     <div class="rates-body">
       <div class="rates-row">
@@ -1374,7 +1416,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
   <div class="rates-modal" style="max-width:500px;">
     <div class="rates-modal-header">
       <h3> Service Areas</h3>
-      <button class="rates-close" onclick="closeAreasModal()">No</button>
+      <button class="rates-close" onclick="closeAreasModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     </div>
     <div class="rates-body">
       <p style="font-size:0.88rem;color:#718096;margin-bottom:16px;">Based in Marysville, serving all of Snohomish County &amp; surrounding Puget Sound areas.</p>
@@ -1411,7 +1453,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
   <div class="rates-modal" style="max-width:460px;">
     <div class="rates-modal-header">
       <h3> What We Do</h3>
-      <button class="rates-close" onclick="closeWwdModal()">No</button>
+      <button class="rates-close" onclick="closeWwdModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     </div>
     <div class="rates-body">
       <div class="wwd-row">
@@ -1459,7 +1501,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
   <div class="rates-modal" style="max-width:500px;">
     <div class="rates-modal-header">
       <h3> Customer Reviews</h3>
-      <button class="rates-close" onclick="closeReviewsModal()">No</button>
+      <button class="rates-close" onclick="closeReviewsModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     </div>
     <div class="rates-body">
       <p style="font-size:0.88rem;color:#718096;margin-bottom:16px;"> 4.9 · 94 reviews on Google</p>
@@ -1480,7 +1522,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
   <div class="rates-modal" style="max-width:440px;">
     <div class="rates-modal-header">
       <h3> Licensed &amp; Insured</h3>
-      <button class="rates-close" onclick="closeLiModal()">No</button>
+      <button class="rates-close" onclick="closeLiModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     </div>
     <div class="rates-body">
       <div class="li-grid">
@@ -1500,19 +1542,19 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
 <div class="photo-strip-wrap">
   <picture>
     <source srcset="images/strip1.webp" type="image/webp">
-    <img src="images/strip1.jpg" alt="Sound Moving NW crew loading a moving truck in the Seattle area" loading="lazy" decoding="async" width="685" height="400">
+    <img src="images/strip1.webp" alt="Sound Moving NW crew loading a moving truck in the Seattle area" loading="lazy" decoding="async" width="685" height="400">
   </picture>
   <picture>
     <source srcset="images/strip2.webp" type="image/webp">
-    <img src="images/strip2.jpg" alt="Cardboard moving boxes stacked and ready for transport" loading="lazy" decoding="async" width="2220" height="660">
+    <img src="images/strip2.webp" alt="Cardboard moving boxes stacked and ready for transport" loading="lazy" decoding="async" width="2220" height="660">
   </picture>
   <picture>
     <source srcset="images/strip3.webp" type="image/webp">
-    <img src="images/strip3.jpg" alt="Empty room after a professional move by Sound Moving Northwest" loading="lazy" decoding="async" width="540" height="360">
+    <img src="images/strip3.webp" alt="Empty room after a professional move by Sound Moving Northwest" loading="lazy" decoding="async" width="540" height="360">
   </picture>
   <picture>
     <source srcset="images/strip4.webp" type="image/webp">
-    <img src="images/strip4.jpg" alt="Sound Moving NW residential moving service in action" loading="lazy" decoding="async" width="2000" height="1000">
+    <img src="images/strip4.webp" alt="Sound Moving NW residential moving service in action" loading="lazy" decoding="async" width="2000" height="1000">
   </picture>
 </div>
 </div>
@@ -1627,7 +1669,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
 <!-- SERVICE MODAL -->
 <div class="modal-overlay" id="serviceModal" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">No</button>
+    <button class="modal-close" onclick="closeModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     <img class="modal-photo" id="modalPhoto" src="" alt="">
     <div class="modal-rate" id="modalRate"></div>
     <div id="modalSub" style="color:#f26522;font-weight:700;font-size:0.95rem;margin-bottom:4px;display:none;"></div>
@@ -1975,7 +2017,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
         <div class="section-label" style="color:#f26522;margin-bottom:4px;">Got Questions?</div>
         <h2 style="color:#1b2d5b;margin:0;font-size:1.6rem;">Frequently Asked Questions</h2>
       </div>
-      <button class="faq-close" onclick="closeFaqModal()">No</button>
+      <button class="faq-close" onclick="closeFaqModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     </div>
     <div class="faq-list">
 
@@ -2095,7 +2137,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
         <div class="section-label" style="color:#f26522;margin-bottom:4px;">Documents</div>
         <h2 style="color:#1b2d5b;margin:0;font-size:1.6rem;">Documents</h2>
       </div>
-      <button class="faq-close" onclick="closeFormsModal()">No</button>
+      <button class="faq-close" onclick="closeFormsModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     </div>
     <div class="faq-list" style="padding-top:16px;">
 
@@ -2196,7 +2238,7 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
 <footer class="sm-footer">
   <div class="sm-wrap sm-footer-grid">
     <div class="sm-foot-brand">
-      <a class="sm-footer-brand" href="index.html"><img src="images/logo.png" alt="" width="40" height="40"><span>Sound Moving<br>Northwest</span></a>
+      <a class="sm-footer-brand" href="index.html"><img src="images/logo-sm.png" alt="" width="40" height="40"><span>Sound Moving<br>Northwest</span></a>
       <p>Family-owned movers in Marysville, serving Snohomish County and Seattle since 1979.</p>
       <ul class="sm-socials" aria-label="Follow Sound Moving Northwest">
         <li><a href="https://www.facebook.com/soundmovingnw" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a></li>
