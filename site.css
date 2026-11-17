@@ -33,7 +33,7 @@
   .sm-dd-menu { display:none; position:absolute; top:calc(100% + 6px); left:0; min-width:240px; background:#1b2d5b; border:1px solid rgba(255,255,255,.12); border-radius:8px; box-shadow:0 18px 40px rgba(16,36,61,.14); padding:8px; margin:0; z-index:200; }
   .sm-dd-menu { display:block; visibility:hidden; opacity:0; transform:translateY(4px); pointer-events:none; transition:opacity .16s ease, transform .16s ease, visibility 0s linear .25s; }
   .sm-dd-menu::before { content:''; position:absolute; left:0; right:0; top:-14px; height:14px; }
-  .sm-dd:hover .sm-dd-menu, .sm-dd:focus-within .sm-dd-menu, .sm-dd-menu.open { visibility:visible; opacity:1; transform:none; pointer-events:auto; transition-delay:0s; }
+  .sm-dd:hover .sm-dd-menu, .sm-dd:has(:focus-visible) .sm-dd-menu, .sm-dd-menu.open { visibility:visible; opacity:1; transform:none; pointer-events:auto; transition-delay:0s; }
   .sm-dd-menu a { padding:10px 12px; border-radius:6px; }
   .sm-dd-menu a:hover { background:rgba(255,255,255,.08); color:#fff; }
   .sm-brand span { font-size:19px; }
@@ -224,14 +224,6 @@ footer.sm-footer { display: block !important; width: 100%; box-sizing: border-bo
 .sm-hero .sm-lead { color: rgba(255,255,255,.85); }
 .sm-hero .sm-h1 { color: #fff; }
 .sm-facts, .sm-facts div, .sm-links a, .sm-ticks, .sm-steps, .sm-faq, .sm-two { font-family: var(--sm-body); }
-
-/* ===== Header phone ===== */
-.sm-call { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:40px; height:40px; border-radius:999px; border:1.5px solid rgba(255,255,255,.35); color:#fff; text-decoration:none; font:700 15px/1 var(--sm-body); transition:border-color .2s, background .2s; flex:0 0 auto; }
-.sm-call svg { width:18px; height:18px; flex:0 0 18px; }
-.sm-call span { display:none; }
-.sm-call:hover { border-color:#f26522; background:rgba(242,101,34,.12); }
-@media (max-width:359px) { .sm-call { display:none; } }
-@media (min-width:1280px) { .sm-call { width:auto; height:auto; padding:10px 6px; border:0; border-radius:0; } .sm-call span { display:inline; } .sm-call svg { color:#f26522; } .sm-call:hover { background:none; color:#f26522; } }
 
 /* ===== Type: form controls use the site font ===== */
 button, input, select, textarea { font-family:inherit; }

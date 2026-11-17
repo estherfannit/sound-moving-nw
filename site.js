@@ -19,6 +19,21 @@
       b.setAttribute('aria-expanded', String(open));
     });
   });
+  // Desktop: close dropdowns when the mouse leaves, on a click elsewhere, or on Escape
+  function closeAll() {
+    document.querySelectorAll('.sm-dd-menu.open').forEach(function (m) { m.classList.remove('open'); });
+    document.querySelectorAll('.sm-dd-btn').forEach(function (x) { x.setAttribute('aria-expanded', 'false'); });
+  }
+  var desktop = window.matchMedia('(min-width:1024px)');
+  document.querySelectorAll('.sm-dd').forEach(function (dd) {
+    dd.addEventListener('mouseleave', function () {
+      if (!desktop.matches) return;
+      closeAll();
+      if (dd.contains(document.activeElement)) document.activeElement.blur();
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.sm-dd')) closeAll(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 })();
 
 // Scroll reveal for every page that loads theme.css: sections and cards fade up once as they come into view.
