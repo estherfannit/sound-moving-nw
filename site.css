@@ -283,3 +283,6 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
   .hero-panel .hp-list { grid-column:1 / -1; grid-row:2; display:grid !important; grid-template-columns:1fr 1fr; gap:12px 28px; margin:24px 0 0 !important; padding:22px 0 0 !important; border-top:1px solid rgba(255,255,255,.14) !important; }
   .hero-panel .hp-list li { margin:0 !important; }
 }
+
+/* Photo strip: white gaps between photos */
+.photo-strip-wrap { background:#fff !important; }
