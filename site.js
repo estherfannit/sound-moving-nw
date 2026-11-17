@@ -20,3 +20,22 @@
     });
   });
 })();
+
+// Scroll reveal for every page that loads theme.css: sections and cards fade up once as they come into view.
+(function () {
+  if (!document.querySelector('link[href="theme.css"]')) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var selectors = ['.hp-reveal', '.hp-cards > *', '.hp-links > *', '.hp-steps > li', '.articles-grid > .article-card', '.article-content > *', '.content > *'];
+  var els = [];
+  selectors.forEach(function (s) { document.querySelectorAll(s).forEach(function (e) { if (els.indexOf(e) === -1) els.push(e); }); });
+  els.forEach(function (e) {
+    var sibs = e.parentElement ? Array.prototype.indexOf.call(e.parentElement.children, e) : 0;
+    e.classList.add('hp-reveal');
+    e.style.transitionDelay = (Math.min(sibs, 5) * 0.08) + 's';
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (e) { io.observe(e); });
+})();
