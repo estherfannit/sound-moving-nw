@@ -1619,6 +1619,15 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
         <div class="service-learn">Learn More</div>
       </div>
     </div>
+    <div class="service-card reveal reveal-delay-2" onclick="openModal('commercial')">
+      <img class="service-photo" src="images/svc-commercial.webp" alt="Commercial office moving service, desks and equipment being relocated" loading="lazy" decoding="async">
+      <div class="service-body">
+        <h3>Commercial Moving</h3>
+        <div class="service-rate">From $150/hr · 2 crew + truck</div>
+        <p>Offices, workspaces, high-rises, studios, get back to work fast.</p>
+        <div class="service-learn">Learn More</div>
+      </div>
+    </div>
     <div class="service-card reveal reveal-delay-3" onclick="openModal('packing')">
       <img class="service-photo" src="images/svc-packing.webp" alt="Professional packing services, wrapped and secured moving boxes" loading="lazy" decoding="async">
       <div class="service-body">
@@ -1629,11 +1638,29 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
       </div>
     </div>
     <div class="service-card reveal reveal-delay-1" onclick="openModal('furniture')">
-      <img class="service-photo" src="images/svc-furniture.webp" alt="Oversized furniture being moved" loading="lazy" decoding="async">
+      <img class="service-photo" src="images/svc-furniture.webp" alt="Upright piano in a living room, oversized furniture moving" loading="lazy" decoding="async">
       <div class="service-body">
         <h3>Oversized Furniture</h3>
         <div class="service-rate">From $150/hr</div>
         <p>Large and odd-sized furniture, done quickly and safely.</p>
+        <div class="service-learn">Learn More</div>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-2" onclick="openModal('junk')">
+      <img class="service-photo" src="images/svc-junk.webp" alt="Junk removal and donation service, clearing out unwanted items" loading="lazy" decoding="async">
+      <div class="service-body">
+        <h3>Junk Removal & Donation</h3>
+        <div class="service-rate">From $150/hr</div>
+        <p>Let us declutter your life. You have enough to worry about.</p>
+        <div class="service-learn">Learn More</div>
+      </div>
+    </div>
+    <div class="service-card reveal reveal-delay-3" onclick="openModal('labor')">
+      <img class="service-photo" src="images/svc-labor.webp" alt="Two professional movers carrying boxes together" loading="lazy" decoding="async">
+      <div class="service-body">
+        <h3>Labor Only</h3>
+        <div class="service-rate">From $150/hr</div>
+        <p>When you just need some extra muscle, call the professionals.</p>
         <div class="service-learn">Learn More</div>
       </div>
     </div>
@@ -2248,6 +2275,9 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
 <script>
 
 const modalData = {
+  commercial: { photo:'https://images.unsplash.com/photo-1497366216548-37526070297c?fm=webp&auto=compress&w=700&q=80', rate:'From $150/hr · 2 crew + truck', title:'Commercial Moving', desc:'Moving your business to a new location can be daunting, but it doesn\'t have to be. Our professional team can ensure your move is smooth and efficient, minimizing disruption to your operations.', list:['Professionally trained, background-checked, and uniformed crew.','Clean trucks outfitted with thick moving blankets, tools & equipment to get the job done right.','Offices and workspaces of all sizes including high-rises and studios.','Disassembly and reassembly of furniture.','Proper protection of furniture. Wrapping & Padding','Flexible scheduling including evenings and weekends'] },
+  junk: { photo:'https://images.unsplash.com/photo-1630699376059-b781970715b1?fm=webp&auto=compress&w=700&q=80', rate:'From $150/hr', title:'Junk Removal & Donation', desc:'Let our professionally trained crew lighten your life, removing all junk and debris!<br><br>Just show them what you want gone, and we will do our best to donate your items. We can give your items a second chance to make someone happy! If we can\'t donate it, we will do our best to make sure it is recycled.', list:['Full property or single-room cleanouts','Furniture and appliance removal','Donation drop-off included where possible'] },
+  labor: { photo:'images/svc-labor-modal.png', rate:'From $150/hr', sub:'Labor & Moving Assistance', title:'Labor Only', desc:'Whether you\'re remodeling your home, renting your own moving truck, or simply need an extra set of hands, our professional moving team is ready to help. We provide reliable labor services tailored to your specific needs, without requiring a full-service move.<br><br>From carefully removing and relocating furniture during a renovation to loading or unloading a customer-provided truck, we have the experience, equipment, and manpower to get the job done efficiently and safely.', list:['Furniture removal and relocation for remodeling projects','Loading and unloading of customer-rented trucks or PODS','Heavy lifting and general moving labor','In-home furniture moving and rearranging','Flexible labor services based on your needs','Professional, careful, and efficient service'] },
   residential: { photo:'https://images.unsplash.com/photo-1652081447144-5179d97cc56f?fm=webp&auto=compress&w=700&q=80', rate:'From $150/hr · 2 crew + truck', sub:'Houses, Condos & Apartments', title:'Residential Moving', desc:'Whether you\'re moving across town, our experienced residential moving team is here to make your move smooth, efficient, and stress-free. We handle every item with care and treat your belongings like they\'re our own, from the first box packed to the last piece of furniture placed.', list:['Professionally trained, background-checked, and uniformed crew.','Clean trucks outfitted with thick moving blankets, tools & equipment to get the job done right.','Local and long-distance moves','Disassembly and reassembly of furniture','Proper protection of furniture. Wrapping & Padding','Full-service loading and unloading','Two-person crew minimum with truck included','Free, no-obligation walk-through estimates available'] },
   packing: { photo:'https://images.unsplash.com/photo-1663625318264-695d2d04f11a?fm=webp&auto=compress&w=700&q=80', rate:'From $70/hr', title:'Professional Packing Services', desc:'Packing services are a great add-on to any move, making it a seamless and stress-free experience for you.<br><br>Whether you need help packing one last room or your entire home or office, our professional packers and movers are here to help. We will carefully handle your items and pack them securely for safe transport to your destination.<br><br>We can also provide all the necessary packing materials, including boxes, tape, and wrapping paper, and we will clearly label every item so it goes to the correct location.', list:['Professionally trained, background-checked, and uniformed crew.','Boxes and packing supplies provided at cost (Optional, client may provide).','We shrink-wrap and pad items ahead of your move to ensure everything is ready to go.','Items are labeled and marked as fragile if necessary.'], tipsLink:'article-packing-tips.html' },
   furniture: { photo:'images/svc-furniture-modal.png', rate:'From $150/hr', title:'Oversized Furniture Moving', desc:'When you need to move a heavy, valuable, or difficult-to-handle item such as a gun safe, professional experience and the right equipment matter. Our experienced moving team is trained to handle specialty items with the care, precision, and attention to detail they require.<br><br>From careful preparation and secure handling to loading, transportation, and placement, we take every precaution to help ensure your valuable belongings are moved safely and efficiently.', list:['Experienced specialty moving professionals','Gun safes, shop equipment and bulky furniture','Proper equipment and handling techniques','Careful loading, transportation, and placement','Professional service focused on safety and protecting your property'] },
