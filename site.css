@@ -286,3 +286,33 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
 
 /* Photo strip: white gaps between photos */
 .photo-strip-wrap { background:#fff !important; }
+
+/* ===== Cost buttons stand out ===== */
+a[href$="#pricing"] { border:2px solid #f26522 !important; box-shadow:0 0 0 4px rgba(242,101,34,.18), 0 8px 20px rgba(242,101,34,.18) !important; background:#fff6f1 !important; color:#c2410c !important; border-radius:999px; }
+a[href$="#pricing"]:hover { background:#f26522 !important; color:#fff !important; }
+
+/* ===== Location menu in two columns ===== */
+.sm-dd-cols { columns:2; column-gap:12px; }
+.sm-dd-cols li { break-inside:avoid; }
+@media (min-width:1440px) { .sm-dd-cols { min-width:440px; } }
+
+/* ===== Check availability form ===== */
+.avail-card { max-width:760px; margin:0 auto; background:#fff; border:1.5px solid #eef0f6; border-radius:18px; padding:34px; box-shadow:0 12px 40px rgba(27,45,91,.08); }
+.avail-title { font-family:'Playfair Display',Georgia,serif; font-size:1.3rem; font-weight:800; color:#1b2d5b; margin-bottom:18px; }
+.avail-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.avail-field { display:flex; flex-direction:column; gap:6px; margin:0 0 14px; border:0; padding:0; min-width:0; }
+.avail-field label, .avail-field legend { font-weight:700; color:#1b2d5b; font-size:.95rem; padding:0; }
+.avail-field input[type=text], .avail-field input[type=date], .avail-field input[type=tel], .avail-field input[type=email] { padding:12px 14px; border:1.5px solid #d6dcea; border-radius:10px; font:inherit; font-size:16px; color:#1b2d5b; background:#fff; width:100%; box-sizing:border-box; }
+.avail-field input:focus { outline:3px solid #f26522; outline-offset:2px; }
+.sub-label { font-size:.8rem; color:#55647f; }
+.avail-radios { flex-direction:row; flex-wrap:wrap; gap:18px; align-items:center; }
+.avail-radios label { font-weight:500; display:flex; gap:6px; align-items:center; }
+.avail-radios input { width:18px; height:18px; accent-color:#f26522; }
+.avail-err { color:#b71c1c; font-size:.85rem; font-weight:600; }
+.avail-err:empty { display:none; }
+.avail-submit { margin-top:8px; border:0; cursor:pointer; }
+.avail-thanks { text-align:center; padding:18px 0; }
+.avail-thanks h2 { font-family:'Playfair Display',Georgia,serif; color:#1b2d5b; font-size:1.6rem; }
+.req { color:#f26522; }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+@media (max-width:640px) { .avail-row { grid-template-columns:1fr; } .avail-card { padding:24px; } }

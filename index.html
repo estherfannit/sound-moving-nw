@@ -1300,6 +1300,36 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
 
 /* Photo strip: white gaps between photos */
 .photo-strip-wrap { background:#fff !important; }
+
+/* ===== Cost buttons stand out ===== */
+a[href$="#pricing"] { border:2px solid #f26522 !important; box-shadow:0 0 0 4px rgba(242,101,34,.18), 0 8px 20px rgba(242,101,34,.18) !important; background:#fff6f1 !important; color:#c2410c !important; border-radius:999px; }
+a[href$="#pricing"]:hover { background:#f26522 !important; color:#fff !important; }
+
+/* ===== Location menu in two columns ===== */
+.sm-dd-cols { columns:2; column-gap:12px; }
+.sm-dd-cols li { break-inside:avoid; }
+@media (min-width:1440px) { .sm-dd-cols { min-width:440px; } }
+
+/* ===== Check availability form ===== */
+.avail-card { max-width:760px; margin:0 auto; background:#fff; border:1.5px solid #eef0f6; border-radius:18px; padding:34px; box-shadow:0 12px 40px rgba(27,45,91,.08); }
+.avail-title { font-family:'Playfair Display',Georgia,serif; font-size:1.3rem; font-weight:800; color:#1b2d5b; margin-bottom:18px; }
+.avail-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.avail-field { display:flex; flex-direction:column; gap:6px; margin:0 0 14px; border:0; padding:0; min-width:0; }
+.avail-field label, .avail-field legend { font-weight:700; color:#1b2d5b; font-size:.95rem; padding:0; }
+.avail-field input[type=text], .avail-field input[type=date], .avail-field input[type=tel], .avail-field input[type=email] { padding:12px 14px; border:1.5px solid #d6dcea; border-radius:10px; font:inherit; font-size:16px; color:#1b2d5b; background:#fff; width:100%; box-sizing:border-box; }
+.avail-field input:focus { outline:3px solid #f26522; outline-offset:2px; }
+.sub-label { font-size:.8rem; color:#55647f; }
+.avail-radios { flex-direction:row; flex-wrap:wrap; gap:18px; align-items:center; }
+.avail-radios label { font-weight:500; display:flex; gap:6px; align-items:center; }
+.avail-radios input { width:18px; height:18px; accent-color:#f26522; }
+.avail-err { color:#b71c1c; font-size:.85rem; font-weight:600; }
+.avail-err:empty { display:none; }
+.avail-submit { margin-top:8px; border:0; cursor:pointer; }
+.avail-thanks { text-align:center; padding:18px 0; }
+.avail-thanks h2 { font-family:'Playfair Display',Georgia,serif; color:#1b2d5b; font-size:1.6rem; }
+.req { color:#f26522; }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+@media (max-width:640px) { .avail-row { grid-template-columns:1fr; } .avail-card { padding:24px; } }
 .hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; }
 @media (min-width: 1024px) { .hero-inner .hero-left { flex: 1 1 0; min-width: 0; } }
 .hero-logo { flex: 0 0 auto; }
@@ -1346,16 +1376,16 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
       </div>
       <div class="sm-dd">
         <button type="button" class="sm-dd-btn" aria-expanded="false">Services</button>
-        <ul class="sm-dd-menu"><li><a href="residential-moving.html">Residential Moving</a></li><li><a href="apartment-condo-moving.html">Apartment &amp; Condo Moving</a></li><li><a href="packing-loading-unloading.html">Packing, Loading &amp; Unloading</a></li></ul>
+        <ul class="sm-dd-menu"><li><a href="residential-moving.html">Residential Moving</a></li><li><a href="apartment-condo-moving.html">Apartment & Condo Moving</a></li><li><a href="commercial-moving.html">Commercial Moving</a></li><li><a href="oversized-furniture.html">Oversized Furniture</a></li><li><a href="packing.html">Packing</a></li><li><a href="labor-only.html">Labor Only</a></li><li><a href="junk-removal-donation.html">Junk Removal & Donation</a></li></ul>
       </div>
       <div class="sm-dd">
         <button type="button" class="sm-dd-btn" aria-expanded="false">Locations</button>
-        <ul class="sm-dd-menu"><li><a href="marysville.html">Marysville</a></li><li><a href="everett.html">Everett</a></li><li><a href="lynnwood.html">Lynnwood</a></li><li><a href="north-seattle.html">Seattle</a></li></ul>
+        <ul class="sm-dd-menu sm-dd-cols"><li><a href="anacortes.html">Anacortes</a></li><li><a href="arlington.html">Arlington</a></li><li><a href="bellingham.html">Bellingham</a></li><li><a href="bothell.html">Bothell</a></li><li><a href="burlington.html">Burlington</a></li><li><a href="camano.html">Camano</a></li><li><a href="edmonds.html">Edmonds</a></li><li><a href="everett.html">Everett</a></li><li><a href="granite-falls.html">Granite Falls</a></li><li><a href="lake-stevens.html">Lake Stevens</a></li><li><a href="lynnwood.html">Lynnwood</a></li><li><a href="marysville.html">Marysville</a></li><li><a href="mill-creek.html">Mill Creek</a></li><li><a href="monroe.html">Monroe</a></li><li><a href="mountlake-terrace.html">Mountlake Terrace</a></li><li><a href="mukilteo.html">Mukilteo</a></li><li><a href="north-seattle.html">Seattle</a></li><li><a href="shoreline.html">Shoreline</a></li><li><a href="snohomish.html">Snohomish</a></li><li><a href="stanwood.html">Stanwood</a></li></ul>
       </div>
       <a href="articles.html">Tips &amp; Tricks</a>
     </nav>
     <div class="sm-right">
-      <a class="sm-btn sm-btn-primary sm-btn-sm" href="quote.html">Check Availability</a>
+      <a class="sm-btn sm-btn-primary sm-btn-sm" href="check-availability.html">Contact Us</a>
       <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
     </div>
   </div>
@@ -1369,7 +1399,7 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
   <div class="hero-inner">
   <div class="hero-left hero-clean">
     <h1>Local Movers You Can Actually <span class="hero-accent">Afford.</span></h1>
-    <p class="hero-sub">Family-owned movers serving Snohomish County and Seattle since 1979. Two movers and a truck from $150/hr, with no hidden fees.</p>
+    <p class="hero-sub">Family-owned movers proudly serving Marysville and all of Snohomish County since 1979.</p>
     <div class="hero-btns hero-btns-left">
       <a href="quote.html" class="btn-primary">Get my free estimate</a>
       <a href="tel:4255406440" class="btn-secondary">Call 425-540-6440</a>
@@ -2253,14 +2283,7 @@ button:disabled, button[aria-disabled="true"], .is-disabled { opacity:.55; curso
     </div>
     <div class="sm-col-explore">
       <h3>Explore</h3>
-      <ul class="sm-explore">
-        <li><a href="residential-moving.html">Residential Moving</a></li>
-        <li><a href="apartment-condo-moving.html">Apartment &amp; Condo Moving</a></li>
-        <li><a href="packing-loading-unloading.html">Packing, Loading &amp; Unloading</a></li>
-        <li><a href="index.html#pricing">Pricing</a></li>
-        <li><a href="articles.html">Tips &amp; Tricks</a></li>
-        <li><a href="index.html#documents">Documents</a></li>
-      </ul>
+      <ul class="sm-explore"><li><a href="residential-moving.html">Residential Moving</a></li><li><a href="apartment-condo-moving.html">Apartment & Condo Moving</a></li><li><a href="commercial-moving.html">Commercial Moving</a></li><li><a href="oversized-furniture.html">Oversized Furniture</a></li><li><a href="packing.html">Packing</a></li><li><a href="labor-only.html">Labor Only</a></li><li><a href="articles.html">Tips &amp; Tricks</a></li><li><a href="index.html#documents">Documents</a></li></ul>
     </div>
   </div>
   <div class="sm-copy">© 2026 Sound Moving Northwest · Part of Pyramid Group Inc.</div>
