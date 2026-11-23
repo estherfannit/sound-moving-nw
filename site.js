@@ -80,3 +80,69 @@
   if (document.readyState === 'complete') openFromHash(); else window.addEventListener('load', openFromHash);
   window.addEventListener('hashchange', openFromHash);
 })();
+
+// Contact Us forms (contact page and service/location heroes):
+// the date fields show only for "Request a move date", required fields are checked,
+// and the thank-you replaces the form in place so the page does not jump.
+(function () {
+  var MSG = {
+    'Request a move date': "Thank you! We'll reach out shortly to confirm your availability.",
+    'Get a quote': "Thank you! We'll reach out shortly with your quote.",
+    'Ask a question': "Thank you! We'll reach out shortly to answer your question."
+  };
+  var preset = (location.search.match(/[?&]help=([a-z-]+)/) || [])[1];
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  Array.prototype.forEach.call(document.querySelectorAll('form.sm-contact'), function (form) {
+    var box = form.closest('.sm-contact-box');
+    var thanks = box.querySelector('.cf-thanks');
+    var dateRow = form.querySelector('.cf-date');
+    function field(key) { return form.querySelector('[data-field="' + key + '"]'); }
+    function choice() { var c = form.querySelector('[data-field="help"] input:checked'); return c ? c.value : ''; }
+    function err(key, text) {
+      var el = form.querySelector('[data-err="' + key + '"]'); if (el) el.textContent = text || '';
+      var f = field(key);
+      if (f && f.tagName === 'INPUT') { if (text) f.setAttribute('aria-invalid', 'true'); else f.removeAttribute('aria-invalid'); }
+    }
+    function sync() {
+      var on = choice() === 'Request a move date';
+      dateRow.hidden = !on;
+      Array.prototype.forEach.call(dateRow.querySelectorAll('input'), function (i) { i.disabled = !on; });
+      if (!on) { err('date'); err('flex'); }
+    }
+    if (preset) { var p = form.querySelector('[data-help="' + preset + '"]'); if (p) p.checked = true; }
+    sync();
+    form.addEventListener('change', function (e) {
+      if (e.target.closest('[data-field="help"]')) { err('help'); sync(); }
+      if (e.target.closest('[data-field="flex"]')) err('flex');
+    });
+    form.addEventListener('input', function (e) { var k = e.target.getAttribute('data-field'); if (k) err(k); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var bad = [];
+      function need(key, ok, text) { err(key, ok ? '' : text); if (!ok) bad.push(key); }
+      var help = choice();
+      need('help', !!help, 'Please choose how we can help.');
+      need('first', field('first').value.trim() !== '', 'This field is required.');
+      need('last', field('last').value.trim() !== '', 'This field is required.');
+      if (help === 'Request a move date') {
+        need('date', field('date').value !== '', 'Please choose a date.');
+        need('flex', !!form.querySelector('[data-field="flex"] input:checked'), 'Please choose Yes or No.');
+      }
+      need('phone', field('phone').value.replace(/\D/g, '').length >= 10, 'Please enter a 10-digit phone number.');
+      need('email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(field('email').value.trim()), 'Please enter a valid email address.');
+      if (bad.length) {
+        var f = field(bad[0]); var target = f && f.tagName === 'INPUT' ? f : f && f.querySelector('input:not([disabled])');
+        if (target) target.focus();
+        return;
+      }
+      box.style.minHeight = box.offsetHeight + 'px';
+      box.classList.add('is-sent');
+      thanks.querySelector('.cf-thanks-msg').textContent = MSG[help] || MSG['Ask a question'];
+      form.hidden = true;
+      thanks.hidden = false;
+      thanks.focus({ preventScroll: true });
+      var r = thanks.getBoundingClientRect();
+      if (r.top < 90 || r.bottom > window.innerHeight) thanks.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+})();

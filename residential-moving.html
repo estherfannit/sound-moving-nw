@@ -35,88 +35,79 @@
       <a href="articles.html">Tips &amp; Tricks</a>
     </nav>
     <div class="sm-right">
-      <a class="sm-btn sm-btn-primary sm-btn-sm" href="check-availability.html">Contact Us</a>
+      <a class="sm-btn sm-btn-primary sm-btn-sm" href="contact-us.html?help=move-date">Check My Move Date</a>
       <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
     </div>
   </div>
 </header>
 <main>
-  <section class="hp-hero" style="background-image:url('images/svc-residential.webp')">
+  <section class="hp-hero hp-hero-has-form" style="background-image:url('images/svc-residential.webp')">
     <div class="hp-hero-inner">
       <div class="hp-hero-copy">
         <h1>Residential <span class="accent">Moving</span></h1>
-        <p class="lead">Houses, condos &amp; apartments. Two movers and a truck from $150/hr.</p>
+        <p class="lead">Houses, condos & apartments. Two movers and a truck from $150/hr.</p>
+        <div class="hp-btns"><a class="hp-btn-secondary" href="tel:4255406440">Call 425-540-6440</a></div>
       </div>
-      <aside class="hp-hero-form" aria-label="Check availability">
-          <h2>Check availability</h2>
-          <p class="hf-sub">Fill out the form and we'll confirm your date as soon as possible.</p>
-          <form id="heroForm" novalidate>
+      <aside class="hp-hero-form" aria-label="Contact Us">
+        <div class="sm-contact-box">
+          <form class="sm-contact" novalidate aria-label="Contact Us">
+            <h2 class="cf-title">Contact Us</h2>
+            <p class="cf-sub">Fill out the form and we'll reach out as soon as possible.</p>
+            <fieldset class="avail-field cf-help" data-field="help">
+              <legend>How can we help? <span class="req">*</span></legend>
+              <div class="cf-pills"><label class="cf-pill"><input type="radio" name="hf-help" value="Request a move date" data-help="move-date"><span>Request a move date</span></label><label class="cf-pill"><input type="radio" name="hf-help" value="Get a quote" data-help="quote"><span>Get a quote</span></label><label class="cf-pill"><input type="radio" name="hf-help" value="Ask a question" data-help="question"><span>Ask a question</span></label></div>
+              <span class="avail-err" data-err="help"></span>
+            </fieldset>
             <div class="avail-row">
               <div class="avail-field">
-                <label for="hFirst">Full Name <span class="req">*</span></label>
-                <input type="text" id="hFirst" placeholder="First name" autocomplete="given-name" required>
+                <label for="hf-first">Full Name <span class="req">*</span></label>
+                <input type="text" id="hf-first" data-field="first" placeholder="First name" autocomplete="given-name" required>
                 <span class="sub-label">First Name</span>
-                <span class="avail-err" data-for="hFirst"></span>
+                <span class="avail-err" data-err="first"></span>
               </div>
               <div class="avail-field">
-                <label for="hLast"><span class="sr-only">Last name</span>&nbsp;</label>
-                <input type="text" id="hLast" placeholder="Last name" autocomplete="family-name" required>
+                <label for="hf-last"><span class="sr-only">Last name</span>&nbsp;</label>
+                <input type="text" id="hf-last" data-field="last" placeholder="Last name" autocomplete="family-name" required>
                 <span class="sub-label">Last Name</span>
-                <span class="avail-err" data-for="hLast"></span>
+                <span class="avail-err" data-err="last"></span>
               </div>
             </div>
-            <div class="avail-row">
+            <div class="avail-row cf-date" hidden>
               <div class="avail-field">
-                <label for="hDate">Date of Service <span class="req">*</span></label>
-                <input type="date" id="hDate" required>
-                <span class="avail-err" data-for="hDate"></span>
+                <label for="hf-date">Date of Service <span class="req">*</span></label>
+                <input type="date" id="hf-date" data-field="date" disabled>
+                <span class="avail-err" data-err="date"></span>
               </div>
-              <fieldset class="avail-field avail-radios">
+              <fieldset class="avail-field avail-radios" data-field="flex">
                 <legend>I'm Flexible <span class="req">*</span></legend>
-                <label><input type="radio" name="hFlex" value="Yes"> Yes</label>
-                <label><input type="radio" name="hFlex" value="No"> No</label>
-                <span class="avail-err" data-for="hFlex"></span>
+                <label><input type="radio" name="hf-flex" value="Yes" disabled> Yes</label>
+                <label><input type="radio" name="hf-flex" value="No" disabled> No</label>
+                <span class="avail-err" data-err="flex"></span>
               </fieldset>
             </div>
             <div class="avail-row">
               <div class="avail-field">
-                <label for="hPhone">Phone Number <span class="req">*</span></label>
-                <input type="tel" id="hPhone" placeholder="(___) ___-____" autocomplete="tel" required>
-                <span class="avail-err" data-for="hPhone"></span>
+                <label for="hf-phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="hf-phone" data-field="phone" placeholder="(___) ___-____" autocomplete="tel" required>
+                <span class="avail-err" data-err="phone"></span>
               </div>
               <div class="avail-field">
-                <label for="hEmail">Email Address <span class="req">*</span></label>
-                <input type="email" id="hEmail" placeholder="email@example.com" autocomplete="email" required>
-                <span class="avail-err" data-for="hEmail"></span>
+                <label for="hf-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="hf-email" data-field="email" placeholder="email@example.com" autocomplete="email" required>
+                <span class="avail-err" data-err="email"></span>
               </div>
             </div>
-            <button type="submit" class="hp-btn-primary avail-submit">Next &rarr;</button>
+            <button type="submit" class="hp-btn-primary avail-submit">Submit</button>
           </form>
-          <div class="avail-thanks" id="hThanks" hidden>
-            <h2>Request Received!</h2>
-            <p>Thank you! We'll reach out shortly to confirm your availability.</p>
+          <div class="cf-thanks" role="status" tabindex="-1" hidden>
+            <span class="cf-thanks-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p class="cf-thanks-title">Request Received!</p>
+            <p class="cf-thanks-msg">Thank you! We'll reach out shortly.</p>
+            <p class="cf-thanks-call">Questions? Call us at <a href="tel:4255406440">(425) 540-6440</a>.</p>
           </div>
-        </aside>
+        </div>
+      </aside>
     </div>
-    <script>
-    (function () {
-      var form = document.getElementById('heroForm'), thanks = document.getElementById('hThanks');
-      function msg(id, text) { var el = form.querySelector('[data-for="' + id + '"]'); if (el) el.textContent = text || ''; }
-      form.addEventListener('submit', function (e) {
-        e.preventDefault(); var ok = true;
-        ['hFirst', 'hLast', 'hDate', 'hPhone', 'hEmail'].forEach(function (id) {
-          var v = document.getElementById(id).value.trim();
-          var bad = !v || (id === 'hEmail' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) || (id === 'hPhone' && v.replace(/\D/g, '').length < 10);
-          msg(id, bad ? (id === 'hEmail' ? 'Please enter a valid email address.' : id === 'hPhone' ? 'Please enter a 10-digit phone number.' : 'This field is required.') : '');
-          if (bad) ok = false;
-        });
-        var flex = form.querySelector('input[name="hFlex"]:checked'); msg('hFlex', flex ? '' : 'Please choose Yes or No.');
-        if (!flex) ok = false;
-        if (!ok) return;
-        form.hidden = true; thanks.hidden = false;
-      });
-    })();
-    </script>
   </section>
   <section class="hp-section hp-first">
     <div class="hp-split">

@@ -35,22 +35,78 @@
       <a href="articles.html">Tips &amp; Tricks</a>
     </nav>
     <div class="sm-right">
-      <a class="sm-btn sm-btn-primary sm-btn-sm" href="check-availability.html">Contact Us</a>
+      <a class="sm-btn sm-btn-primary sm-btn-sm" href="contact-us.html?help=move-date">Check My Move Date</a>
       <button type="button" class="sm-menu" id="smMenu" aria-expanded="false" aria-controls="smPanel">Menu</button>
     </div>
   </div>
 </header>
 <main>
-  <section class="hp-hero" style="background-image:url('images/strip4.webp')">
+  <section class="hp-hero hp-hero-has-form" style="background-image:url('images/strip4.webp')">
     <div class="hp-hero-inner">
       <div class="hp-hero-copy">
         <h1>Movers in <span class="accent">Mukilteo</span></h1>
         <p class="lead">Based in Marysville, serving Mukilteo and all of Snohomish County & Surrounding Areas of Puget Sound.</p>
-        <div class="hp-btns">
-          <a class="hp-btn-primary" href="quote.html">Get my free estimate</a>
-          <a class="hp-btn-secondary" href="tel:4255406440">Call 425-540-6440</a>
-        </div>
+        <div class="hp-btns"><a class="hp-btn-secondary" href="tel:4255406440">Call 425-540-6440</a></div>
       </div>
+      <aside class="hp-hero-form" aria-label="Contact Us">
+        <div class="sm-contact-box">
+          <form class="sm-contact" novalidate aria-label="Contact Us">
+            <h2 class="cf-title">Contact Us</h2>
+            <p class="cf-sub">Fill out the form and we'll reach out as soon as possible.</p>
+            <fieldset class="avail-field cf-help" data-field="help">
+              <legend>How can we help? <span class="req">*</span></legend>
+              <div class="cf-pills"><label class="cf-pill"><input type="radio" name="hf-help" value="Request a move date" data-help="move-date"><span>Request a move date</span></label><label class="cf-pill"><input type="radio" name="hf-help" value="Get a quote" data-help="quote"><span>Get a quote</span></label><label class="cf-pill"><input type="radio" name="hf-help" value="Ask a question" data-help="question"><span>Ask a question</span></label></div>
+              <span class="avail-err" data-err="help"></span>
+            </fieldset>
+            <div class="avail-row">
+              <div class="avail-field">
+                <label for="hf-first">Full Name <span class="req">*</span></label>
+                <input type="text" id="hf-first" data-field="first" placeholder="First name" autocomplete="given-name" required>
+                <span class="sub-label">First Name</span>
+                <span class="avail-err" data-err="first"></span>
+              </div>
+              <div class="avail-field">
+                <label for="hf-last"><span class="sr-only">Last name</span>&nbsp;</label>
+                <input type="text" id="hf-last" data-field="last" placeholder="Last name" autocomplete="family-name" required>
+                <span class="sub-label">Last Name</span>
+                <span class="avail-err" data-err="last"></span>
+              </div>
+            </div>
+            <div class="avail-row cf-date" hidden>
+              <div class="avail-field">
+                <label for="hf-date">Date of Service <span class="req">*</span></label>
+                <input type="date" id="hf-date" data-field="date" disabled>
+                <span class="avail-err" data-err="date"></span>
+              </div>
+              <fieldset class="avail-field avail-radios" data-field="flex">
+                <legend>I'm Flexible <span class="req">*</span></legend>
+                <label><input type="radio" name="hf-flex" value="Yes" disabled> Yes</label>
+                <label><input type="radio" name="hf-flex" value="No" disabled> No</label>
+                <span class="avail-err" data-err="flex"></span>
+              </fieldset>
+            </div>
+            <div class="avail-row">
+              <div class="avail-field">
+                <label for="hf-phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="hf-phone" data-field="phone" placeholder="(___) ___-____" autocomplete="tel" required>
+                <span class="avail-err" data-err="phone"></span>
+              </div>
+              <div class="avail-field">
+                <label for="hf-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="hf-email" data-field="email" placeholder="email@example.com" autocomplete="email" required>
+                <span class="avail-err" data-err="email"></span>
+              </div>
+            </div>
+            <button type="submit" class="hp-btn-primary avail-submit">Submit</button>
+          </form>
+          <div class="cf-thanks" role="status" tabindex="-1" hidden>
+            <span class="cf-thanks-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <p class="cf-thanks-title">Request Received!</p>
+            <p class="cf-thanks-msg">Thank you! We'll reach out shortly.</p>
+            <p class="cf-thanks-call">Questions? Call us at <a href="tel:4255406440">(425) 540-6440</a>.</p>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
   <section class="hp-section hp-first">
