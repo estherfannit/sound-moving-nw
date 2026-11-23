@@ -316,3 +316,27 @@ a[href$="#pricing"]:hover { background:#f26522 !important; color:#fff !important
 .req { color:#f26522; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 @media (max-width:640px) { .avail-row { grid-template-columns:1fr; } .avail-card { padding:24px; } }
+
+/* ===== Cost section: white button text, highlighted size buttons ===== */
+.pricing2-cta { color:#fff !important; }
+.pricing2-tabs button { border:2px solid #f26522 !important; box-shadow:0 0 0 3px rgba(242,101,34,.22), 0 6px 14px rgba(242,101,34,.22) !important; }
+.pricing2-tabs button[aria-selected="true"] { background:#f26522 !important; color:#fff !important; }
+
+/* ===== First section under the hero: no label, no entrance animation, larger opening paragraph ===== */
+.hp-section.hp-first { padding-top:36px; }
+.hp-intro .hp-title { margin-top:0; }
+.hp-intro p { font-size:1.14rem; line-height:1.75; }
+@media (max-width:719px) { .hp-section.hp-first { padding-top:26px; } .hp-intro p { font-size:1.06rem; } }
+
+/* ===== Contact form preview in the hero ===== */
+.hp-hero-form { flex:0 0 420px; max-width:100%; background:#fff; border-radius:18px; padding:26px 26px 22px; box-shadow:0 24px 60px rgba(0,0,0,.28); }
+.hp-hero-form h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.3rem; font-weight:800; color:#1b2d5b; margin:0 0 4px; }
+.hp-hero-form .hf-sub { color:#55647f; font-size:.92rem; margin:0 0 16px; }
+.hp-hero-form .avail-row { grid-template-columns:1fr 1fr; gap:12px; }
+.hp-hero-form .avail-field { margin-bottom:10px; }
+.hp-hero-form .avail-field input[type=text], .hp-hero-form .avail-field input[type=date], .hp-hero-form .avail-field input[type=tel], .hp-hero-form .avail-field input[type=email] { padding:10px 12px; }
+.hp-hero-form .avail-submit { width:100%; margin-top:4px; }
+.hp-hero-form .avail-thanks { padding:8px 0; text-align:left; }
+@media (max-width:719px) { .hp-hero-form { flex-basis:auto; width:100%; padding:22px 20px; } .hp-hero-form .avail-row { grid-template-columns:1fr; } }
+.hp-section.hp-first .hp-split { align-items:start; }
+.hp-section.hp-first .hp-intro { padding-top:0; }
