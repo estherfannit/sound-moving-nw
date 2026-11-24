@@ -82,12 +82,12 @@
 })();
 
 // Contact Us forms (contact page and service/location heroes):
-// the date fields show only for "Request a move date", required fields are checked,
+// the date fields show only for "Check my move date", required fields are checked,
 // and the thank-you replaces the form in place so the page does not jump.
 (function () {
   var MSG = {
-    'Request a move date': "Thank you! We'll reach out shortly to confirm your availability.",
-    'Get a quote': "Thank you! We'll reach out shortly with your quote.",
+    'Check my move date': "Thank you! We'll reach out shortly to confirm your availability.",
+    'Get an Estimate': "Thank you! We'll reach out shortly with your quote.",
     'Ask a question': "Thank you! We'll reach out shortly to answer your question."
   };
   var preset = (location.search.match(/[?&]help=([a-z-]+)/) || [])[1];
@@ -105,7 +105,7 @@
     }
     var msgRow = form.querySelector('.cf-msg');
     function sync() {
-      var on = choice() === 'Request a move date';
+      var on = choice() === 'Check my move date';
       dateRow.hidden = !on;
       Array.prototype.forEach.call(dateRow.querySelectorAll('input, select'), function (i) { i.disabled = !on; });
       if (!on) { err('date'); err('flex'); err('location'); }
@@ -131,7 +131,7 @@
       need('help', !!help, 'Please choose how we can help.');
       need('first', field('first').value.trim() !== '', 'This field is required.');
       need('last', field('last').value.trim() !== '', 'This field is required.');
-      if (help === 'Request a move date') {
+      if (help === 'Check my move date') {
         need('date', field('date').value !== '', 'Please choose a date.');
         need('flex', !!form.querySelector('[data-field="flex"] input:checked'), 'Please choose Yes or No.');
         need('location', field('location').value.trim() !== '', 'Please enter the city or ZIP you are moving from.');
