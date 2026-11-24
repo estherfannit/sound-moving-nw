@@ -369,3 +369,54 @@ a[href$="#pricing"]:hover { background:#f26522 !important; color:#fff !important
 .avail-field textarea { padding:12px 14px; border:1.5px solid #d6dcea; border-radius:10px; font:inherit; font-size:16px; color:#1b2d5b; background:#fff; width:100%; box-sizing:border-box; min-height:110px; resize:vertical; }
 .avail-field textarea:focus { outline:3px solid #f26522; outline-offset:2px; }
 .avail-field textarea[aria-invalid="true"] { border-color:#c62828; }
+
+/* ===== Contact form: quote link, location and time ===== */
+.cf-pill span, .cf-pill-link { min-height:44px; }
+.cf-pill-link { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1.5px solid #f26522; border-radius:999px; background:#fff6f1; color:#c2410c; font-weight:600; font-size:.9rem; text-decoration:none; transition:background-color .15s, color .15s; }
+.cf-pill-link:hover { background:#f26522; color:#fff; }
+.cf-opt { font-weight:500; color:#55647f; font-size:.85rem; }
+.avail-field select { padding:12px 14px; border:1.5px solid #d6dcea; border-radius:10px; font:inherit; font-size:16px; color:#1b2d5b; background:#fff; width:100%; box-sizing:border-box; min-height:48px; }
+.avail-field select:focus { outline:3px solid #f26522; outline-offset:2px; }
+
+/* ===== Cost section: show the size buttons are clickable ===== */
+.pricing2-hint { display:flex; align-items:center; gap:8px; margin:6px 0 12px; font-weight:700; font-size:.95rem; color:#c2410c; }
+.pricing2-hint svg { width:22px; height:22px; flex:0 0 22px; }
+.pricing2-tabs button { cursor:pointer; min-height:46px; transition:transform .15s ease, background-color .15s, box-shadow .15s !important; }
+.pricing2-tabs button:not([aria-selected="true"]):hover { background:#fff1ea !important; transform:translateY(-2px); }
+.pricing2-tabs button:active { transform:translateY(1px) scale(.98); }
+@media (prefers-reduced-motion: reduce) { .pricing2-tabs button:hover, .pricing2-tabs button:active { transform:none !important; } }
+
+/* ===== Footer legal links ===== */
+.sm-legal { display:flex; flex-wrap:wrap; justify-content:center; gap:0 18px; margin-top:6px; }
+.sm-legal a { display:inline-flex; align-items:center; min-height:44px; padding:0 4px; color:inherit; text-decoration:underline; text-underline-offset:3px; }
+
+/* ===== Legal and careers pages ===== */
+.legal-wrap { max-width:780px; margin:0 auto; }
+.legal-wrap h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.4rem; font-weight:800; color:#1b2d5b; margin:34px 0 10px; }
+.legal-wrap h2:first-child { margin-top:0; }
+.legal-wrap p, .legal-wrap li { color:#4a5568; font-size:1.04rem; line-height:1.75; }
+.legal-wrap ul { padding-left:22px; margin:0 0 14px; }
+.legal-wrap a { color:#c2410c; font-weight:600; }
+.legal-meta { color:#55647f !important; font-size:.95rem !important; }
+
+/* ===== Usability on phones and tablets ===== */
+.hp-label { font-size:.8rem !important; }
+@media (max-width:1023px) {
+  input:not([type=radio]):not([type=checkbox]):not([type=range]), select, textarea { font-size:16px !important; }
+  input[type=radio], input[type=checkbox] { width:22px; height:22px; }
+  .back-link, .reviews-rating-link, .reviews-section a, .sig-clear, .bol-clear-btn, .sig-tab, .bol-sig-tab, .btn-next, .btn-prev { min-height:44px; display:inline-flex; align-items:center; justify-content:center; }
+  .why3-head span { font-size:12px !important; }
+}
+
+/* ===== Readable small labels; larger tap areas on forms (phones and tablets) ===== */
+.section-label, .page-header .label, .article-card-meta, .clause-num, .section-title, .tab-nav a { font-size:12px !important; }
+@media (max-width:1023px) {
+  input[type=radio], input[type=checkbox] { width:22px !important; height:22px !important; }
+  label:has(> input[type=radio]), label:has(> input[type=checkbox]) { min-height:44px; display:flex; align-items:center; gap:8px; }
+  .sig-clear, .bol-clear-btn { min-width:44px; padding:0 10px; }
+  .doc-link { min-height:44px; display:inline-flex; align-items:center; }
+}
+body .page-header .label, body .quote-hero .label { font-size:12px !important; }
+@media (max-width:1023px) { input[type=radio], input[type=checkbox] { width:24px !important; height:24px !important; } }
+.cf-pill-link > span { display:inline; min-height:0; padding:0; border:0; background:none; color:inherit; }
+.legal-wrap .hp-btn-primary, .legal-wrap .hp-btn-primary:hover { color:#fff !important; text-decoration:none; }

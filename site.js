@@ -107,8 +107,8 @@
     function sync() {
       var on = choice() === 'Request a move date';
       dateRow.hidden = !on;
-      Array.prototype.forEach.call(dateRow.querySelectorAll('input'), function (i) { i.disabled = !on; });
-      if (!on) { err('date'); err('flex'); }
+      Array.prototype.forEach.call(dateRow.querySelectorAll('input, select'), function (i) { i.disabled = !on; });
+      if (!on) { err('date'); err('flex'); err('location'); }
       if (msgRow) {
         var ask = choice() === 'Ask a question';
         msgRow.hidden = !ask;
@@ -134,6 +134,7 @@
       if (help === 'Request a move date') {
         need('date', field('date').value !== '', 'Please choose a date.');
         need('flex', !!form.querySelector('[data-field="flex"] input:checked'), 'Please choose Yes or No.');
+        need('location', field('location').value.trim() !== '', 'Please enter the city or ZIP you are moving from.');
       }
       need('phone', field('phone').value.replace(/\D/g, '').length >= 10, 'Please enter a 10-digit phone number.');
       if (help === 'Ask a question' && field('message')) need('message', field('message').value.trim() !== '', 'Please type your question.');

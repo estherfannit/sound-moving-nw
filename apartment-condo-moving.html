@@ -67,24 +67,23 @@
             <p class="cf-sub">Fill out the form and we'll reach out as soon as possible.</p>
             <fieldset class="avail-field cf-help" data-field="help">
               <legend>How can we help? <span class="req">*</span></legend>
-              <div class="cf-pills"><label class="cf-pill"><input type="radio" name="hf-help" value="Request a move date" data-help="move-date"><span>Request a move date</span></label><label class="cf-pill"><input type="radio" name="hf-help" value="Get a quote" data-help="quote"><span>Get a quote</span></label><label class="cf-pill"><input type="radio" name="hf-help" value="Ask a question" data-help="question"><span>Ask a question</span></label></div>
+              <div class="cf-pills"><label class="cf-pill"><input type="radio" name="hf-help" value="Request a move date" data-help="move-date"><span>Request a move date</span></label><a class="cf-pill cf-pill-link" href="quote.html">Get a quote <span aria-hidden="true">&rarr;</span></a><label class="cf-pill"><input type="radio" name="hf-help" value="Ask a question" data-help="question"><span>Ask a question</span></label></div>
               <span class="avail-err" data-err="help"></span>
             </fieldset>
             <div class="avail-row">
               <div class="avail-field">
                 <label for="hf-first">Full Name <span class="req">*</span></label>
-                <input type="text" id="hf-first" data-field="first" placeholder="First name" autocomplete="given-name" required>
-                <span class="sub-label">First Name</span>
+                <input type="text" id="hf-first" data-field="first" placeholder="First name" aria-label="First name" autocomplete="given-name" required>
                 <span class="avail-err" data-err="first"></span>
               </div>
               <div class="avail-field">
                 <label for="hf-last"><span class="sr-only">Last name</span>&nbsp;</label>
-                <input type="text" id="hf-last" data-field="last" placeholder="Last name" autocomplete="family-name" required>
-                <span class="sub-label">Last Name</span>
+                <input type="text" id="hf-last" data-field="last" placeholder="Last name" aria-label="Last name" autocomplete="family-name" required>
                 <span class="avail-err" data-err="last"></span>
               </div>
             </div>
-            <div class="avail-row cf-date" hidden>
+            <div class="cf-date" hidden>
+            <div class="avail-row">
               <div class="avail-field">
                 <label for="hf-date">Date of Service <span class="req">*</span></label>
                 <input type="date" id="hf-date" data-field="date" disabled>
@@ -96,6 +95,22 @@
                 <label><input type="radio" name="hf-flex" value="No" disabled> No</label>
                 <span class="avail-err" data-err="flex"></span>
               </fieldset>
+            </div>
+            <div class="avail-row">
+              <div class="avail-field">
+                <label for="hf-location">Location <span class="req">*</span></label>
+                <input type="text" id="hf-location" data-field="location" placeholder="City or ZIP" disabled>
+                <span class="avail-err" data-err="location"></span>
+              </div>
+              <div class="avail-field">
+                <label for="hf-time">Preferred Time <span class="cf-opt">(optional)</span></label>
+                <select id="hf-time" data-field="time" disabled>
+                  <option value="">No preference</option>
+                  <option>Morning</option>
+                  <option>Afternoon</option>
+                </select>
+              </div>
+            </div>
             </div>
             <div class="avail-row">
               <div class="avail-field">
@@ -197,7 +212,7 @@
       <ul class="sm-explore"><li><a href="residential-moving.html">Residential Moving</a></li><li><a href="apartment-condo-moving.html">Apartment & Condo Moving</a></li><li><a href="commercial-moving.html">Commercial Moving</a></li><li><a href="oversized-furniture.html">Oversized Furniture</a></li><li><a href="packing.html">Packing</a></li><li><a href="labor-only.html">Labor Only</a></li><li><a href="articles.html">Tips &amp; Tricks</a></li><li><a href="index.html#documents">Documents</a></li></ul>
     </div>
   </div>
-  <div class="sm-copy">© 2026 Sound Moving Northwest · Part of Pyramid Group Inc.</div>
+  <div class="sm-copy">© 2026 Sound Moving Northwest · Part of Pyramid Group Inc.<nav class="sm-legal" aria-label="Legal"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Service</a><a href="careers.html">Careers</a></nav></div>
 </footer>
 <script src="site.js"></script>
 </body>
