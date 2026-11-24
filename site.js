@@ -87,7 +87,7 @@
 (function () {
   var MSG = {
     'Check my move date': "Thank you! We'll reach out shortly to confirm your availability.",
-    'Get an Estimate': "Thank you! We'll reach out shortly with your quote.",
+    'Get an estimate': "Thank you! We'll reach out shortly with your quote.",
     'Ask a question': "Thank you! We'll reach out shortly to answer your question."
   };
   var preset = (location.search.match(/[?&]help=([a-z-]+)/) || [])[1];
