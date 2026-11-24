@@ -101,13 +101,20 @@
     function err(key, text) {
       var el = form.querySelector('[data-err="' + key + '"]'); if (el) el.textContent = text || '';
       var f = field(key);
-      if (f && f.tagName === 'INPUT') { if (text) f.setAttribute('aria-invalid', 'true'); else f.removeAttribute('aria-invalid'); }
+      if (f && (f.tagName === 'INPUT' || f.tagName === 'TEXTAREA')) { if (text) f.setAttribute('aria-invalid', 'true'); else f.removeAttribute('aria-invalid'); }
     }
+    var msgRow = form.querySelector('.cf-msg');
     function sync() {
       var on = choice() === 'Request a move date';
       dateRow.hidden = !on;
       Array.prototype.forEach.call(dateRow.querySelectorAll('input'), function (i) { i.disabled = !on; });
       if (!on) { err('date'); err('flex'); }
+      if (msgRow) {
+        var ask = choice() === 'Ask a question';
+        msgRow.hidden = !ask;
+        msgRow.querySelector('textarea').disabled = !ask;
+        if (!ask) err('message');
+      }
     }
     if (preset) { var p = form.querySelector('[data-help="' + preset + '"]'); if (p) p.checked = true; }
     sync();
@@ -129,9 +136,10 @@
         need('flex', !!form.querySelector('[data-field="flex"] input:checked'), 'Please choose Yes or No.');
       }
       need('phone', field('phone').value.replace(/\D/g, '').length >= 10, 'Please enter a 10-digit phone number.');
+      if (help === 'Ask a question' && field('message')) need('message', field('message').value.trim() !== '', 'Please type your question.');
       need('email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(field('email').value.trim()), 'Please enter a valid email address.');
       if (bad.length) {
-        var f = field(bad[0]); var target = f && f.tagName === 'INPUT' ? f : f && f.querySelector('input:not([disabled])');
+        var f = field(bad[0]); var target = f && (f.tagName === 'INPUT' || f.tagName === 'TEXTAREA') ? f : f && f.querySelector('input:not([disabled])');
         if (target) target.focus();
         return;
       }
