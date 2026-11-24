@@ -379,8 +379,6 @@ a[href$="#pricing"]:hover { background:#f26522 !important; color:#fff !important
 .avail-field select:focus { outline:3px solid #f26522; outline-offset:2px; }
 
 /* ===== Cost section: show the size buttons are clickable ===== */
-.pricing2-hint { display:flex; align-items:center; gap:8px; margin:6px 0 12px; font-weight:700; font-size:.95rem; color:#c2410c; }
-.pricing2-hint svg { width:22px; height:22px; flex:0 0 22px; }
 .pricing2-tabs button { cursor:pointer; min-height:46px; transition:transform .15s ease, background-color .15s, box-shadow .15s !important; }
 .pricing2-tabs button:not([aria-selected="true"]):hover { background:#fff1ea !important; transform:translateY(-2px); }
 .pricing2-tabs button:active { transform:translateY(1px) scale(.98); }
@@ -420,3 +418,14 @@ body .page-header .label, body .quote-hero .label { font-size:12px !important; }
 @media (max-width:1023px) { input[type=radio], input[type=checkbox] { width:24px !important; height:24px !important; } }
 .cf-pill-link > span { display:inline; min-height:0; padding:0; border:0; background:none; color:inherit; }
 .legal-wrap .hp-btn-primary, .legal-wrap .hp-btn-primary:hover { color:#fff !important; text-decoration:none; }
+
+/* ===== Social icons under the reviews ===== */
+.reviews-socials { display:flex; flex-direction:column; align-items:center; gap:10px; margin:26px auto 0; text-align:center; }
+.reviews-socials-label { margin:0; font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:inherit; opacity:.85; }
+.reviews-socials .sm-socials { display:flex; gap:12px; list-style:none; margin:0; padding:0; justify-content:center; }
+.reviews-socials .sm-socials a { width:44px; height:44px; display:inline-grid; place-items:center; border-radius:50%; border:1.5px solid currentColor; color:inherit; }
+.reviews-socials .sm-socials a:hover { background:#f26522; border-color:#f26522; color:#fff; }
+.reviews-socials .sm-socials svg { width:20px; height:20px; fill:currentColor; }
+.reviews-socials .sm-socials a { color:#fff !important; border-color:rgba(255,255,255,.6) !important; background:transparent !important; }
+.reviews-socials .sm-socials a:hover { background:#f26522 !important; border-color:#f26522 !important; color:#fff !important; }
+.reviews-socials-label { color:#fff !important; }
